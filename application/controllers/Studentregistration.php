@@ -8,6 +8,7 @@ class Studentregistration extends CI_Controller {
     
         
          $this->load->model('Studentedit_model');
+		 
         
     }
 	
@@ -23,7 +24,16 @@ class Studentregistration extends CI_Controller {
 	
 
 	}
-    public function create()
+	public function editrecord($std_id = '')
+	{
+		$data['result'] = $this->Studentedit_model->fetchDataById($std_id);
+		$this->load->view('common/header_view');
+		$this->load->view('Studentreg/Registrationview2',$data);
+		$this->load->view('common/footer_view');
+	}
+	
+	
+	public function create()
 	{
         
         $obj='';
@@ -32,7 +42,8 @@ class Studentregistration extends CI_Controller {
 		$this->load->view('Studentreg/Registrationview1',$data);
 		$this->load->view('common/footer_view');
 
-	}
+	}  
+	
     public function edit()
 	{
         
@@ -43,6 +54,16 @@ class Studentregistration extends CI_Controller {
 		$this->load->view('common/footer_view');
 
 	}  
+	public function eeditStudent()
+	{
+        
+        $obj='';
+        $data['data']=$obj;
+		$this->load->view('common/header_view');
+		$this->load->view('Studentreg/Registrationview2',$data);
+		$this->load->view('common/footer_view');
+
+	} 
     public function delete()
 	{
         
@@ -175,6 +196,59 @@ class Studentregistration extends CI_Controller {
    } 
 
    
+
+   //update student
+   public function updateStudentDetails()
+   {
+	   //alert('hi');
+	   $std_id  = $this->input->post('std_id');
+	   $std_fullname = $this->input->post('std_fullname');
+	   $std_email = $this->input->post('std_email');
+	   $std_appliedfor = $this->input->post('std_appliedfor');
+	   $std_qualification = $this->input->post('std_qualification');
+	   $std_department = $this->input->post('std_department');
+	   $std_branch = $this->input->post('std_branch');
+	   $std_term = $this->input->post('std_term');
+
+	   $data = array(
+		   'std_id'=>$std_id,
+		   'std_fullname'=>$std_fullname,
+		   'std_email'=>$std_email,
+		   'std_appliedfor'=>$std_appliedfor,
+		   'std_qualification'=>$std_qualification,
+		   'std_department'=>$std_department,
+		   'std_branch'=>$std_branch,
+		   'std_term'=>$std_term,
+	   );
+
+	   $this->Studentedit_model->update_record($std_id, $data);
+   }
+
+   public function edits($std_id) {
+    $student = $this->Studentedit_model->get_student_by_id($std_id);
+    $data['student'] = $student;
+    $this->load->view('RegistrationView2',$data);
+}
+
+
+   public function update()
+   {
+	   $std_id = $this->input->post('std_id');
+	   $data = array(
+		   'std_fullname' => $this->input->post('std_fullname'),
+		   'std_email' => $this->input->post('std_email'),
+		   'std_appliedfor' => $this->input->post('std_appliedfor'),
+		   'std_qualification' => $this->input->post('std_qualification'),
+		   'std_department' => $this->input->post('std_department'),
+		   'std_branch' => $this->input->post('std_branch'),
+		   'std_term' => $this->input->post('std_term'),
+	   );
+	   $this->Studentedit_model->update_student($std_id, $data);
+   }
+   
+
+
+   //edit data
    public function fetchDatafromDatabase()
 	{
 		$resultList = $this->Studentedit_model->fetchAllData('*','studentcreate_master',array());
@@ -183,8 +257,7 @@ class Studentregistration extends CI_Controller {
 		$i = 1;
 		foreach ($resultList as $key => $value) {
 
-            $button = '<a  href="#"  onclick="editFun('.$value['std_id'].')" "title="Edit">&emsp;&emsp;<i class="fas fa-edit animtxt fa-lg"style="color:green;"></i>&nbsp;</a>';
-
+			$button = '<a  href="' . base_url() . 'Studentregistration/editrecord/' . $value['std_id'] . '" "title="Edit">&emsp;&emsp;<i class="fas fa-edit animtxt fa-lg"style="color:green;"></i>&nbsp;<h6></h6></a>';
 
 			$result['data'][] = array(
 				$i++,
@@ -212,7 +285,7 @@ class Studentregistration extends CI_Controller {
 		$i = 1;
 		foreach ($resultList as $key => $value) {
 
-            $button1 = '<a  href="#"  onclick="deleteFun('.$value['std_id'].')" "title="delete">&emsp;&emsp;<i class="fas fa-trash animtxt fa-lg"style="color:red;"></i>&nbsp;</a>';
+            $button1 = '<a  href="#"  onclick="deleteFun('.$value['std_id'].')" "title="delete">&emsp;&emsp;<i class="fas fa-trash animtxt fa-lg"style="color:red;"></i>&nbsp;<h6></h6></a>';
 
 
 			$result['data'][] = array(
@@ -241,7 +314,7 @@ class Studentregistration extends CI_Controller {
 		$i = 1;
 		foreach ($resultList as $key => $value) {
 
-            $button1 = '<a  href="#"  onclick="verifyrecord('.$value['std_id'].')" "title="delete">&emsp;&emsp;<i class="fas fa-calendar-check animtxt fa-lg"style="color:green;"></i>&nbsp;</a>';
+            $button1 = '<a  href="#"  onclick="verifyrecord('.$value['std_id'].')" "title="delete">&emsp;&emsp;<i class="fas fa-calendar-check animtxt fa-lg"style="color:green;"></i>&nbsp;<h6></h6></a>';
 
 
 			$result['data'][] = array(
@@ -268,7 +341,8 @@ class Studentregistration extends CI_Controller {
 		$result = array();
 		$i = 1;
 		foreach ($resultList as $key => $value) {
-			$button1 = '<a href="#" onclick="verifyrecord('.$value['std_id'].')" title="Verify">  <i class="fas fa-check-circle animtxt fa-lg" style="color:black;"></i> </a>';
+            $button1 = '<a  href="#"  "title="delete">&emsp;&emsp;Verified&nbsp;<h6></h6></a>';
+
 			$result['data'][] = array(
 				$i++,
                 $button1,
@@ -294,7 +368,7 @@ class Studentregistration extends CI_Controller {
 		$i = 1;
 		foreach ($resultList as $key => $value) {
 
-            $button1 = '<a  href="#"  onclick="PrintDiv()" "title="Report">&emsp;&emsp;<i class="fas fa-file-alt animtxt fa-lg"style="color:blue;"></i>&nbsp;</a>';
+            $button1 = '<a  href="#"  onclick="PrintDiv()" "title="Report">&emsp;&emsp;<i class="fas fa-file-alt animtxt fa-lg"style="color:blue;"></i>&nbsp;<h6></h6></a>';
 
 
 			$result['data'][] = array(
@@ -331,37 +405,37 @@ class Studentregistration extends CI_Controller {
 	
 	
 
-    public function update()
-	{
-        //alert('hi');
-		$std_id  = $this->input->post('std_id');
-		$std_fullname = $this->input->post('std_fullname');
-		$std_email = $this->input->post('std_email');
-		$std_appliedfor = $this->input->post('std_appliedfor');
-		$std_qualification = $this->input->post('std_qualification');
-		$std_department = $this->input->post('std_department');
-		$std_branch = $this->input->post('std_branch');
-		$std_term = $this->input->post('std_term');
+    // public function update()
+	// {
+    //     //alert('hi');
+	// 	$std_id  = $this->input->post('std_id');
+	// 	$std_fullname = $this->input->post('std_fullname');
+	// 	$std_email = $this->input->post('std_email');
+	// 	$std_appliedfor = $this->input->post('std_appliedfor');
+	// 	$std_qualification = $this->input->post('std_qualification');
+	// 	$std_department = $this->input->post('std_department');
+	// 	$std_branch = $this->input->post('std_branch');
+	// 	$std_term = $this->input->post('std_term');
 
-		$data = array(
-			'std_id'=>$std_id,
-			'std_fullname'=>$std_fullname,
-			'std_email'=>$std_email,
-			'std_appliedfor'=>$std_appliedfor,
-			'std_qualification'=>$std_qualification,
-			'std_department'=>$std_department,
-			'std_branch'=>$std_branch,
-			'std_term'=>$std_term,
-		);
-		$update = $this->Studentedit_model->updateData('studentcreate_master',$data,array('std_id'=>$std_id));
-		if($update==true)
-		{
-			echo 1;
-		}
-		else{
-			echo 2;
-		}
-	}
+	// 	$data = array(
+	// 		'std_id'=>$std_id,
+	// 		'std_fullname'=>$std_fullname,
+	// 		'std_email'=>$std_email,
+	// 		'std_appliedfor'=>$std_appliedfor,
+	// 		'std_qualification'=>$std_qualification,
+	// 		'std_department'=>$std_department,
+	// 		'std_branch'=>$std_branch,
+	// 		'std_term'=>$std_term,
+	// 	);
+	// 	$update = $this->Studentedit_model->updateData('studentcreate_master',$data,array('std_id'=>$std_id));
+	// 	if($update==true)
+	// 	{
+	// 		echo 1;
+	// 	}
+	// 	else{
+	// 		echo 2;
+	// 	}
+	// }
     public function deleteSingleData()
 	{
 		$std_id = $this->input->post('std_id');
@@ -376,6 +450,7 @@ class Studentregistration extends CI_Controller {
 		}
 	}
 
+
 	public function verifyrecord()
 	{
 		$std_id = $this->input->post('std_id');
@@ -389,6 +464,5 @@ class Studentregistration extends CI_Controller {
 			echo 2;
 		}
 	}
-	
-	
+
 }

@@ -26,11 +26,35 @@ class Studentedit_model extends CI_Model
 		return $query->row_array();
 	}
 
-	public function updateData($tablename, $data, $where)
-	{
-		$query = $this->db->update($tablename,$data,$where);
-		return $query;
+	public function fetchDataById($std_id) {
+		$query = $this->db->get_where('studentcreate_master', array('std_id' => $std_id));
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		} else {
+			return false;
+		}
 	}
+	
+
+	public function update_record($std_id, $data) {
+		$this->db->where('std_id', $std_id);
+		$this->db->update('studentcreate_master', $data);
+	 }
+	 
+	 public function get_student_by_id($std_id)
+	 {
+		 $this->db->where('std_id', $std_id);
+		 $query = $this->db->get('studentcreate_master');
+		 return $query->row();
+	 }
+  
+	 public function update_student($std_id, $data)
+	 {
+		 $this->db->where('std_id', $std_id);
+		 $this->db->update('studentcreate_master', $data);
+	 }
+  
+
 	
 	public function deleteData($tablename,$where)
 	{

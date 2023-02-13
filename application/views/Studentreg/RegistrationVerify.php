@@ -286,6 +286,8 @@ thead {
  <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap3.min.js"></script>
  
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 
 <script>
 $(document).ready(function() {
@@ -314,11 +316,13 @@ $(document).ready(function() {
     
     
 } );
+
+
 </script>
 
 
   <script>
-
+		 
 function loadDatatableAjax(){
 			$('#example').DataTable({
 				"bDestroy" : true,

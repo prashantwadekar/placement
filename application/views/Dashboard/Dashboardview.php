@@ -58,7 +58,7 @@
                         <div class="card mb-4">
                             <div class="card-body">
                                 <div class="card-title">This Year Student Placement</div>
-                                <div id="echartBar" style="height: 300px;"></div>
+                                <div id="echart3" style="height: 300px;"></div>
                             </div>
                         </div>
                     </div>

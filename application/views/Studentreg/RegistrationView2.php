@@ -363,8 +363,7 @@ border-radius: 10px;
 
 
     </style>
-
-        <!-- =============== Left side End ================-->
+       <!-- =============== Left side End ================-->
         <div class="main-content-wrap sidenav-open d-flex flex-column">
             <!-- ============ Body content start ============= -->
             <div class="main-content">
@@ -381,11 +380,11 @@ border-radius: 10px;
                     <div class="col-12">
                         <div class=" p-2">
                         <div class="bord"><h3></h3>
-                        <form id="Form" action="" method="POST">
+                        <form id="Form" action="<?php echo site_url('Studentregistration/update'); ?>"  method="POST">                            
 <div class="row p-3">
                                     <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group gap mt-0">
                                             <label for=""> Full Name <c></c></label>
-                                            <input class="form-control" id="std_fullname" type="text" placeholder=" "  name="std_fullname" />
+                                            <input class="form-control" id="std_fullname" type="text" placeholder=" "  name="std_fullname" value="<?php echo $result[0]->std_fullname; ?>">
                                      </div>                                                                         
 
                                     <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group gap  mt-0">
@@ -520,7 +519,7 @@ border-radius: 10px;
          
          <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group gap   mt-0">
                                             <label for="phone">Email <c></c></label>
-                                            <input class="form-control" id="std_email" type="text" placeholder="" name="std_email"  />
+                                            <input class="form-control" id="std_email" type="text" placeholder="" name="std_email"  value="<?php echo $result[0]->std_email; ?>"/>
                                         </div>
                                         
              <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group   adhar mt-0">
@@ -536,108 +535,101 @@ border-radius: 10px;
 <div class="row p-3">
 <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group gap  custom-dropdown  mt-0">
            <label for="">Applied For<c></c></label>
-           <select name="std_appliedfor" id="std_appliedfor" value=""  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
+           <select name="std_appliedfor" id="std_appliedfor" value=""  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker" >
            <option selected disabled  value="0"></option>
-           <option value="Artificial Intelligence">Artificial Intelligence</option>
-  <option value="Machine Learning">Machine Learning</option>
-  <option value="Data Science">Data Science</option>
-  <option value="Business Analytics">Business Analytics</option>
-  <option value="Finance">Finance</option>
-  <option value="Marketing">Marketing</option>
-  <option value="Operations">Operations</option>
-  <option value="Healthcare">Healthcare</option>
-  <option value="Environmental Science">Environmental Science</option>
-  <option value="Energy">Energy</option>
-  <option value="Environmental Engineering">Environmental Engineering</option>
-  <option value="Urban Planning">Urban Planning</option>
-  <option value="Public Policy">Public Policy</option>
-  <option value="Education">Education</option>
-  <option value="Human Resources">Human Resources</option>
-  <option value="Sports Management">Sports Management</option>
-  <option value="Project Management">Project Management</option>
-           </select>
-        </div>
+           <option value="Artificial Intelligence" <?php echo ($result[0]->std_appliedfor == 'Artificial Intelligence') ? 'selected' : ''; ?>>Artificial Intelligence</option>
+  <option value="Machine Learning" <?php echo ($result[0]->std_appliedfor == 'Machine Learning') ? 'selected' : ''; ?>>Machine Learning</option>
+  <option value="Data Science" <?php echo ($result[0]->std_appliedfor == 'Data Science') ? 'selected' : ''; ?>>Data Science</option>
+  <option value="Business Analytics" <?php echo ($result[0]->std_appliedfor == 'Business Analytics') ? 'selected' : ''; ?>>Business Analytics</option>
+  <option value="Finance" <?php echo ($result[0]->std_appliedfor == 'Finance') ? 'selected' : ''; ?>>Finance</option>
+  <option value="Marketing" <?php echo ($result[0]->std_appliedfor == 'Marketing') ? 'selected' : ''; ?>>Marketing</option>
+  <option value="Operations" <?php echo ($result[0]->std_appliedfor == 'Operations') ? 'selected' : ''; ?>>Operations</option>
+  <option value="Healthcare" <?php echo ($result[0]->std_appliedfor == 'Healthcare') ? 'selected' : ''; ?>>Healthcare</option>
+  <option value="Environmental Science" <?php echo ($result[0]->std_appliedfor == 'Environmental Science') ? 'selected' : ''; ?>>Environmental Science</option>
+  <option value="Energy" <?php echo ($result[0]->std_appliedfor == 'Energy') ? 'selected' : ''; ?>>Energy</option>
+  <option value="Environmental Engineering" <?php echo ($result[0]->std_appliedfor == 'Environmental Engineering') ? 'selected' : ''; ?>>Environmental Engineering</option>
+  <option value="Urban Planning" <?php echo ($result[0]->std_appliedfor == 'Urban Planning') ? 'selected' : ''; ?>>Urban Planning</option>
+  <option value="Public Policy" <?php echo ($result[0]->std_appliedfor == 'Public Policy') ? 'selected' : ''; ?>>Public Policy</option>
+  <option value="Human Resources" <?php echo ($result[0]->std_appliedfor == 'Human Resources') ? 'selected' : ''; ?>>Human Resources</option>
+  <option value="Sports Management" <?php echo ($result[0]->std_appliedfor == 'Sports Management') ? 'selected' : ''; ?>>Sports Management</option>
+  <option value="Project Management" <?php echo ($result[0]->std_appliedfor == 'Project Management') ? 'selected' : ''; ?>>Project Management</option>
+    </select>
+    </div>
+
         <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group gap  custom-dropdown  mt-0">
         <label for="">Qualification<c></c></label>
-            <select name="std_qualification" id="std_qualification" value=""  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker" >
-                    <option selected disabled  value="0"></option>
-                    <option value="High School">High School</option>
-  <option value="Associate's Degree">Associate's Degree</option>
-  <option value="Bachelor's Degree">Bachelor's Degree</option>
-  <option value="Master's Degree">Master's Degree</option>
-  <option value="Doctorate Degree">Doctorate Degree</option>
-  <option value="Certificate">Certificate</option>
-  <option value="Diploma">Diploma</option>
-  <option value="Postgraduate Diploma">Postgraduate Diploma</option>
-             </select>
-    </div>
+        <select name="std_qualification" id="std_qualification" value=""  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker" >
+  <option selected disabled  value="0"></option>
+  <option value="High School" <?php if ($result[0]->std_qualification == 'High School') echo 'selected'; ?>>High School</option>
+  <option value="Associate's Degree" <?php if ($result[0]->std_qualification == "Associate's Degree") echo 'selected'; ?>>Associate's Degree</option>
+  <option value="Bachelor's Degree" <?php if ($result[0]->std_qualification == "Bachelor's Degree") echo 'selected'; ?>>Bachelor's Degree</option>
+  <option value="Master's Degree" <?php if ($result[0]->std_qualification == "Master's Degree") echo 'selected'; ?>>Master's Degree</option>
+  <option value="Doctorate Degree" <?php if ($result[0]->std_qualification == "Doctorate Degree") echo 'selected'; ?>>Doctorate Degree</option>
+  <option value="Certificate" <?php if ($result[0]->std_qualification == "Certificate") echo 'selected'; ?>>Certificate</option>
+  <option value="Diploma" <?php if ($result[0]->std_qualification == "Diploma") echo 'selected'; ?>>Diploma</option>
+  <option value="Postgraduate Diploma" <?php if ($result[0]->std_qualification == "Postgraduate Diploma") echo 'selected'; ?>>Postgraduate Diploma</option>
+</select>
+ </div>
+ 
     <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group  custom-dropdown  mt-0">
            <label for="">Department<c></c></label>
            <select name="std_department" id="std_department" value=""  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
-           <option value="Computer Science">Computer Science</option>
-  <option value="Electronics">Electronics</option>
-  <option value="Mechanical">Mechanical</option>
-  <option value="Electrical">Electrical</option>
-  <option value="Civil">Civil</option>
-  <option value="Chemical">Chemical</option>
-  <option value="Industrial">Industrial</option>
-  <option value="Environmental">Environmental</option>
-  <option value="Aerospace">Aerospace</option>
-  <option value="Materials Science">Materials Science</option>
-  <option value="Nuclear">Nuclear</option>
-  <option value="Petroleum">Petroleum</option>
-  <option value="Mining">Mining</option>
-  <option value="Marine">Marine</option>
-  <option value="Geological">Geological</option>
-  <option value="Geo-informatics">Geo-informatics</option>
-  <option value="Geotechnical">Geotechnical</option>
-  <option value="Physics">Physics</option>
-  <option value="Mathematics">Mathematics</option>
-  <option value="Statistics">Statistics</option>
-  <option value="Biology">Biology</option>
-  <option value="Chemistry">Chemistry</option>
-  <option value="Arts">Arts</option>
-  <option value="Humanities">Humanities</option>
-  <option value="Social Science">Social Science</option>
-  <option value="Psychology">Psychology</option>
-  <option value="Economics">Economics</option>
-  <option value="Law">Law</option>
-  <option value="Education">Education</option>
-  <option value="Political Science">Political Science</option>
-  <option value="Sociology">Sociology</option>
-  <option value="Philosophy">Philosophy</option>
-  <option value="Journalism">Journalism</option>
+           <option value="Computer Science" <?php if ($result[0]->std_department == "Computer Science") echo 'selected'; ?>>Computer Science</option>
+  <option value="Electronics" <?php if ($result[0]->std_department == "Electronics") echo 'selected'; ?>>Electronics</option>
+  <option value="Mechanical" <?php if ($result[0]->std_department == "Mechanical") echo 'selected'; ?>>Mechanical</option>
+  <option value="Electrical" <?php if ($result[0]->std_department == "Electrical") echo 'selected'; ?>>Electrical</option>
+  <option value="Civil" <?php if ($result[0]->std_department == "Civil") echo 'selected'; ?>>Civil</option>
+  <option value="Chemical" <?php if ($result[0]->std_department == "Chemical") echo 'selected'; ?>>Chemical</option>
+  <option value="Industrial" <?php if ($result[0]->std_department == "Industrial") echo 'selected'; ?>>Industrial</option>
+  <option value="Environmental" <?php if ($result[0]->std_department == "Environmental") echo 'selected'; ?>>Environmental</option>
+  <option value="Aerospace" <?php if ($result[0]->std_department == "Aerospace") echo 'selected'; ?>>Aerospace</option>
+  <option value="Materials Science" <?php if ($result[0]->std_department == "Materials Science") echo 'selected'; ?>>Materials Science</option>
+  <option value="Nuclear" <?php if ($result[0]->std_department == "Nuclear") echo 'selected'; ?>>Nuclear</option>
+  <option value="Petroleum" <?php if ($result[0]->std_department == "Petroleum") echo 'selected'; ?>>Petroleum</option>
+  <option value="Mining" <?php if ($result[0]->std_department == "Mining") echo 'selected'; ?>>Mining</option>
+  <option value="Marine" <?php if ($result[0]->std_department == "Marine") echo 'selected'; ?>>Marine</option>
+  <option value="Geological" <?php if ($result[0]->std_department == "Geological") echo 'selected'; ?>>Geological</option>
+  <option value="Geo-informatics" <?php if ($result[0]->std_department == "informatics") echo 'selected'; ?>>Geo-informatics</option>
+  <option value="Geotechnical" <?php if ($result[0]->std_department == "Geotechnical") echo 'selected'; ?>>Geotechnical</option>
+  <option value="Physics" <?php if ($result[0]->std_department == "Physics") echo 'selected'; ?>>Physics</option>
+  <option value="Mathematics" <?php if ($result[0]->std_department == "Mathematics") echo 'selected'; ?>>Mathematics</option>
+  <option value="Statistics" <?php if ($result[0]->std_department == "Statistics") echo 'selected'; ?>>Statistics</option>
+  <option value="Biology" <?php if ($result[0]->std_department == "Biology") echo 'selected'; ?>>Biology</option>
+  <option value="Chemistry" <?php if ($result[0]->std_department == "Chemistry") echo 'selected'; ?>>Chemistry</option>
+  <option value="Arts" <?php if ($result[0]->std_department == "Arts") echo 'selected'; ?>>Arts</option>
+  <option value="Humanities" <?php if ($result[0]->std_department == "Humanities") echo 'selected'; ?>>Humanities</option>
+  <option value="Social Science" <?php if ($result[0]->std_department == "Social Science") echo 'selected'; ?>>Social Science</option>
+  <option value="Psychology" <?php if ($result[0]->std_department == "Psychology") echo 'selected'; ?>>Psychology</option>
+  <option value="Economics" <?php if ($result[0]->std_department == "Economics") echo 'selected'; ?>>Economics</option>
+  <option value="Law" <?php if ($result[0]->std_department == "Law") echo 'selected'; ?>>Law</option>
+  <option value="Education" <?php if ($result[0]->std_department == "Education") echo 'selected'; ?>>Education</option>
+  <option value="Political Science" <?php if ($result[0]->std_department == "Political Science") echo 'selected'; ?>>Political Science</option>
+  <option value="Sociology" <?php if ($result[0]->std_department == "Sociology") echo 'selected'; ?>>Sociology</option>
+  <option value="Philosophy" <?php if ($result[0]->std_department == "Philosophy") echo 'selected'; ?>>Philosophy</option>
+  <option value="Journalism" <?php if ($result[0]->std_department == "Journalism") echo 'selected'; ?>>Journalism</option>
            </select>
        </div>
 </div>
 <div class="row p-3">
-         <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group gap  custom-dropdown  mt-0">
-           <label for="">Branch<c></c></label>
-           <select name="std_branch" id="std_branch" value=""   data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
-           <option selected disabled  value="0"></option>
-           <option value="Computer Science">Computer Science</option>
-  <option value="Electronics">Electronics</option>
-  <option value="Mechanical">Mechanical</option>
-  <option value="Electrical">Electrical</option>
-  <option value="Civil">Civil</option>
-  <option value="Chemical">Chemical</option>
-  <option value="Industrial">Industrial</option>
-  <option value="Environmental">Environmental</option>
-  <option value="Aerospace">Aerospace</option>
-  <option value="Materials Science">Materials Science</option>
-  <option value="Nuclear">Nuclear</option>
-  <option value="Petroleum">Petroleum</option>
-  <option value="Mining">Mining</option>
-  <option value="Marine">Marine</option>
-  <option value="Geological">Geological</option>
-  <option value="Geo-informatics">Geo-informatics</option>
-  <option value="Geotechnical">Geotechnical</option>
-          </select>
-       </div>
+        <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group gap  custom-dropdown  mt-0">
+  <label for="">Branch<c></c></label>
+  <select name="std_branch" id="std_branch" data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
+    <option selected disabled value="0"></option>
+    <?php
+    $selected_branch = $result[0]->std_branch;
+    $branches = array("Computer Science", "Electronics", "Mechanical", "Electrical", "Civil", "Chemical", "Industrial", "Environmental", "Aerospace", "Materials Science", "Nuclear", "Petroleum", "Mining", "Marine", "Geological", "Geo-informatics", "Geotechnical");
+    foreach ($branches as $branch) {
+      $selected = ($branch == $selected_branch) ? 'selected' : '';
+      echo "<option value='$branch' $selected>$branch</option>";
+    }
+    ?>
+  </select>
+</div>
+
        <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group gap  mt-0">
            <label for="">Term(year)<c></c></label>
-            <input class="form-control" id="std_term" type="text" placeholder=" " name="std_term" />
+            <input class="form-control" id="std_term" type="text" placeholder=" " name="std_term" value="<?php echo $result[0]->std_term; ?>"/>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group  custom-dropdown  mt-0">
            <label for="">Degree<c></c></label>
@@ -1413,8 +1405,8 @@ border-radius: 10px;
             <button class="btn btn2 text-white" type="button" name="cancle" id="cancle"><a href="Edit" style="color:white;">Edit</a></button> 
     </div>    -->
                                         <div class="col-sm-12 col-md-12 col-lg-12 text-right">
-                                            <button class="btn btn-md btn-success btnright text-white" type="button" name="btn_save"  id="btn_save"><i class="nav-icon fa-regular fa-circle-check "></i> Save</button>
-                                            <button class="btn btn-md btn-warning btnedit text-white" type="button" name="cancle" id="cancle"><a href="edit" style="color:white;"><i class="fa-sharp fa-solid fa-pen-to-square"></i> Edit</button>
+                                            <button class="btn btn-md btn-success btnright text-white" type="button" name="btn_save"  id="btn_save"><i class="nav-icon fa-regular fa-circle-check "></i> Update</button>
+                                            <button class="btn btn-md btn-danger btnedit text-white" type="button" name="cancle" id="cancle"><a href="../edit" style="color:white;"><i class="fa-sharp fa-solid fa-pen-to-square"></i> Cancel</button>
 
                                         </div>
  </div>
@@ -1507,4 +1499,5 @@ border-radius: 10px;
                                                                               
                                         
 <script  src="<?php echo base_url('web_resources');?>/dist/js/jquery.min.js"></script>          
-<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/studentregistrationform_create.js"></script>
+<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/studenteditform_create.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
