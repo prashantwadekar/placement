@@ -227,25 +227,36 @@ class Studentregistration extends CI_Controller {
    public function edits($std_id) {
     $student = $this->Studentedit_model->get_student_by_id($std_id);
     $data['student'] = $student;
-    $this->load->view('RegistrationView2',$data);
+    $this->load->view('Studentreg/Registrationview2',$data);
 }
 
+//update data
 
-   public function update()
-   {
-	   $std_id = $this->input->post('std_id');
-	   $data = array(
-		   'std_fullname' => $this->input->post('std_fullname'),
-		   'std_email' => $this->input->post('std_email'),
-		   'std_appliedfor' => $this->input->post('std_appliedfor'),
-		   'std_qualification' => $this->input->post('std_qualification'),
-		   'std_department' => $this->input->post('std_department'),
-		   'std_branch' => $this->input->post('std_branch'),
-		   'std_term' => $this->input->post('std_term'),
-	   );
-	   $this->Studentedit_model->update_student($std_id, $data);
-   }
-   
+    function update()
+    {
+        $data = array(
+            'std_id' => $this->input->post('std_id'),
+            'std_fullname' => $this->input->post('std_fullname'),
+            'std_email' => $this->input->post('std_email'),
+            'std_appliedfor' => $this->input->post('std_appliedfor'),
+			'std_qualification' => $this->input->post('std_qualification'),
+            'std_department' => $this->input->post('std_department'),
+			'std_branch' => $this->input->post('std_branch'),
+            'std_term' => $this->input->post('std_term')
+        );
+
+
+        $id = $this->input->post('std_id');
+
+        $this->load->model('Studentedit_model');
+        $result = $this->Studentedit_model->update_student($data, $id);
+
+        if ($result) {
+            echo 1;
+        } else {
+            echo 0;
+        }
+    }
 
 
    //edit data
@@ -276,7 +287,7 @@ class Studentregistration extends CI_Controller {
 		echo json_encode($result);
 	}
 	
-
+//delete page
     public function DeletefetchDatafromDatabase()
 	{
 		$resultList = $this->Studentedit_model->fetchAllData('*','studentcreate_master',array());
@@ -304,11 +315,11 @@ class Studentregistration extends CI_Controller {
 		}
 		echo json_encode($result);
 	}
-
+//unverify page
     
 	public function UnverifyfetchDatafromDatabase()
 	{
-		$resultList = $this->Studentedit_model->fetchAllData('*','studentunverify_master',array());
+		$resultList = $this->Studentedit_model->fetchAllData('*','studentcreate_master',array());
 		
 		$result = array();
 		$i = 1;
@@ -333,15 +344,19 @@ class Studentregistration extends CI_Controller {
 		}
 		echo json_encode($result);
 	}
-	
+
+	//verify page
+
     public function VerifyfetchDatafromDatabase()
 	{
 		$resultList = $this->Studentedit_model->fetchAllData('*','studentverify_master',array());
-		
-		$result = array();
+
+			$result = array();
 		$i = 1;
 		foreach ($resultList as $key => $value) {
-            $button1 = '<a  href="#"  "title="delete">&emsp;&emsp;Verified&nbsp;<h6></h6></a>';
+
+            $button1 = '<a  href="#"  onclick="deleteverify('.$value['std_id'].')" "title="delete">&emsp;&emsp;<i class="fas fa-times-circle animtxt fa-lg"style="color:red;"></i>&nbsp;<h6></h6></a>';
+
 
 			$result['data'][] = array(
 				$i++,
@@ -359,7 +374,7 @@ class Studentregistration extends CI_Controller {
 		}
 		echo json_encode($result);
 	}
-
+//fetch reports
     public function ReportfetchDatafromDatabase()
 	{
 		$resultList = $this->Studentedit_model->fetchAllData('*','studentcreate_master',array());
@@ -387,6 +402,8 @@ class Studentregistration extends CI_Controller {
 		}
 		echo json_encode($result);
 	}
+	// get edit data from table 
+
     public function getEditData()
 	{
 		$std_id = $this->input->post('std_id');
@@ -402,44 +419,27 @@ class Studentregistration extends CI_Controller {
 				echo 'failure';
 			}
 		}
+	// delete normal record data data 
 	
-	
-
-    // public function update()
-	// {
-    //     //alert('hi');
-	// 	$std_id  = $this->input->post('std_id');
-	// 	$std_fullname = $this->input->post('std_fullname');
-	// 	$std_email = $this->input->post('std_email');
-	// 	$std_appliedfor = $this->input->post('std_appliedfor');
-	// 	$std_qualification = $this->input->post('std_qualification');
-	// 	$std_department = $this->input->post('std_department');
-	// 	$std_branch = $this->input->post('std_branch');
-	// 	$std_term = $this->input->post('std_term');
-
-	// 	$data = array(
-	// 		'std_id'=>$std_id,
-	// 		'std_fullname'=>$std_fullname,
-	// 		'std_email'=>$std_email,
-	// 		'std_appliedfor'=>$std_appliedfor,
-	// 		'std_qualification'=>$std_qualification,
-	// 		'std_department'=>$std_department,
-	// 		'std_branch'=>$std_branch,
-	// 		'std_term'=>$std_term,
-	// 	);
-	// 	$update = $this->Studentedit_model->updateData('studentcreate_master',$data,array('std_id'=>$std_id));
-	// 	if($update==true)
-	// 	{
-	// 		echo 1;
-	// 	}
-	// 	else{
-	// 		echo 2;
-	// 	}
-	// }
     public function deleteSingleData()
 	{
 		$std_id = $this->input->post('std_id');
 		$dataDelete = $this->Studentedit_model->deleteData('studentcreate_master',array('std_id'=>$std_id));
+		if($dataDelete==true)
+		{
+			echo 1;
+		}
+		else
+		{
+			echo 2;
+		}
+	}
+
+	// delete data from verified table 
+	public function deleteverifyData()
+	{
+		$std_id = $this->input->post('std_id');
+		$dataDelete = $this->Studentedit_model->deleteData('studentverify_master',array('std_id'=>$std_id));
 		if($dataDelete==true)
 		{
 			echo 1;

@@ -321,7 +321,51 @@ $(document).ready(function() {
 </script>
 
 
-  <script>
+<script>
+//verify delete function start here
+		function deleteverify(std_id)
+		{
+			Swal.fire({
+			  title: 'Are you sure?',
+			  text: "Unverify Record",
+			  icon: 'warning',
+			  showCancelButton: true,
+			  confirmButtonColor: '#3085d6',
+			  cancelButtonColor: '#d33',
+			  confirmButtonText: 'Yes, Unverify it!'
+			}).then((result) => {
+			  if (result.isConfirmed) {
+				$.ajax({
+					url:'<?php echo base_url('Studentregistration/deleteverifyData'); ?>',
+					method:"post",
+					dataType:"json",
+					data:{std_id:std_id},
+					success:function(response)
+					{
+						if(response==1)
+						{
+							Swal.fire(
+							  'Deleted!',
+							  'Your data has been deleted.',
+							  'success'
+							)
+							loadDatatableAjax();
+						}
+						else
+						{
+							Swal.fire(
+							  'Failed!',
+							  'Deletion Failed!',
+							  'error'
+							)
+						}
+					}
+				})
+			  }
+			})
+		}
+		//delete function end here
+
 		 
 function loadDatatableAjax(){
 			$('#example').DataTable({
@@ -340,5 +384,5 @@ function loadDatatableAjax(){
 				}
 			});
 		}
-
+    </script>
 </html>

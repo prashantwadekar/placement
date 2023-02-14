@@ -372,7 +372,7 @@ function verifyrecord(std_id)
 function loadDatatableAjax(){
 			$('#example').DataTable({
 				"bDestroy" : true,
-				"ajax" : "<?php echo base_url('Studentregistration/UnverifyfetchDatafromDatabase'); ?>",
+				"ajax" : "<?php echo base_url('Studentregistration/fetchDatafromDatabase'); ?>",
 				"initComplete" : function(){
 					var notApplyFilterOnColumn = [4];
 					var inputFilterOnColumn = [0];

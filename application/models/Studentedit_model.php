@@ -41,19 +41,20 @@ class Studentedit_model extends CI_Model
 		$this->db->update('studentcreate_master', $data);
 	 }
 	 
-	 public function get_student_by_id($std_id)
+	 function update_student($data, $id)
 	 {
-		 $this->db->where('std_id', $std_id);
-		 $query = $this->db->get('studentcreate_master');
-		 return $query->row();
-	 }
-  
-	 public function update_student($std_id, $data)
-	 {
-		 $this->db->where('std_id', $std_id);
+		 $this->db->where('std_id', $id);
 		 $this->db->update('studentcreate_master', $data);
+		 return true;
 	 }
-  
+
+    public function get_student_by_id($std_id) {
+        $this->db->select('*');
+        $this->db->from('studentcreate_master');
+        $this->db->where('std_id', $std_id);
+        $query = $this->db->get();
+        return $query->row();
+    }
 
 	
 	public function deleteData($tablename,$where)
@@ -70,17 +71,17 @@ class Studentedit_model extends CI_Model
 	}
 
 
-
+//it moves record from studentcreate_master table to studentverify_master
 	public function moveToVerify($std_id) {
 		// Get the record from the unverify table
 		$this->db->select('std_id, std_fullname, std_email, std_appliedfor, std_qualification, std_department, std_branch, std_term');
-		$query = $this->db->get_where('studentunverify_master', array('std_id' => $std_id));
+		$query = $this->db->get_where('studentcreate_master', array('std_id' => $std_id));
 		
 		if ($query->num_rows() == 1) {
 			$record = $query->row_array();
 			
 			// Remove the record from the unverify table
-			$this->db->delete('studentunverify_master', array('std_id' => $std_id));
+			$this->db->delete('studentcreate_master', array('std_id' => $std_id));
 			
 			// Insert the record into the verify file table
 			return $this->db->insert('studentverify_master', $record);

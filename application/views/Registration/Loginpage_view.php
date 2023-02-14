@@ -152,9 +152,9 @@ a[target='_blank'] {
                         <div class="input-field"> <span class="fas fa-lock px-2"></span> <input type="password" placeholder="Password" name="password" autocomplete="current-password" id="password">
                         <i class="far fa-eye text-muted" id="togglePassword" style= cursor: pointer;></i>
                         </div>
-                        <div class="form-inline pt-4"> <input type="checkbox" name="remember" id="remember"> <label for="remember" class="text-muted">Remember me</label> <a href="Forgetpwd" id="forgot" class="font-weight-bold">Forgot password?</a> </div>
+                        <!-- <div class="form-inline pt-4"> <input type="checkbox" name="remember" id="remember"> <label for="remember" class="text-muted">Remember me</label> <a href="Forgetpwd" id="forgot" class="font-weight-bold">Forgot password?</a> </div> -->
                         <button class="btn btn-primary btn-block mt-3" type="submit">Login</button>
-                        <div class="text-center pt-4 text-muted">Don't have an account? <a href="Createaccount">Sign up</a> </div>
+                        <!-- <div class="text-center pt-4 text-muted">Don't have an account? <a href="Createaccount">Sign up</a> </div> -->
                     </form>
                     <?php
 						if($this->session->flashdata('error')) {	?>

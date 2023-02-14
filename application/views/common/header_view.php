@@ -329,7 +329,7 @@
                             <!-- <a class="dropdown-item">Account settings</a>
                             <a class="dropdown-item">Billing history</a> -->
                             <div class="d-inline-flex p-2 text-white">  
-                                <div class="p-2 dropdown-item "><a href="#" style="color:6F6F6F;"><i class="fa fa-lg fa-fw fa-user-circle-o" aria-hidden="true"></i>Profile</a></div>
+                                <div class="p-2 dropdown-item "><a href="Profile" style="color:6F6F6F;"><i class="fa fa-lg fa-fw fa-user-circle-o" aria-hidden="true"></i>Profile</a></div>
                                 <!-- <div class="p-2 dropdown-item"><div><i class="fa  fa-lg fa-spin fa-lg fa-fw fa-cog " aria-hidden="true"></i></div><a href="#">Setting</a></div> -->
                                 <div class="p-2 dropdown-item"><a href="Login/logout" style="color:6F6F6F;"><i class="fa fa-lg  fa-fw fa-sign-out" aria-hidden="true"></i>Logout</a></div>                             
                             </div>                         

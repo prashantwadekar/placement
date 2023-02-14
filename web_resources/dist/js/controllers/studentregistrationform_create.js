@@ -110,6 +110,7 @@ function saveperform() {
 
       
         $("#Form").parsley().destroy();
+        $("#std_qualification").val('').trigger('change');
         $("#Form").parsley();
         a = false;
         window.location.href = base_path+"create";

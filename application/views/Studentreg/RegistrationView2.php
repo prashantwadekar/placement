@@ -382,6 +382,7 @@ border-radius: 10px;
                         <div class="bord"><h3></h3>
                         <form id="Form" action="<?php echo site_url('Studentregistration/update'); ?>"  method="POST">                            
 <div class="row p-3">
+                                            <input class="form-control" id="std_id" type="text" placeholder=" "  name="std_id" value="<?php echo $result[0]->std_id; ?>" hidden> 
                                     <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group gap mt-0">
                                             <label for=""> Full Name <c></c></label>
                                             <input class="form-control" id="std_fullname" type="text" placeholder=" "  name="std_fullname" value="<?php echo $result[0]->std_fullname; ?>">
@@ -536,7 +537,7 @@ border-radius: 10px;
 <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group gap  custom-dropdown  mt-0">
            <label for="">Applied For<c></c></label>
            <select name="std_appliedfor" id="std_appliedfor" value=""  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker" >
-           <option selected disabled  value="0"></option>
+           <option value=""></option>
            <option value="Artificial Intelligence" <?php echo ($result[0]->std_appliedfor == 'Artificial Intelligence') ? 'selected' : ''; ?>>Artificial Intelligence</option>
   <option value="Machine Learning" <?php echo ($result[0]->std_appliedfor == 'Machine Learning') ? 'selected' : ''; ?>>Machine Learning</option>
   <option value="Data Science" <?php echo ($result[0]->std_appliedfor == 'Data Science') ? 'selected' : ''; ?>>Data Science</option>
@@ -558,8 +559,8 @@ border-radius: 10px;
 
         <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group gap  custom-dropdown  mt-0">
         <label for="">Qualification<c></c></label>
-        <select name="std_qualification" id="std_qualification" value=""  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker" >
-  <option selected disabled  value="0"></option>
+        <select name="std_qualification" id="std_qualification" data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
+        <option value=""></option>
   <option value="High School" <?php if ($result[0]->std_qualification == 'High School') echo 'selected'; ?>>High School</option>
   <option value="Associate's Degree" <?php if ($result[0]->std_qualification == "Associate's Degree") echo 'selected'; ?>>Associate's Degree</option>
   <option value="Bachelor's Degree" <?php if ($result[0]->std_qualification == "Bachelor's Degree") echo 'selected'; ?>>Bachelor's Degree</option>
@@ -569,12 +570,13 @@ border-radius: 10px;
   <option value="Diploma" <?php if ($result[0]->std_qualification == "Diploma") echo 'selected'; ?>>Diploma</option>
   <option value="Postgraduate Diploma" <?php if ($result[0]->std_qualification == "Postgraduate Diploma") echo 'selected'; ?>>Postgraduate Diploma</option>
 </select>
+
  </div>
  
     <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group  custom-dropdown  mt-0">
            <label for="">Department<c></c></label>
            <select name="std_department" id="std_department" value=""  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
-           <option selected disabled  value="0"></option>
+           <option value=""></option>
            <option value="Computer Science" <?php if ($result[0]->std_department == "Computer Science") echo 'selected'; ?>>Computer Science</option>
   <option value="Electronics" <?php if ($result[0]->std_department == "Electronics") echo 'selected'; ?>>Electronics</option>
   <option value="Mechanical" <?php if ($result[0]->std_department == "Mechanical") echo 'selected'; ?>>Mechanical</option>
@@ -614,8 +616,8 @@ border-radius: 10px;
 <div class="row p-3">
         <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group gap  custom-dropdown  mt-0">
   <label for="">Branch<c></c></label>
-  <select name="std_branch" id="std_branch" data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
-    <option selected disabled value="0"></option>
+  <select name="std_branch" id="std_branch" data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker" >
+  <option value=""></option>
     <?php
     $selected_branch = $result[0]->std_branch;
     $branches = array("Computer Science", "Electronics", "Mechanical", "Electrical", "Civil", "Chemical", "Industrial", "Environmental", "Aerospace", "Materials Science", "Nuclear", "Petroleum", "Mining", "Marine", "Geological", "Geo-informatics", "Geotechnical");
