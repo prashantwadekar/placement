@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css">
 <link rel="stylesheet" href="Assets/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap3.min.css">
+
 <style>
   .modal-dialog {
     max-width: 1450px;
@@ -239,7 +240,7 @@ thead {
                         <div class="card mb-2">
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class=" display nowrapdisplay table table-striped table-bordered" id="example" style="width:100%">
+                                    <table class=" display nowrapdisplay table table-striped table-bordered uk-table uk-table-hover uk-table-striped" id="example" style="width:100%">
                                     <thead>	<!-- Button trigger modal -->
                                       <div class="addnewbutton">
                                       <!-- <a href="create"><i class="fas fa-plus-circle animtxt" aria-hidden="true"></i>&nbsp;Add New</a> -->
@@ -290,6 +291,7 @@ thead {
 
 
 <script>
+  
 $(document).ready(function() {
     $('#example').DataTable( { 
 
