@@ -78,14 +78,12 @@ class Opening extends CI_Controller {
 	}
 
     function insertOpening(){
-     $Openingname= $this->input->post('Openingname'); 
-      $phone= $this->input->post('phone');
-      $subject= $this->input->post('subject'); 
+     $id= $this->input->post('id'); 
+      $label_name= $this->input->post('label_name');
       
      
-       $fields=array('Openingname'=>$Openingname,
-                      'phone'=>$phone,
-                      'fksubjectId'=>$subject,
+       $fields=array( 'label_name'=>$label_name,
+                     
                      
                       
              'created_date'=>date('Y-m-d H:i:s'),

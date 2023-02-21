@@ -7,7 +7,7 @@ class SelectStudent extends CI_Controller {
         parent::__construct();
     
         
-        // $this->load->model('SelectStudent_model');
+        $this->load->model('Studentedit_model');
         
     }
 	

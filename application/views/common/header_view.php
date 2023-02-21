@@ -433,7 +433,13 @@
                     <li class="nav-item"><a href="<?=base_url();?>Company/edit"><i class="fas fa-pen-square fa-lg animtxt" aria-hidden="true"></i><span class="item-name">&nbsp;&nbsp;EditCompany</span></a></li>
                     <li class="nav-item"><a href="<?=base_url();?>Company/delete"><i class="fas fa-trash fa-lg animtxt" aria-hidden="true"></i><span class="item-name">&nbsp;&nbsp;DeleteCompany</span></a></li>
                 </ul>
-
+                <!-- blogs navs -->
+                <ul class="childNav " data-parent="blogs">
+                    <li class="nav-item"><a href="<?=base_url();?>Blogs/create"><i class=" fa fa-lg fa-building animtxt" aria-hidden="true"></i><span class="item-name">&nbsp;&nbsp;Blog</span></a></li>
+                    <li class="nav-item"><a href="<?=base_url();?>Blogs/create"><i class="fas fa-pen-square fa-lg animtxt" aria-hidden="true"></i><span class="item-name">&nbsp;&nbsp;Create Blog</span></a></li>
+                    <li class="nav-item"><a href="<?=base_url();?>Blogs/publish"><i class="fas fa-building fa-lg animtxt" aria-hidden="true"></i><span class="item-name">&nbsp;&nbsp;Publish Blog</span></a></li>
+                </ul>
+                <!-- end -->
                 <ul class="childNav" data-parent="widgets">
                     <li class="nav-item"><a href="<?=base_url();?>Opening/create"><i class="fa-lg fas fa-plus-circle animtxt"></i>&nbsp;&nbsp;Add Opening</span></a></li>
                     <li class="nav-item"><a href="<?=base_url();?>Opening/edit"><i class="fa-lg fas fa-pen-square animtxt" aria-hidden="true"></i><span class="item-name">&nbsp;&nbsp;Edit Opening</span></a></li>

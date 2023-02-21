@@ -16,8 +16,16 @@
                                     <table class="display table table-striped table-bordered" id="example" style="width:100%">
                                         <thead>
                                             <tr>
-                                                <th>Id</th>
-                                                <th>Select Student Name</th>
+                                                <th>Sr.no</th>
+                                                <th>Action</th>
+                                                <th>ID</th>
+                                                <th>Full Name</th>
+                                                <th>Email</th>
+                                                <th>Applied For</th>
+                                                <th>Qualification</th>
+                                                <th>Department</th>
+                                                <th>Branch</th>
+                                                <th>Term</th>
                                               
                                                 
                                             </tr>
@@ -31,8 +39,8 @@
                                 //   </td>';
                                 
                                  echo "<td>".$value->id."</td>";
-                                 echo "<td>".$value->studentname."</td>";$i++;
-                                 echo "<td>".$value->phone."</td>";
+                                 echo "<td>".$value->std_name."</td>";$i++;
+                                 echo "<td>".$value->std_fullname."</td>";
                                 //  echo "<td>".$value->subject."</td>";
              
                               ;
@@ -53,13 +61,22 @@
 <script  src="<?php echo base_url(); ?>web_resources/dist/js/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
 
-<script>
-	$(document).ready(function() {
-   
 
-    $('#example').dataTable( {} );
- 
-    
+    <script>
+$(document).ready(function() {
+    $('#example').DataTable( { 
+
+      "ajax" : "<?php echo base_url('Studentregistration/VerifyfetchDatafromDatabase'); ?>",
+				"order": [],      
+         responsive: true,
+         dom: 'Bfrtip',
+         dom: 'lBfrtip',
+            initComplete: function() {
+            var btns = $('.dt-button');
+            btns.removeClass('dt-button');
+        },
+        
+    } );  
 } );
 </script>
                    

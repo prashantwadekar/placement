@@ -750,4 +750,4 @@ border-radius: 10px;
 
                                         
 <script  src="<?php echo base_url('web_resources');?>/dist/js/jquery.min.js"></script>          
-<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/studentregistrationform_create.js"></script>
+<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/Openingform.js"></script>
