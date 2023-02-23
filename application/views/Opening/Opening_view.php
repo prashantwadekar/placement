@@ -351,12 +351,12 @@ border-radius: 10px;
 
                                        <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3  form-group  mt-0">
                                             <label for=""> Label Name  </label>
-                                            <input class="form-control" id="std_fullname" type="text" placeholder=" "  name="std_fullname" />
+                                            <input class="form-control" id="label_name" type="text" placeholder=" "  name="label_name" />
                                         </div>                                                                         
 
                                         <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 form-group  mt-0">
         <label for="">Company Name </label>
-        <select name="std_subcast" id="std_subcast"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
+        <select name="companyname" id="companyname"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
            <option value="1"> Ramdasia</option>
            <option value="2">Bhambi</option>
@@ -371,12 +371,12 @@ border-radius: 10px;
 
                                         <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 form-group mt-0">
                                             <label for="dob1">Publish Date  </label>
-                                            <input class="form-control" id="std_dob1" type="date"  name="std_dob"/>
+                                            <input class="form-control" id="std_dob1" type="date"  name="std_dob1"/>
                                         </div>
 
                                         <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 form-group mt-0">
                                             <label for="dob2">Publish End Date  </label>
-                                            <input class="form-control" id="std_dob" type="date"  name="std_dob"/>
+                                            <input class="form-control" id="std_dob2" type="date"  name="std_dob2"/>
                                         </div>
 
                                          
@@ -386,7 +386,7 @@ border-radius: 10px;
 <div class="row gap p-3">
 <div class="col-sm-12 col-md-6 col-lg-1 col-xl-1 form-group  mt-0">
         <label for="">Type </label>
-        <select name="std_cast" id="std_cast"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
+        <select name="std_type" id="std_type"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
            <option value="1"> Ramdasia</option>
            <option value="2">Bhambi</option>
@@ -463,7 +463,7 @@ border-radius: 10px;
 
          <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 form-group custom-dropdown  mt-0">
            <label for="">keyword </label>
-           <select name="std_certification" id="std_certification" class="js-states form-control" multiple="multiple">
+           <select name="std_keyword" id="std_keyword" class="js-states form-control" multiple="multiple">
            <!-- <option selected disabled  value="0"></option> -->
            <option data-countryCode="1">Human resources</option>
            <option data-countryCode="2">First aid and CPR</option>
@@ -533,7 +533,7 @@ border-radius: 10px;
 
                                         <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 form-group  mt-0">
            <label for="">Email  </label>
-            <input class="form-control" id="std_term" type="text" placeholder=" " name="std_term" />
+            <input class="form-control" id="std_email" type="text" placeholder=" " name="std_email" />
         </div>
                                         </div>
 
@@ -549,12 +549,12 @@ border-radius: 10px;
        </div> -->
 <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 form-group  mt-0">
            <label for="">Apply Link </label>
-            <input class="form-control" id="std_term" type="text" placeholder=" " name="std_term" />
+            <input class="form-control" id="std_applylink" type="text" placeholder=" " name="std_applylink" />
         </div>
 
         <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 form-group mdwn custom-dropdown ">
            <label for="">Class </label>
-           <select name="std_hobbies" id="std_hobbies" class="js-states form-control" multiple="multiple">
+           <select name="std_class" id="std_class" class="js-states form-control" multiple="multiple">
            <!-- <option selected disabled  value="0"></option> -->
            <option data-countryCode="1" >Badminton</option>
            <option data-countryCode="2">Bicycling</option>
@@ -566,13 +566,6 @@ border-radius: 10px;
            </select>
        </div>
 
-
-        
-
-        
-
-       
-
         <!-- <div class="col-sm-12 col-md-6 col-lg-1 col-xl-1 form-group  mt-0 mb-2">
             <label for="phone">Pincode  </label>
             <input class="form-control" id="std_pincode" type="text" maxlength="6" placeholder="" name="std_pincode"  />
@@ -580,11 +573,11 @@ border-radius: 10px;
 
         <div class="col-sm-12 col-md-6 col-lg-1 col-xl-1 form-group  mt-0">
            <label for="">10th % </label>
-            <input class="form-control" id="std_degreeper" type="text" placeholder=" " name="std_degreeper" />
+            <input class="form-control" id="std_tenper" type="text" placeholder=" " name="std_tenper" />
         </div>
         <div class="col-sm-12 col-md-6 col-lg-1 col-xl-1 form-group  mt-0">
            <label for="">12th % </label>
-            <input class="form-control" id="std_degreeper" type="text" placeholder=" " name="std_degreeper" />
+            <input class="form-control" id="std_twper" type="text" placeholder=" " name="std_twper" />
         </div>
            
        
@@ -625,17 +618,17 @@ border-radius: 10px;
              
         <div class="col-sm-12 col-md-12 col-lg-4  col-xl-4 form-group  mt-0">
             <label for="phone">Description  </label>
-            <textarea class="form-control" rows="4" id="std_address" type="text" placeholder="" name="std_address" value="" ></textarea>
+            <textarea class="form-control" rows="4" id="std_description" type="text" placeholder="" name="std_description" value="" ></textarea>
         </div>
 
         <div class="col-sm-12 col-md-12 col-lg-4  col-xl-4 form-group  mt-0">
             <label for="phone">Responsiblity  </label>
-            <textarea class="form-control" rows="4" id="std_address" type="text" placeholder="" name="std_address" value="" ></textarea>
+            <textarea class="form-control" rows="4" id="std_responsibility" type="text" placeholder="" name="std_responsibility" value="" ></textarea>
         </div>
 
         <div class="col-sm-12 col-md-12 col-lg-4  col-xl-4 form-group  mt-0">
             <label for="phone">Rules & Regulations  </label>
-            <textarea class="form-control" rows="4" id="std_address" type="text" placeholder="" name="std_address" value="" ></textarea>
+            <textarea class="form-control" rows="4" id="std_rules" type="text" placeholder="" name="std_rules" value="" ></textarea>
         </div>
         
 
@@ -678,7 +671,7 @@ border-radius: 10px;
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script>
         
-              $("#std_country").select2({ });
+              $("#companyname").select2({ });
               $("#std_qualification").select2({ });
               $("#std_department").select2({ });
               $("#std_branch").select2({ });
@@ -688,12 +681,12 @@ border-radius: 10px;
               $("#std_country").select2({ });
             //   $("#std_country").select2({});
               $("#std_city").select2({});
-              $("#std_religion").select2({});
+              $("#std_keyword").select2({});
               $("#std_cast").select2({});
               $("#std_subcast").select2({});
-              $("#std_appliedfor").select2({});
-              $("#std_certification").select2({ theme:"classic" });
-              $("#std_hobbies").select2({ theme:"classic"});
+              $("#std_type").select2({});
+              $("#std_keyword").select2({ theme:"classic" });
+              $("#std_class").select2({ theme:"classic"});
               $("#std_skills").select2({ theme:"classic" });
             
 

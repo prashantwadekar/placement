@@ -34,17 +34,36 @@ class Studentedit_model extends CI_Model
 			return false;
 		}
 	}
+	public function empfetchDataById($id) {
+		$query = $this->db->get_where('employee_master', array('id' => $id));
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		} else {
+			return false;
+		}
+	}
 	
 
 	public function update_record($std_id, $data) {
 		$this->db->where('std_id', $std_id);
 		$this->db->update('studentcreate_master', $data);
 	 }
+
+	 public function empupdate_record($id, $data) {
+		$this->db->where('id', $id);
+		$this->db->update('employee_master', $data);
+	 }
 	 
 	 function update_student($data, $id)
 	 {
 		 $this->db->where('std_id', $id);
 		 $this->db->update('studentcreate_master', $data);
+		 return true;
+	 }
+	 function empupdate_student($data, $id)
+	 {
+		 $this->db->where('id', $id);
+		 $this->db->update('employee_master', $data);
 		 return true;
 	 }
 

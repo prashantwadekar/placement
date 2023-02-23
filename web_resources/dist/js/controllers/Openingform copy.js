@@ -33,7 +33,7 @@ function saveperform() {
     var std_responsibility = $("#std_responsibility").val();
     var std_rules = $("#std_rules").val();
 
-  if (id == "" || label_name == ""||companyname==""||std_dob == "" || std_dob1 == ""||std_dob2=="") {
+  if (id == "" || label_name == "") {
     //alert("requird");
     swal({
       title: "",

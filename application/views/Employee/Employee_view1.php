@@ -1,6 +1,7 @@
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@latest"></script>
     
 <style>
 
@@ -330,25 +331,14 @@ border-radius: 10px;
                         <div class=" p-2">
                         <div class="bord">
                             <!-- <h3 class=" heads">Basic Information</h3> -->
-                        <form role="form" id="Form" action="" method="post">
+                        <form role="form" id="Form" action="<?php echo site_url('Employee/update'); ?>" method="post">
 <div class="row p-3">
+<input class="form-control" id="id" type="text" placeholder=" "  name="id" value="<?php echo $result[0]->id; ?>" hidden> 
 
-                                       <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3  form-group  mt-3">
-                                            <label for=""> Employee Name </label>
-                                            <input class="form-control" id="fullname" type="text" placeholder=" "  name="fullname" value="" />
-                                        </div>                                     
-
-                                     
-
-                                        <!-- <div class="col-sm-12 col-md-6 col-lg-2  col-xl-2 form-group  mt-0">
-                                            <label for=""> Father Name <c>*</c></label>
-                                            <input class="form-control" id="fathername" type="text" placeholder=" " name="fathername" value="" />
-                                        </div>
-                                        
-                                        <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 form-group  mt-0">
-                                            <label for=""> Mother Name <c>*</c></label>
-                                            <input class="form-control" id="mothername" type="text" placeholder=" " name="mothername" value="" />
-                                        </div> -->
+<div class="col-sm-12 col-md-6 col-lg-3 col-xl-3  form-group  mt-3">
+    <label for=""> Employee Name </label>
+    <input class="form-control" id="fullname" type="text" placeholder=" " name="fullname" value="<?php echo $result[0]->fullname;  ?>" />
+</div>
 
                                        
                                         
@@ -366,7 +356,7 @@ border-radius: 10px;
 
                                         <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 form-group  mt-3">
                                             <label for="phone">Email <c></c></label>
-                                            <input class="form-control" id="email" type="text" placeholder="" name="email" value="" />
+                                            <input class="form-control" id="email" type="text" placeholder="" name="email" value="<?php echo $result[0]->email;  ?>" />
                                         </div>
 
                                         <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 form-group mt-3">
@@ -428,15 +418,7 @@ border-radius: 10px;
                     <option value="3">BCA</option>
              </select>
         </div>
-         <!-- <div class="col-sm-12 col-md-6 col-lg-2  col-xl-2 form-group custom-dropdown  mt-0">
-           <label for="">Applied For<c>*</c></label>
-           <select name="appliedfor" id="appliedfor"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
-           <option selected disabled  value="0"></option>
-           <option value="1">Demo</option>
-           <option value="">Demo1</option>
-            <option value="../Form">Registration</option>
-           </select>
-        </div> -->
+
 
                 <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 form-group custom-dropdown  mt-0">
                   <label for="">Qualification<c></c></label>
@@ -447,15 +429,7 @@ border-radius: 10px;
                             <option value="3">BCA</option>
                     </select>
                 </div>
-    <!-- <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 form-group custom-dropdown  mt-0">
-           <label for="">Qualification<c>*</c></label>
-           <select name="Qualification" id="Qualification"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
-           <option selected disabled  value="0"></option>
-           <option value="1">Demo</option>
-           <option value="2">Demo1</option>
-            <option value="3">Registration</option>
-           </select>
-       </div> -->
+
          <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 form-group custom-dropdown  mt-0">
         <label for="">Department<c></c></label>
             <select name="department" id="department"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
@@ -476,19 +450,10 @@ border-radius: 10px;
                 </div>
                          
 
-       <!-- <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 form-group custom-dropdown  mt-0">
-           <label for="">Branch<c>*</c></label>
-           <select name="Branch" id="Branch"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
-           <option selected disabled  value="0"></option>
-           <option value="1">Demo</option>
-           <option value="2">Demo1</option>
-            <option value="3">Registration</option>
-           </select>
-       </div> -->
 
          <div class="col-sm-12 col-md-6 col-lg-1 col-xl-1 form-group  mt-0 mb-2">
             <label for="phone">Pincode <c></c></label>
-            <input class="form-control" id="pincode" type="text" maxlength="6" placeholder="" name="pincode" value="" />
+            <input class="form-control" id="pincode" type="text" maxlength="6" placeholder="" name="pincode" value="<?php echo $result[0]->pincode;  ?>" />
         </div>
 
       
@@ -501,41 +466,6 @@ border-radius: 10px;
 <div class="row gap p-3">
     
        
-        <!-- <div class="col-sm-12 col-md-6 col-lg-1 col-xl-1 form-group  mt-0">
-           <label for="">Term<c>*</c></label>
-            <input class="form-control" id="year" type="text" placeholder=" " name="year" value="" />
-        </div> -->
-
-        <!-- <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 form-group custom-dropdown  mt-0">
-           <label for="">Degree<c>*</c></label>
-           <select name="degree" id="degree"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
-           <option selected disabled  value="0"></option>
-           <option value="1">BSC</option>
-           <option value="2">BCOM</option>
-            <option value="3">BCA</option>
-           </select>
-       </div> -->
-
-           
-       <!-- <div class="col-sm-12 col-md-6 col-lg-1 col-xl-1 form-group  mt-0">
-           <label for="">Degree %<c>*</c></label>
-            <input class="form-control" id="degreeper" type="text" placeholder=" " name="degreeper" value="" />
-        </div> -->
-
-        <!-- <div class="col-sm-12 col-md-6 col-lg-2  col-xl-2 form-group custom-dropdown  mt-0">
-           <label for="">Master<c>*</c></label>
-           <select name="master" id="master"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
-           <option selected disabled  value="0"></option>
-           <option value="1">MCA</option>
-           <option value="2">MBA</option>
-            <option value="3" >MCOM</option>
-           </select>
-       </div> -->
-
-       <!-- <div class="col-sm-12 col-md-6 col-lg-1 col-xl-1 form-group  mt-0">
-           <label for="">Master %<c>*</c></label>
-            <input class="form-control" id="name" type="text" placeholder=" " name="name" value="" />
-        </div> -->
 
       
 
@@ -546,7 +476,7 @@ border-radius: 10px;
 
         <div class="col-sm-12 col-md-6 col-lg-2 form-group  mt-0">
             <label for="phone">Mobile No. <c></c></label>
-            <input class="form-control" id="phone" type="tel" maxlength="10" placeholder="" name="phone" value="" />
+            <input class="form-control" id="phone" type="tel" maxlength="10" placeholder="" name="phone" value="<?php echo $result[0]->phone;  ?>" />
         </div>
 
         <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2  form-group  mt-1">
@@ -589,69 +519,8 @@ border-radius: 10px;
            </select>
        </div>
 </div>
-<!-- <div class="row gap p-3"> -->
 
-       <!-- <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2  form-group  mt-1">
-           <label for="">Select Country <c>*</c></label>
-           <select name="country" id="country" data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
-           <option selected disabled  value="0"></option>
-           <option data-country="1">Algeria</option>
-           <option data-country="2">Andorra</option>
-           <option data-country="3">Angola </option>
-           <option data-country="4">Anguilla</option>
-           <option data-country="5">Antigua &amp; Barbuda</option>
-           <option data-country="6">Argentina</option>
-           <option data-country="7">Armenia</option>
-    
-           </select>
-       </div> -->
 
-      
-    
-       
-
-       <!-- <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 form-group custom-dropdown  mt-0">
-           <label for="">Cerifications<c>*</c></label>
-           <select name="cerifications" id="cerifications" class="js-states form-control" multiple="multiple">
-           <!-- <option selected disabled  value="0"></option> -->
-           <!-- <option data-countryCode="1">Human resources</option>
-           <option data-countryCode="2">First aid and CPR</option>
-           <option data-countryCode="3">ECustomer service</option>
-           <option data-countryCode="4">Language</option>
-           <option data-countryCode="5">Management and leadership</option>
-           <option data-countryCode="6">Sales and marketing</option>
-           <option data-countryCode="7">Specialty Certified Medical Assistant (SCMA) certification</option>
-           </select>
-       </div>  -->
-
-       <!-- <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 form-group mdwn custom-dropdown ">
-           <label for="">Hobbies<c>*</c></label>
-           <select name="hobbies" id="hobbies" class="js-states form-control " multiple="multiple"> -->
-           <!-- <option selected disabled  value="0"></option> -->
-           <!-- <option data-countryCode="1" >Badminton</option>
-           <option data-countryCode="2">Bicycling</option>
-           <option data-countryCode="3"> Axe throwing</option>
-           <option data-countryCode="4">Air hockey</option>
-           <option data-countryCode="5">Ballroom </option>
-           <option data-countryCode="6">Cricket</option>
-           <option data-countryCode="7">Cycling</option>
-           </select>
-       </div> -->
-
-       <!-- <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 form-group mdwn custom-dropdown">
-           <label for="">Skills<c>*</c></label>
-           <select name="skills" id="skills" class="js-states form-control" multiple="multiple"> -->
-           <!-- <option selected disabled  value="0"></option> -->
-           <!-- <option data-countryCode="1">Time management</option>
-           <option data-countryCode="2">Effective communication</option>
-           <option data-countryCode="3">Emotional intelligence</option>
-           <option data-countryCode="4">Teamwork skills</option>
-           <option data-countryCode="5">Stress management</option>
-           <option data-countryCode="6">Problem-solving</option>
-           <option data-countryCode="7">Productivity & organization</option>
-           </select>
-       </div>      -->
-<!-- </div> -->
 <div class="row  p-3">
         
         <div class="col-sm-12 col-md-12 col-lg-3  col-xl-3 form-group  mt-0">
@@ -674,9 +543,9 @@ border-radius: 10px;
     </div> 
 </div> 
 <div class="row p-1 mt-5">
-                                        <div class="col-md-12 text-right">
-                                            <button class="btn btn-md btn-success btnright text-white" type="button" name="btn_save" id="btn_save"><i class="nav-icon fa-regular fa-circle-check "></i> Save</button>
-                                            <button class="btn btn-md btn-warning btnedit text-white" type="button" name="cancle" id="cancle"><a href="edit" style="color:white;"><i class="fa-sharp fa-solid fa-pen-to-square"></i> Edit</button>
+<div class="col-sm-12 col-md-12 col-lg-12 text-right">
+                                            <button class="btn btn-md btn-success btnright text-white" type="button" name="btn_save"  id="btn_save"><i class="nav-icon fa-regular fa-circle-check "></i> Update</button>
+                                            <button class="btn btn-md btn-danger btnedit text-white" type="button" name="cancle" id="cancle"><a href="../edit" style="color:white;"><i class="fa-sharp fa-solid fa-pen-to-square"></i> Cancel</button>
 
                                         </div>
  </div>
@@ -689,7 +558,7 @@ border-radius: 10px;
 
 
 <script  src="<?php echo base_url('web_resources');?>/dist/js/jquery.min.js"></script>          
-<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/employee_create.js"></script>
+<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/employeeeditform_create.js"></script>
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Select2 -->

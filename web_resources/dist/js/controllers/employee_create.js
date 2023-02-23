@@ -11,29 +11,31 @@ $("#btn_save").click(function(){
 
  function saveperform() 
 { 
-    var firstname=$('#firstname').val();
-    var lastName=$('#lastName').val();
-    var jobtitle=$('#jobtitle').val();
-    var workday=$('#workday').val();
-    var radio=$('#radio').val();
+    var fullname=$('#fullname').val();
+    var bld=$('#bld').val();
     var email=$('#email').val();
+    var dob=$('#dob').val();
+    var radio=$('#radio').val();
+    var age=$('#age').val();
+    var emptype=$('#emptype').val();
+    var Cast=$('#Cast').val();
+    var sCast=$('#sCast').val();
+    var qualification=$('#qualification').val();
     var department=$('#department').val();
     var branch=$('#branch').val();
-    var address=$('#address').val();
+    var pincode=$('#pincode').val();
+    var adharnumber=$('#adharnumber').val();
+    var phone=$('#phone').val();
+    var country=$('#country').val();
     var state=$('#state').val();
     var city=$('#city').val();
-    var subject=$('#subject').val();
-    var pincode=$('#pincode').val();
-    var phone=$('#phone').val();
-    var sphone=$('#sphone').val();
-    var licence=$('#licence').val();
-    var photo=$('#photo').val();
-    var skills=$('#skills').val();
+    var address=$('#address').val();
+
 
     
 
 
-    if(firstname==""||lastname==""||jobtitle==""||workday==""||radio==""||email==""||department==""||branch==""||address==""||state==""||city==""||subject==""||pincode==""||phone==""||sphone==""||licence==""||photo==""||skills=="") 
+    if(fullname=="") 
     {
       // alert("requird");
         swal({
