@@ -346,12 +346,13 @@ border-radius: 10px;
                     <div class="col-12">
                         <div class=" p-2">
                         <div class="bord"><h3></h3>
-                        <form id="Form" action="" method="POST">
+                        <form id="Form" action="<?php echo site_url('Opening/update'); ?>" method="POST">
 <div class="row p-3">
+<input class="form-control" id="id" type="text" placeholder=" "  name="id" value="<?php echo $result[0]->id; ?>" hidden> 
 
                                        <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3  form-group  mt-0">
                                             <label for=""> Label Name  </label>
-                                            <input class="form-control" id="label_name" type="text" placeholder=" "  name="label_name" />
+                                            <input class="form-control" id="label_name" type="text" placeholder=" "  name="label_name"  value="<?php echo $result[0]->label_name;  ?>"/>
                                         </div>                                                                         
 
                                         <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 form-group  mt-0">
@@ -367,7 +368,7 @@ border-radius: 10px;
                                         
                                         <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 form-group mt-0">
                                             <label for="dob">Date  </label>
-                                            <input class="form-control" id="std_dob" type="date"  name="std_dob"/>
+                                            <input class="form-control" id="std_dob" type="date"  name="std_dob" />
                                         </div>
 
                                         <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 form-group mt-0">
@@ -377,7 +378,7 @@ border-radius: 10px;
 
                                         <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 form-group mt-0">
                                             <label for="dob2">Publish End Date  </label>
-                                            <input class="form-control" id="std_dob2" type="date"  name="std_dob2"/>
+                                            <input class="form-control" id="std_dob2" type="date"  name="std_dob2" />
                                         </div>
 
                                          
@@ -534,7 +535,7 @@ border-radius: 10px;
 
                                         <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 form-group  mt-0">
            <label for="">Email  </label>
-            <input class="form-control" id="std_email" type="text" placeholder=" " name="std_email" />
+            <input class="form-control" id="std_email" type="text" placeholder=" " name="std_email" value="<?php echo $result[0]->std_email;  ?>"/>
         </div>
                                         </div>
 
@@ -550,7 +551,7 @@ border-radius: 10px;
        </div> -->
 <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 form-group  mt-0">
            <label for="">Apply Link </label>
-            <input class="form-control" id="std_applylink" type="text" placeholder=" " name="std_applylink" />
+            <input class="form-control" id="std_applylink" type="text" placeholder=" " name="std_applylink" value="<?php echo $result[0]->std_applylink;  ?>"/>
         </div>
 
         <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 form-group mdwn custom-dropdown ">
@@ -654,8 +655,8 @@ border-radius: 10px;
             <button class="btn btn2 text-white" type="button" name="cancle" id="cancle"><a href="Edit" style="color:white;">Edit</a></button> 
     </div>    -->
     <div class="col-md-12 text-right">
-                                            <button class="btn btn-md btn-success btnright text-white" type="button" name="btn_save" id="btn_save"><i class="nav-icon fa-regular fa-circle-check "></i> Save</button>
-                                            <button class="btn btn-md btn-warning btnedit text-white" type="button" name="cancle" id="cancle"><a href="edit" style="color:white;"><i class="fa-sharp fa-solid fa-pen-to-square"></i> Edit</button>
+    <button class="btn btn-md btn-success btnright text-white" type="button" name="btn_save"  id="btn_save"><i class="nav-icon fa-regular fa-circle-check "></i> Update</button>
+                                            <button class="btn btn-md btn-danger btnedit text-white" type="button" name="cancle" id="cancle"><a href="../edit" style="color:white;"><i class="fa-sharp fa-solid fa-pen-to-square"></i> Cancel</button>
 
                                         </div>
  </div>
@@ -744,4 +745,5 @@ border-radius: 10px;
 
                                         
 <script  src="<?php echo base_url('web_resources');?>/dist/js/jquery.min.js"></script>          
-<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/Openingform.js"></script>
+<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/Openingedit.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@latest"></script>

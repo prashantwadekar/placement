@@ -356,12 +356,13 @@ border-radius: 10px;
                     <div class="col-12">
                         <div class=" p-2">
                         <div class="bord"><h3></h3>
-                        <form id="Form" action="" method="POST">
+                        <form id="Form" action="<?php echo site_url('Company/update'); ?>" method="POST">
 <div class="row p-3">
+<input class="form-control" id="com_id" type="text" placeholder=" "  name="com_id" value="<?php echo $result[0]->com_id; ?>" hidden> 
 
                                        <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3  form-group  mt-0">
                                             <label for=""> Company Name </label>
-                                            <input class="form-control" id="company_name" type="text" placeholder=" "  name="company_name" />
+                                            <input class="form-control" id="company_name" type="text" placeholder=" "  name="company_name" value="<?php echo $result[0]->company_name;  ?>" />
                                         </div>                                                                         
 
                                         <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3  form-group  mt-0">
@@ -372,7 +373,7 @@ border-radius: 10px;
                                         
                                         <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3  form-group  mt-0">
                                             <label for=""> Email </label>
-                                            <input class="form-control" id="company_email" type="text" placeholder=" "  name="company_email" />
+                                            <input class="form-control" id="company_email" type="text" placeholder=" "  name="company_email" value="<?php echo $result[0]->company_email;  ?>"/>
                                         </div>  
                                                   <!-- <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 form-group  mt-0">
                                             <label for="phone">Email <c>*</c></label>
@@ -381,7 +382,7 @@ border-radius: 10px;
                                         
                                         <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3  form-group  mt-0">
                                            <label for="phone">Contact No. </label>
-                                            <input class="form-control" id="company_contact" type="tel" maxlength="10" placeholder="" name="company_contact"/>
+                                            <input class="form-control" id="company_contact" type="tel" maxlength="10" placeholder="" name="company_contact" value="<?php echo $result[0]->company_contact;  ?>"/>
                                         </div>
 
                                         
@@ -392,7 +393,7 @@ border-radius: 10px;
 
                                         <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3  form-group  mt-0">
                                             <label for=""> Contact Person Name </label>
-                                            <input class="form-control" id="company_pname" type="text" placeholder=" "  name="company_pname" />
+                                            <input class="form-control" id="company_pname" type="text" placeholder=" "  name="company_pname" value="<?php echo $result[0]->company_pname;  ?>"/>
                                         </div>  
 
                                         <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3  form-group  mt-0">
@@ -417,7 +418,7 @@ border-radius: 10px;
 
     <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 form-group mdwn custom-dropdown ">
            <label for="">Branch Location</label>
-           <select name="branch_location" id="branch_location" class="js-states form-control" multiple="multiple">
+           <select name="branch_location" id="branch_location" class="js-states form-control"  multiple="multiple">
            <!-- <option selected disabled  value="0"></option> -->
            <option data-countryCode="1" >Mumbai</option>
            <option data-countryCode="2">Delhi</option>
@@ -484,8 +485,8 @@ border-radius: 10px;
             <button class="btn btn2 text-white" type="button" name="cancle" id="cancle"><a href="Edit" style="color:white;">Edit</a></button> 
     </div>    -->
     <div class="col-md-12 text-right">
-                                            <button class="btn btn-md btn-success btnright text-white" type="button" name="btn_save" id="btn_save"><i class="nav-icon fa-regular fa-circle-check "></i> Save</button>
-                                            <button class="btn btn-md btn-warning text-white" type="button" name="cancle" id="cancle"><i class="fa-sharp fa-solid fa-pen-to-square"><a href="edit" style="color:white;"></i> Edit</button>
+    <button class="btn btn-md btn-success btnright text-white" type="button" name="btn_save"  id="btn_save"><i class="nav-icon fa-regular fa-circle-check "></i> Update</button>
+                                            <button class="btn btn-md btn-danger btnedit text-white" type="button" name="cancle" id="cancle"><a href="../edit" style="color:white;"><i class="fa-sharp fa-solid fa-pen-to-square"></i> Cancel</button>
 
                                         </div>
  </div>
@@ -564,4 +565,5 @@ border-radius: 10px;
 
                                         
 <script  src="<?php echo base_url('web_resources');?>/dist/js/jquery.min.js"></script>          
-<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/company.js"></script>
+<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/Companyedit.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@latest"></script>

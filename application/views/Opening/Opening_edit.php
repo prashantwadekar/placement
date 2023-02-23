@@ -3,7 +3,11 @@
 <link rel="stylesheet" href="Assets/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap3.min.css">
 <style>
-  
+  .modal-dialog {
+    max-width: 1450px;
+    margin: 2rem auto;
+}
+
 .fa-file-excel:before {
     content: "\f1c1";
     color: #1d6f42;
@@ -169,9 +173,6 @@ thead {
   background: #fff;
 }
 
-a {
-  color: #73685d;
-}
   
  @media all and (max-width: 768px) {
     
@@ -219,6 +220,8 @@ a {
 }
 
   }
+
+  
     </style>
 </head>
 <body>
@@ -237,43 +240,24 @@ a {
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class=" display nowrapdisplay table table-striped table-bordered" id="example" style="width:100%">
-                                    <thead>
+                                    <thead>	<!-- Button trigger modal -->
                                       <div class="addnewbutton">
                                       <!-- <a href="create"><i class="fas fa-plus-circle animtxt" aria-hidden="true"></i>&nbsp;Add New</a> -->
                                       <button type="button" class=" btn Addnew"><a href="create"><i class="fas fa-plus-circle animtxt" aria-hidden="true"></i>&nbsp;Add New</a></button>
                                       </div>
             <tr>
-            <th>Action</th>
             <th>Sr.No</th>
-              <th>Label Name</th>            
-              <th>Publish Date</th>            
-              <th>Email</th>            
-              <th>Contact</th>            
-              <th>Apply Link</th> 
+            <th>Action</td>
+              <th>Id</th>            
+                <th>Label Name </th>       
+                <th>Email</th>         
+                <th>Apply Link</th>         
+                
             </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <td><a  href="create" data-mdb-toggle="tooltip" title="edit"><i class="fas fa-edit fa-lg"style="color:#1977D3;"></i>&nbsp;Edit</a></td>
-            <td>01</td>
-              <td>Ravi Sharma</td>
-              <td>01/09/2022</td>
-              <td>ravisharma@gmail.com</td>
-              <td>8975346754</td>
-              <td>www.demo.com</td>
-            </tr>  
-        </tbody>
-        <!-- <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </tfoot> -->
+        </thead>     
     </table>
+
+    
                                 </div>
                             </div>
                         </div>
@@ -284,6 +268,7 @@ a {
 <script  src="<?php echo base_url(); ?>web_resources/dist/js/jquery.min.js"></script>
 </body>
 
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script type="text/javascript" src=https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js></script> 
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
@@ -293,10 +278,15 @@ a {
  <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script> 
  <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.print.min.js"></script>
  <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap3.min.js"></script>
+ 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
 <script>
 $(document).ready(function() {
     $('#example').DataTable( { 
+
+      "ajax" : "<?php echo base_url('Opening/fetchDatafromDatabase'); ?>",
+				"order": [],
             
          responsive: true,
          dom: 'Bfrtip',
@@ -319,4 +309,112 @@ $(document).ready(function() {
     
 } );
 </script>
+
+
+<script>
+//delete function start here
+		function deleteFun(id)
+		{
+			if(confirm('Are you sure?')==true)
+			{
+				$.ajax({
+					url:'<?php echo base_url('Opening/deleteSingleData'); ?>',
+					method:"post",
+					dataType:"json",
+					data:{id:id},
+					success:function(response)
+					{
+						if(response==1)
+						{
+							alert('Data Deleted Successfully');
+							loadDatatableAjax();
+						}
+						else
+						{
+							alert('Deletion Failed !');
+						}
+					}
+				})
+			}
+		}
+		//delete function end here
+
+    </script>
+
+  <script>
+
+function loadDatatableAjax(){
+			$('#example').DataTable({
+				"bDestroy" : true,
+				"ajax" : "<?php echo base_url('Opening/fetchDatafromDatabase'); ?>",
+				"initComplete" : function(){
+					var notApplyFilterOnColumn = [4];
+					var inputFilterOnColumn = [0];
+					var showFilterBox = 'afterHeading'; //beforeHeading, afterHeading
+					$('.gtp-dt-filter-row').remove();
+					var theadSecondRow = '<tr class="gtp-dt-filter-row">';
+					$(this).find('thead tr th').each(function(index){
+						theadSecondRow += '<td class="gtp-dt-select-filter-' + index + '"></td>';
+					});
+					theadSecondRow += '</tr>';
+				}
+			});
+		}
+//edit function start here
+		function editFun(id)
+		{
+			$.ajax({
+				url: "<?php echo base_url('Opening/getEditData'); ?>",
+				method:"post",
+        data:{id:std_id},
+				dataType:"json",
+				success:function(response)
+				{
+					$('#id').val(response.id);
+					$('#fullname').val(response.fullname);
+					$('#email').val(response.email);
+					$('#phone').val(response.phone);
+          $('#pincode').val(response.pincode);
+	
+					$('#editModal').modal({
+						backdrop:"static",
+						keyboard:false
+					});
+				}
+			})
+		}
+
+
+		$("#editForm").submit(function(event) {
+			event.preventDefault();
+			$.ajax({
+	            url: "<?php echo base_url('Opening/update'); ?>",
+	            data: $("#editForm").serialize(),
+	            type: "post",
+	            async: false,
+	            dataType: 'json',
+	            success: function(response){
+	              
+	                $('#editModal').modal('hide');
+	                $('#editForm')[0].reset();
+
+                  
+	                if(response==1)
+	                {
+	                	swal("Successfully Updated!", "", "success");
+	                }
+	                else{
+	                	alert('Updation Failed !');
+	                }
+	               loadDatatableAjax();
+	              },
+	           error: function()
+	           {
+	            swal("Updation Failed!", "", "danger");
+	           }
+          });
+		});
+
+		//edit function work end here
+    </script>
 </html>

@@ -9,31 +9,21 @@ $(document).ready(function () {
 });
 
 function saveperform() {
-    var id = $("#id").val();
-    var label_name = $("#label_name").val();
-    var companyname = $("#companyname").val();
-    var std_dob = $("#std_dob").val();
-    var std_dob1 = $("#std_dob1").val();
-    var std_dob2 = $("#std_dob2").val();
-    var std_type = $("#std_type").val();
-    var std_keyword = $("#std_keyword").val();
-    var std_department = $("#std_department").val();
-    var std_branch = $("#std_branch").val();
-    var std_mobileno = $("#std_mobileno").val();
-    var std_email = $("#std_email").val();
-    var std_applylink = $("#std_applylink").val();
-    var std_class = $("#std_class").val();
-    var std_tenper = $("#std_tenper").val();
-    var std_twper = $("#std_twper").val();
-    var std_degree = $("#std_degree").val();
-    var std_degreeper = $("#std_degreeper").val();
-    var std_master = $("#std_master").val();
-    var std_masterper = $("#std_masterper").val();
-    var std_description = $("#std_description").val();
-    var std_responsibility = $("#std_responsibility").val();
-    var std_rules = $("#std_rules").val();
+  var com_id = $("#com_id").val();
+  var company_name = $("#company_name").val();
+  var company_website = $("#company_website").val();
+  var company_email = $("#company_email").val();
+  var company_contact = $("#company_contact").val();
+  var company_pname = $("#company_pname").val();
+  var contact_no = $("#contact_no").val();
+  var company_type = $("#company_type").val();
+  var branch_location = $("#branch_location").val();
+  var company_address = $("#company_address").val();
+  var company_pincode = $("#company_pincode").val();
+  var about_us = $("#about_us").val();
+  var company_logo = $("#company_logo").val();
 
-  if (id == "" || label_name == "") {
+  if (com_id == "" || company_name == "") {
     //alert("requird");
     swal({
       title: "",
@@ -76,7 +66,7 @@ function saveperform() {
     a = true;
     //alert('insert');
     $.ajax({
-      url: base_path + "Opening/insertOpening",
+      url: base_path + "Company/insertcompanyDetails",
       type: "POST",
       data: $("#Form").serialize(),
       beforeSend: function () {
@@ -102,6 +92,8 @@ function saveperform() {
 
       
         $("#Form").parsley().destroy();
+        $("#std_qualification").val('').trigger('change');
+        $("#Form").parsley();
         a = false;
         window.location.href = base_path+"create";
       },

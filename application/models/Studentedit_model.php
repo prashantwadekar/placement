@@ -42,6 +42,24 @@ class Studentedit_model extends CI_Model
 			return false;
 		}
 	}
+
+	public function comfetchDataById($com_id) {
+		$query = $this->db->get_where('company_master', array('com_id' => $com_id));
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		} else {
+			return false;
+		}
+	}
+
+	public function openfetchDataById($id) {
+		$query = $this->db->get_where('opening_master', array('id' => $id));
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		} else {
+			return false;
+		}
+	}
 	
 
 	public function update_record($std_id, $data) {
@@ -53,6 +71,16 @@ class Studentedit_model extends CI_Model
 		$this->db->where('id', $id);
 		$this->db->update('employee_master', $data);
 	 }
+
+	 public function comupdate_record($com_id, $data) {
+		$this->db->where('com_id', $com_id);
+		$this->db->update('company_master', $data);
+	 }
+	 public function openupdate_record($id, $data) {
+		$this->db->where('id', $id);
+		$this->db->update('opening_master', $data);
+	 }
+
 	 
 	 function update_student($data, $id)
 	 {
@@ -66,6 +94,21 @@ class Studentedit_model extends CI_Model
 		 $this->db->update('employee_master', $data);
 		 return true;
 	 }
+
+	 	 function comupdate_student($data, $id)
+	 {
+		 $this->db->where('com_id', $id);
+		 $this->db->update('company_master', $data);
+		 return true;
+	 }
+
+	 function openupdate_student($data, $id)
+	 {
+		 $this->db->where('id', $id);
+		 $this->db->update('opening_master', $data);
+		 return true;
+	 }
+
 
     public function get_student_by_id($std_id) {
         $this->db->select('*');
@@ -104,6 +147,25 @@ class Studentedit_model extends CI_Model
 			
 			// Insert the record into the verify file table
 			return $this->db->insert('studentverify_master', $record);
+		} else {
+			return false;
+		}
+	}
+
+
+	public function openmoveToVerify($id) {
+		// Get the record from the unverify table
+		$this->db->select('id, label_name, std_email, std_applylink');
+		$query = $this->db->get_where('opening_master', array('id' => $id));
+		
+		if ($query->num_rows() == 1) {
+			$record = $query->row_array();
+			
+			// Remove the record from the unverify table
+			$this->db->delete('opening_master', array('id' => $id));
+			
+			// Insert the record into the verify file table
+			return $this->db->insert('openingverify_master', $record);
 		} else {
 			return false;
 		}

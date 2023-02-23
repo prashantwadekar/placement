@@ -3,7 +3,11 @@
 <link rel="stylesheet" href="Assets/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap3.min.css">
 <style>
-  
+  .modal-dialog {
+    max-width: 1450px;
+    margin: 2rem auto;
+}
+
 .fa-file-excel:before {
     content: "\f1c1";
     color: #1d6f42;
@@ -169,9 +173,6 @@ thead {
   background: #fff;
 }
 
-a {
-  color: #73685d;
-}
   
  @media all and (max-width: 768px) {
     
@@ -219,6 +220,8 @@ a {
 }
 
   }
+
+  
     </style>
 </head>
 <body>
@@ -237,55 +240,23 @@ a {
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class=" display nowrapdisplay table table-striped table-bordered" id="example" style="width:100%">
-                                    <thead>
+                                    <thead>	<!-- Button trigger modal -->
                                       <div class="addnewbutton">
                                       <!-- <a href="create"><i class="fas fa-plus-circle animtxt" aria-hidden="true"></i>&nbsp;Add New</a> -->
                                       <button type="button" class=" btn Addnew"><a href="create"><i class="fas fa-plus-circle animtxt" aria-hidden="true"></i>&nbsp;Add New</a></button>
                                       </div>
             <tr>
-            <th>Action</th>
-              <th>Sr.No</th>            
+            <th>Sr.No</th>
+            <th>Action</td>
+              <th>Id</th>            
                 <th>Company Name </th>
-                <th>Website</th>
-                <th>Email</th>
-                <th>Contact No.</th>
-                <th>Contact Person Name <c></th>
-                <th>Contact Person No.</th>
-                <th>Company Type</th>
-                <!-- <th>About Us</th>
-                <th>Address</th> -->
-                <th>Pincode</th>
-                <th>Branch Location</th>
+                <th>Company Email</th>         
+                <th>Company Contact</th>
+                <th>Contact Person Name</th>
             </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <td><a  href="create" data-mdb-toggle="tooltip" title="edit"><i class="fas fa-edit fa-lg"style="color:#1977D3;"></i>&nbsp;Edit</a></td>
-            <td>01</td>
-                <td>Cognizant</td>
-                <td>https://www.cognizant.com</td>
-                <td>inquiry@cognizant.com</td>
-                <td>980520869</td>
-                <td>Lakshmi Narayanan</td>
-                <td>980520869</td>
-                <td>Public Limited Company</td>
-                <!-- <td>Information Technology And Services </td>
-                <td> Hinjawadi, Pune, Maharashtra</td> -->
-                <td>411057</td>
-                <td>Pune</td>
-            </tr>  
-        </tbody>
-        <!-- <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </tfoot> -->
+        </thead>     
     </table>
+
                                 </div>
                             </div>
                         </div>
@@ -296,6 +267,7 @@ a {
 <script  src="<?php echo base_url(); ?>web_resources/dist/js/jquery.min.js"></script>
 </body>
 
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script type="text/javascript" src=https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js></script> 
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
@@ -305,10 +277,15 @@ a {
  <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script> 
  <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.print.min.js"></script>
  <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap3.min.js"></script>
+ 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
 <script>
 $(document).ready(function() {
     $('#example').DataTable( { 
+
+      "ajax" : "<?php echo base_url('Company/fetchDatafromDatabase'); ?>",
+				"order": [],
             
          responsive: true,
          dom: 'Bfrtip',
@@ -331,4 +308,114 @@ $(document).ready(function() {
     
 } );
 </script>
+
+
+<script>
+//delete function start here
+		function deleteFun(std_id)
+		{
+			if(confirm('Are you sure?')==true)
+			{
+				$.ajax({
+					url:'<?php echo base_url('Studentregistration/deleteSingleData'); ?>',
+					method:"post",
+					dataType:"json",
+					data:{std_id:std_id},
+					success:function(response)
+					{
+						if(response==1)
+						{
+							alert('Data Deleted Successfully');
+							loadDatatableAjax();
+						}
+						else
+						{
+							alert('Deletion Failed !');
+						}
+					}
+				})
+			}
+		}
+		//delete function end here
+
+    </script>
+
+  <script>
+
+function loadDatatableAjax(){
+			$('#example').DataTable({
+				"bDestroy" : true,
+				"ajax" : "<?php echo base_url('Studentregistration/fetchDatafromDatabase'); ?>",
+				"initComplete" : function(){
+					var notApplyFilterOnColumn = [4];
+					var inputFilterOnColumn = [0];
+					var showFilterBox = 'afterHeading'; //beforeHeading, afterHeading
+					$('.gtp-dt-filter-row').remove();
+					var theadSecondRow = '<tr class="gtp-dt-filter-row">';
+					$(this).find('thead tr th').each(function(index){
+						theadSecondRow += '<td class="gtp-dt-select-filter-' + index + '"></td>';
+					});
+					theadSecondRow += '</tr>';
+				}
+			});
+		}
+//edit function start here
+		function editFun(std_id)
+		{
+			$.ajax({
+				url: "<?php echo base_url('Studentregistration/getEditData'); ?>",
+				method:"post",
+        data:{std_id:std_id},
+				dataType:"json",
+				success:function(response)
+				{
+					$('#std_id').val(response.std_id);
+					$('#std_fullname').val(response.std_fullname);
+					$('#std_email').val(response.std_email);
+					$('#std_appliedfor').val(response.std_appliedfor);
+          $('#std_qualification').val(response.std_qualification);
+					$('#std_department').val(response.std_department);
+					$('#std_branch').val(response.std_branch);
+					$('#std_term').val(response.std_term);
+					$('#editModal').modal({
+						backdrop:"static",
+						keyboard:false
+					});
+				}
+			})
+		}
+
+
+		$("#editForm").submit(function(event) {
+			event.preventDefault();
+			$.ajax({
+	            url: "<?php echo base_url('Studentregistration/update'); ?>",
+	            data: $("#editForm").serialize(),
+	            type: "post",
+	            async: false,
+	            dataType: 'json',
+	            success: function(response){
+	              
+	                $('#editModal').modal('hide');
+	                $('#editForm')[0].reset();
+
+                  
+	                if(response==1)
+	                {
+	                	swal("Successfully Updated!", "", "success");
+	                }
+	                else{
+	                	alert('Updation Failed !');
+	                }
+	               loadDatatableAjax();
+	              },
+	           error: function()
+	           {
+	            swal("Updation Failed!", "", "danger");
+	           }
+          });
+		});
+
+		//edit function work end here
+    </script>
 </html>

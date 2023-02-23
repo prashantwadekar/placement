@@ -2,8 +2,13 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css">
 <link rel="stylesheet" href="Assets/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap3.min.css">
+
 <style>
-  
+  .modal-dialog {
+    max-width: 1450px;
+    margin: 2rem auto;
+}
+
 .fa-file-excel:before {
     content: "\f1c1";
     color: #1d6f42;
@@ -169,9 +174,6 @@ thead {
   background: #fff;
 }
 
-a {
-  color: #73685d;
-}
   
  @media all and (max-width: 768px) {
     
@@ -219,6 +221,8 @@ a {
 }
 
   }
+
+  
     </style>
 </head>
 <body>
@@ -236,47 +240,27 @@ a {
                         <div class="card mb-2">
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class=" display nowrapdisplay table table-striped table-bordered" id="example" style="width:100%">
-                                    <thead>
+                                    <table class=" display nowrapdisplay table table-striped table-bordered uk-table uk-table-hover uk-table-striped" id="example" style="width:100%">
+                                    <thead>	<!-- Button trigger modal -->
                                       <div class="addnewbutton">
                                       <!-- <a href="create"><i class="fas fa-plus-circle animtxt" aria-hidden="true"></i>&nbsp;Add New</a> -->
                                       <button type="button" class=" btn Addnew"><a href="create"><i class="fas fa-plus-circle animtxt" aria-hidden="true"></i>&nbsp;Add New</a></button>
                                       </div>
             <tr>
-            <th>Action</th>
             <th>Sr.No</th>
-              <th>Label Name</th>            
-              <th>Publish Date</th>            
-              <th>Email</th>            
-              <th>Contact</th>            
-              <th>Apply Link</th>                        
-                
+            <th>Action</td>
+              <th>Id</th>            
+                <th>Label Name </th>       
+                <th>Email</th>         
+                <th>Apply Link</th>            
             </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <td><a  href="#" data-mdb-toggle="tooltip" title="veify"><i class="fas fa-check-circle fa-lg animtxt"style="color:teal;"></i>&nbsp;Veify</a></td>
-            <td>01</td>
-              <td>Ravi Sharma</td>
-              <td>01/09/2022</td>
-              <td>ravisharma@gmail.com</td>
-              <td>8975346754</td>
-              <td>www.demo.com</td>
-              
-                
-            </tr>  
-        </tbody>
-        <!-- <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </tfoot> -->
+        </thead>     
     </table>
+
+
+    
+
+    
                                 </div>
                             </div>
                         </div>
@@ -287,6 +271,7 @@ a {
 <script  src="<?php echo base_url(); ?>web_resources/dist/js/jquery.min.js"></script>
 </body>
 
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script type="text/javascript" src=https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js></script> 
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
@@ -296,10 +281,18 @@ a {
  <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script> 
  <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.print.min.js"></script>
  <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap3.min.js"></script>
+ 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 
 <script>
+  
 $(document).ready(function() {
     $('#example').DataTable( { 
+
+      "ajax" : "<?php echo base_url('Opening/VerifyfetchDatafromDatabase'); ?>",
+				"order": [],
             
          responsive: true,
          dom: 'Bfrtip',
@@ -321,5 +314,73 @@ $(document).ready(function() {
     
     
 } );
+
+
 </script>
+
+
+<script>
+//verify delete function start here
+		function deleteverify(id)
+		{
+			Swal.fire({
+			  title: 'Are you sure?',
+			  text: "Unverify Record",
+			  icon: 'warning',
+			  showCancelButton: true,
+			  confirmButtonColor: '#3085d6',
+			  cancelButtonColor: '#d33',
+			  confirmButtonText: 'Yes, Unverify it!'
+			}).then((result) => {
+			  if (result.isConfirmed) {
+				$.ajax({
+					url:'<?php echo base_url('Opening/deleteverifyData'); ?>',
+					method:"post",
+					dataType:"json",
+					data:{id:id},
+					success:function(response)
+					{
+						if(response==1)
+						{
+							Swal.fire(
+							  'Deleted!',
+							  'Your data has been deleted.',
+							  'success'
+							)
+							loadDatatableAjax();
+						}
+						else
+						{
+							Swal.fire(
+							  'Failed!',
+							  'Deletion Failed!',
+							  'error'
+							)
+						}
+					}
+				})
+			  }
+			})
+		}
+		//delete function end here
+
+		 
+function loadDatatableAjax(){
+			$('#example').DataTable({
+				"bDestroy" : true,
+				"ajax" : "<?php echo base_url('Opening/VerifyfetchDatafromDatabase'); ?>",
+				"initComplete" : function(){
+					var notApplyFilterOnColumn = [4];
+					var inputFilterOnColumn = [0];
+					var showFilterBox = 'afterHeading'; //beforeHeading, afterHeading
+					$('.gtp-dt-filter-row').remove();
+					var theadSecondRow = '<tr class="gtp-dt-filter-row">';
+					$(this).find('thead tr th').each(function(index){
+						theadSecondRow += '<td class="gtp-dt-select-filter-' + index + '"></td>';
+					});
+					theadSecondRow += '</tr>';
+				}
+			});
+		}
+    </script>
 </html>
