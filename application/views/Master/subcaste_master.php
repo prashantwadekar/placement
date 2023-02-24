@@ -308,16 +308,16 @@ border-radius: 10px;
 
                                        <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3  form-group  ">
                                             <label for=""> Enter Subcaste Name </label>
-                                            <input class="form-control" id="label_name" type="text" placeholder=" "  name="label_name" />
+                                            <input class="form-control" id="subcast_name" type="text" placeholder=" "  name="subcast_name" />
                                         </div> 
                                         
                                         <div class="col-sm-12 col-md-6 col-lg-2 form-group custom-dropdown  ">
            <label for="">Select Religion </label>
            <select name="religion" id="religion"  -control="select2" -hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
-           <option value="BSC">BSC</option>
-           <option value="2">BCOM</option>
-            <option value="3">BCA</option>
+           <option value="BSC">Hindu</option>
+           <option value="2">Muslim</option>
+            <option value="3">Other</option>
            </select>
        </div>
 
@@ -325,9 +325,9 @@ border-radius: 10px;
            <label for="">Select caste </label>
            <select name="caste" id="caste"  -control="select2" -hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
-           <option value="BSC">BSC</option>
-           <option value="2">BCOM</option>
-            <option value="3">BCA</option>
+           <option value="BSC">Open</option>
+           <option value="2">Other</option>
+            <option value="3">OBC</option>
            </select>
        </div>
 
@@ -424,4 +424,4 @@ border-radius: 10px;
 
                                         
 <script  src="<?php echo base_url('web_resources');?>/dist/js/jquery.min.js"></script>          
-<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/Opening_create.js"></script>
+<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/subcast.js"></script>

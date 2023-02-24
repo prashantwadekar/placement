@@ -308,7 +308,7 @@ border-radius: 10px;
 
                                        <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3  form-group  ">
                                             <label for=""> Enter Department Name </label>
-                                            <input class="form-control" id="label_name" type="text" placeholder=" "  name="label_name" />
+                                            <input class="form-control" id="dep_name" type="text" placeholder=" "  name="dep_name" />
                                         </div> 
                                         
                                         <div class="col-sm-12 col-md-6 col-lg-3 form-group custom-dropdown  ">
@@ -323,12 +323,12 @@ border-radius: 10px;
 
        <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3  form-group  ">
                                             <label for=""> Department contact </label>
-                                            <input class="form-control" id="contact" type="tel" placeholder=" "  name="contact" />
+                                            <input class="form-control" id="contact" type="tel" placeholder=" " maxlength="10" name="contact" />
                                         </div>
 
                                         <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3  form-group  ">
                                             <label for=""> Details/Description </label>
-                                            <textarea class="form-control" rows="4" id="contact" type="text" placeholder=" "  name="contact" ></textarea>
+                                            <textarea class="form-control" rows="4" id="details" type="text" placeholder=" "  name="details" ></textarea>
                                         </div>
 
                                        
@@ -367,4 +367,4 @@ border-radius: 10px;
 
                                         
 <script  src="<?php echo base_url('web_resources');?>/dist/js/jquery.min.js"></script>          
-<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/Opening_create.js"></script>
+<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/department_master.js"></script>

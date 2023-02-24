@@ -167,6 +167,94 @@ class Website extends CI_Controller {
          echo json_encode($fields);
      $this->Commonmodel->insertRecord("master",$fields);
    } 
+
+
+
+
+
+
+
+   function addcourse(){
+	$id= $this->input->post('id'); 
+	 $std_department= $this->input->post('std_department');
+	 $coursename= $this->input->post('coursename'); 
+	 $duration= $this->input->post('duration'); 
+	 $language= $this->input->post('language'); 
+	 $description= $this->input->post('description');
+
+
+	  $fields=array('id'=>$id,
+					 'std_department'=>$std_department,
+					 'coursename'=>$coursename,
+					 'duration'=>$duration,
+					 'language'=>$language,
+					 'description'=>$description,
+					
+					 
+			'created_date'=>date('Y-m-d H:i:s'),
+			'created_by'=>1);
+	   //  echo json_encode($fields);
+	   $this->db->insert('addcourse_master', $fields);	   
+  } 
+
+  
+  function addvideo(){
+	$id= $this->input->post('id'); 
+	 $videolink= $this->input->post('videolink');
+	 $videolabel= $this->input->post('videolabel'); 
 	
+
+
+	  $fields=array('id'=>$id,
+					 'videolink'=>$videolink,
+					 'videolabel'=>$videolabel,
+					
+					
+					 
+			'created_date'=>date('Y-m-d H:i:s'),
+			'created_by'=>1);
+	   //  echo json_encode($fields);
+	   $this->db->insert('addvideo_master', $fields);	   
+  } 
 	
+
+  function addslider(){
+	$id= $this->input->post('id'); 
+	 $slider_label= $this->input->post('slider_label');
+	 $std_dob= $this->input->post('std_dob'); 
+	 $edate= $this->input->post('edate'); 
+	
+
+
+	  $fields=array('id'=>$id,
+					 'slider_label'=>$slider_label,
+					 'std_dob'=>$std_dob,
+					 'edate'=>$edate,
+					
+					
+					 
+			'created_date'=>date('Y-m-d H:i:s'),
+			'created_by'=>1);
+	   //  echo json_encode($fields);
+	   $this->db->insert('addslider_master', $fields);	   
+  } 
+
+  function addphoto(){
+	$id= $this->input->post('id'); 
+	 $std_adharphoto= $this->input->post('std_adharphoto');
+	 $photo_number= $this->input->post('photo_number'); 
+	
+
+
+	  $fields=array('id'=>$id,
+					 'std_adharphoto'=>$std_adharphoto,
+					 'photo_number'=>$photo_number,
+					
+					
+					 
+			'created_date'=>date('Y-m-d H:i:s'),
+			'created_by'=>1);
+	   //  echo json_encode($fields);
+	   $this->db->insert('addphoto', $fields);	   
+  } 
 }

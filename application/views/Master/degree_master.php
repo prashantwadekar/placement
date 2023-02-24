@@ -308,7 +308,7 @@ border-radius: 10px;
 
                                        <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3  form-group  ">
                                             <label for=""> Enter Degree Name </label>
-                                            <input class="form-control" id="label_name" type="text" placeholder=" "  name="label_name" />
+                                            <input class="form-control" id="degree_name" type="text" placeholder=" "  name="degree_name" />
                                         </div> 
                                         
                                         <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 form-group mdwn custom-dropdown ">
@@ -328,12 +328,12 @@ border-radius: 10px;
 
        <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3  form-group  ">
                                             <label for=""> Department Name </label>
-                                            <input class="form-control" id="contact" type="text" placeholder=" "  name="contact" />
+                                            <input class="form-control" id="department" type="text" placeholder=" "  name="department" />
                                         </div></div>
                                         <div class="row p-3">
                                         <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3  form-group  ">
                                             <label for=""> Branch Name </label>
-                                            <input class="form-control" id="contact" type="text" placeholder=" "  name="contact" />
+                                            <input class="form-control" id="branch" type="text" placeholder=" "  name="branch" />
                                         </div>
 
                                       
@@ -357,7 +357,7 @@ border-radius: 10px;
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script>
         
-              $("#branch").select2({ });
+              $("#degree").select2({ });
               $("#std_qualification").select2({ });
           
            
@@ -372,4 +372,4 @@ border-radius: 10px;
 
                                         
 <script  src="<?php echo base_url('web_resources');?>/dist/js/jquery.min.js"></script>          
-<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/Opening_create.js"></script>
+<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/degree.js"></script>

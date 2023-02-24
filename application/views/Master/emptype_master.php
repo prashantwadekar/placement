@@ -308,7 +308,7 @@ border-radius: 10px;
 
                                        <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3  form-group  ">
                                             <label for=""> Enter Employee Type </label>
-                                            <input class="form-control" id="label_name" type="text" placeholder=" "  name="label_name" />
+                                            <input class="form-control" id="employee_type" type="text" placeholder=" "  name="employee_type" />
                                         </div>                                                                         
 
                                        
@@ -330,4 +330,4 @@ border-radius: 10px;
 
                                         
 <script  src="<?php echo base_url('web_resources');?>/dist/js/jquery.min.js"></script>          
-<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/Opening_create.js"></script>
+<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/Employee_type.js"></script>

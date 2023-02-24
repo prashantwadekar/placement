@@ -308,7 +308,7 @@ border-radius: 10px;
 
                                        <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3  form-group  ">
                                             <label for=""> Enter Branch Name </label>
-                                            <input class="form-control" id="label_name" type="text" placeholder=" "  name="label_name" />
+                                            <input class="form-control" id="branch_name" type="text" placeholder=" "  name="branch_name" />
                                         </div> 
                                         
                                         <div class="col-sm-12 col-md-6 col-lg-3 form-group custom-dropdown  ">
@@ -333,12 +333,12 @@ border-radius: 10px;
 
        <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3  form-group  ">
                                             <label for=""> Branch contact </label>
-                                            <input class="form-control" id="contact" type="tel" placeholder=" "  name="contact" />
+                                            <input class="form-control" id="contact" type="tel" placeholder=" " maxlength="10"  name="contact" />
                                         </div></div>
                                         <div class="row p-3">
                                         <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3  form-group  ">
                                             <label for=""> Details </label>
-                                            <textarea class="form-control" rows="4" id="contact" type="text" placeholder=" "  name="contact" ></textarea>
+                                            <textarea class="form-control" rows="4" id="details" type="text" placeholder=" "  name="details" ></textarea>
                                         </div>
 
                                       
@@ -377,4 +377,4 @@ border-radius: 10px;
 
                                         
 <script  src="<?php echo base_url('web_resources');?>/dist/js/jquery.min.js"></script>          
-<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/Opening_create.js"></script>
+<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/branch_master.js"></script>

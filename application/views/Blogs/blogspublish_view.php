@@ -363,7 +363,7 @@ border-radius: 10px;
         
     <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 form-group custom-dropdown  mt-0">
         <label for="">Select Blog</label>
-            <select name="company_type" id="company_type"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
+            <select name="blog" id="blog"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
                     <option selected disabled  value="0"></option>
                     <option value="1">Private Limited Company</option>
                     <option value="2">Public Limited Company</option>
@@ -377,7 +377,7 @@ border-radius: 10px;
                                         </div>
                                         <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group gap  mt-0">
                                             <label for="dob">Publish End Date <c></c></label>
-                                            <input class="form-control" id="pubedate" type="date" value=""  name="pubedate"/>
+                                            <input class="form-control" id="endpubdate" type="date" value=""  name="endpubdate"/>
                                         </div>
     </div>
 
@@ -391,7 +391,7 @@ border-radius: 10px;
     </div>    -->
     <div class="col-md-12 text-right">
                                             <button class="btn btn-md btn-success btnright text-white" type="button" name="btn_save" id="btn_save"><i class="nav-icon fa-regular fa-circle-check "></i> Save</button>
-                                            <button class="btn btn-md btn-warning text-white" type="button" name="cancle" id="cancle"><i class="fa-sharp fa-solid fa-pen-to-square"><a href="edit" style="color:white;"></i> Edit</button>
+                                            <button class="btn btn-md btn-warning text-white" type="button" name="cancle" id="cancle"><i class="fa-sharp fa-solid fa-pen-to-square"><a href="create" style="color:white;"></i> Create</button>
 
                                         </div>
  </div>
@@ -409,7 +409,7 @@ border-radius: 10px;
     <script>
         
              
-              $("#company_type").select2({ });
+              $("#blog").select2({ });
 
              
             //   $("#std_country").select2({});
@@ -471,4 +471,4 @@ border-radius: 10px;
 
                                         
 <script  src="<?php echo base_url('web_resources');?>/dist/js/jquery.min.js"></script>          
-<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/company_create.js"></script>
+<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/blog_publish.js"></script>

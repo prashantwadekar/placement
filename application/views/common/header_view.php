@@ -435,7 +435,6 @@
                 </ul>
                 <!-- blogs navs -->
                 <ul class="childNav " data-parent="blogs">
-                    <li class="nav-item"><a href="<?=base_url();?>Blogs/create"><i class=" fa fa-lg fa-building animtxt" aria-hidden="true"></i><span class="item-name">&nbsp;&nbsp;Blog</span></a></li>
                     <li class="nav-item"><a href="<?=base_url();?>Blogs/create"><i class="fas fa-pen-square fa-lg animtxt" aria-hidden="true"></i><span class="item-name">&nbsp;&nbsp;Create Blog</span></a></li>
                     <li class="nav-item"><a href="<?=base_url();?>Blogs/publish"><i class="fas fa-building fa-lg animtxt" aria-hidden="true"></i><span class="item-name">&nbsp;&nbsp;Publish Blog</span></a></li>
                 </ul>

@@ -355,7 +355,7 @@ border-radius: 10px;
 
         <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3  form-group  mt-0">
                                             <label for=""> Number  </label>
-                                            <input class="form-control" id="std_fullname" type="number" placeholder=" "  name="std_fullname" />
+                                            <input class="form-control" id="photo_number" type="text" placeholder=" " inputmode="numeric"  name="photo_number" />
                                         </div>
           		
  
@@ -385,4 +385,4 @@ border-radius: 10px;
 
                                         
 <script  src="<?php echo base_url('web_resources');?>/dist/js/jquery.min.js"></script>          
-<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/studentregistrationform_create.js"></script>
+<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/addphoto.js"></script>

@@ -321,9 +321,9 @@ border-radius: 10px;
            <label for="">Select Department<c>*</c></label>
            <select name="std_department" id="std_department"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
-           <option value="1">Demo</option>
-           <option value="2">Demo1</option>
-            <option value="3">Registration</option>
+           <option value="1">Fiance</option>
+           <option value="2">Education</option>
+            <option value="3">Health</option>
            </select>
        </div>
 
@@ -335,28 +335,28 @@ border-radius: 10px;
            <label for="">Select Branch<c>*</c></label>
            <select name="std_branch" id="std_branch"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
-           <option value="1">Demo</option>
-           <option value="2">Demo1</option>
-            <option value="3">Registration</option>
+           <option value="1">Computer</option>
+           <option value="2">Electronics</option>
+            <option value="3">Other</option>
           </select>
        </div>
                                        <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3  form-group  mt-0">
                                             <label for=""> Enter Course Name <c>*</c></label>
-                                            <input class="form-control" id="std_fullname" type="text" placeholder=" "  name="std_fullname" />
+                                            <input class="form-control" id="coursename" type="text" placeholder=" "  name="coursename" />
                                         </div>                                                                         
 
                                         <div class="col-sm-12 col-md-6 col-lg-2 form-group  mt-0">
-                                           <label for="phone">Duration <c>*</c></label>
-                                            <input class="form-control" id="std_mobileno" type="tel" maxlength="10" placeholder="" name="std_mobileno"/>
+                                           <label for="duration">Duration <c>*</c></label>
+                                            <input class="form-control" id="duration" type="tel" maxlength="10" placeholder="" name="duration"/>
                                         </div>
 
                                         <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 form-group custom-dropdown  mt-0">
            <label for="">Language<c>*</c></label>
            <select name="language" id="language"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
-           <option value="1">Demo</option>
-           <option value="2">Demo1</option>
-            <option value="3">Registration</option>
+           <option value="1">English</option>
+           <option value="2">Hindi </option>
+            <option value="3">Marathi</option>
           </select>
        </div>
 
@@ -370,7 +370,7 @@ border-radius: 10px;
              
         <div class="col-sm-12 col-md-12 col-lg-3  col-xl-3 form-group  mt-0">
             <label for="phone">Description <c>*</c></label>
-            <textarea class="form-control" id="std_address" type="text" placeholder="" name="std_address" value="" ></textarea>
+            <textarea class="form-control" id="description" type="text" placeholder="" name="description" value="" ></textarea>
         </div>
         
 
@@ -472,4 +472,4 @@ border-radius: 10px;
 
                                         
 <script  src="<?php echo base_url('web_resources');?>/dist/js/jquery.min.js"></script>          
-<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/studentregistrationform_create.js"></script>
+<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/addcourse.js"></script>

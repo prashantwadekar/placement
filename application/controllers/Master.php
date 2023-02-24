@@ -203,10 +203,256 @@ class Master extends CI_Controller {
 	
 
 	}
+	function keyword_master(){
+		$id= $this->input->post('id'); 
+		 $label_name= $this->input->post('label_name');
+		 $keyword= $this->input->post('keyword'); 
+		
+	
+	
+		  $fields=array('id'=>$id,
+						 'label_name'=>$label_name,
+						 'keyword'=>$keyword,
+						
+						
+						 
+				'created_date'=>date('Y-m-d H:i:s'),
+				'created_by'=>1);
+		   //  echo json_encode($fields);
+		   $this->db->insert('keyword_master', $fields);	   
+	  } 
+
+	  function keyword_type(){
+		$id= $this->input->post('id'); 
+		 $keyword= $this->input->post('keyword'); 
+		
+	
+	
+		  $fields=array('id'=>$id,
+						 'keyword'=>$keyword,
+						
+						
+						 
+				'created_date'=>date('Y-m-d H:i:s'),
+				'created_by'=>1);
+		   //  echo json_encode($fields);
+		   $this->db->insert('keyword_type', $fields);	   
+	  } 
 
 
+	  function hobbies_master(){
+		$id= $this->input->post('id'); 
+		 $hobbies= $this->input->post('hobbies'); 
+		
+	
+	
+		  $fields=array('id'=>$id,
+						 'hobbies'=>$hobbies,
+						
+						
+						 
+				'created_date'=>date('Y-m-d H:i:s'),
+				'created_by'=>1);
+		   //  echo json_encode($fields);
+		   $this->db->insert('hobbies_master', $fields);	   
+	  } 
+
+	  function Employee_type(){
+		$id= $this->input->post('id'); 
+		 $employee_type= $this->input->post('employee_type'); 
+		
+	
+	
+		  $fields=array('id'=>$id,
+						 'employee_type'=>$employee_type,
+						
+						
+						 
+				'created_date'=>date('Y-m-d H:i:s'),
+				'created_by'=>1);
+		   //  echo json_encode($fields);
+		   $this->db->insert('employeetype_master', $fields);	   
+	  } 
+
+	  function degree_master(){
+		$id= $this->input->post('id'); 
+		 $degree_name= $this->input->post('degree_name'); 
+		 $degree= $this->input->post('degree'); 
+		 $department= $this->input->post('department'); 
+		 $branch= $this->input->post('branch'); 
+		
+	
+	
+		  $fields=array('id'=>$id,
+						 'degree_name'=>$degree_name,
+						 'degree'=>$degree,
+						 'department'=>$department,
+						 'branch'=>$branch,
+						
+						
+						 
+				'created_date'=>date('Y-m-d H:i:s'),
+				'created_by'=>1);
+		   //  echo json_encode($fields);
+		   $this->db->insert('degree_master', $fields);	   
+	  } 
+
+	  function comtype_master(){
+		$id= $this->input->post('id'); 
+		 $comtype= $this->input->post('comtype'); 
+	 
+		  $fields=array('id'=>$id,
+						 'comtype'=>$comtype,
+						 
+				'created_date'=>date('Y-m-d H:i:s'),
+				'created_by'=>1);
+		   //  echo json_encode($fields);
+		   $this->db->insert('comtype_master', $fields);	   
+	  } 
+
+	  function certification_master(){
+		$id= $this->input->post('id'); 
+		 $cert_name= $this->input->post('cert_name'); 
+		 $description= $this->input->post('description'); 
+	 
+		
+	
+	
+		  $fields=array('id'=>$id,
+						 'cert_name'=>$cert_name,
+						 'description'=>$description,
+					
+		 
+				'created_date'=>date('Y-m-d H:i:s'),
+				'created_by'=>1);
+		   //  echo json_encode($fields);
+		   $this->db->insert('certification_master', $fields);	   
+	  } 
+
+	  function subcast_master(){
+		$id= $this->input->post('id'); 
+		 $subcast_name= $this->input->post('subcast_name'); 
+		 $religion= $this->input->post('religion'); 
+		 $caste= $this->input->post('caste'); 
+	 
+
+		  $fields=array('id'=>$id,
+						 'subcast_name'=>$subcast_name,
+						 'religion'=>$religion,
+						 'caste'=>$caste,
+			 
+				'created_date'=>date('Y-m-d H:i:s'),
+				'created_by'=>1);
+		   //  echo json_encode($fields);
+		   $this->db->insert('subcast_master', $fields);	   
+	  } 
 
 
+	  function religion_master(){
+		$id= $this->input->post('id'); 
+		 $religion= $this->input->post('religion'); 
+
+		  $fields=array('id'=>$id,
+						 'religion'=>$religion,
+					
+	 
+				'created_date'=>date('Y-m-d H:i:s'),
+				'created_by'=>1);
+		   //  echo json_encode($fields);
+		   $this->db->insert('religion_master', $fields);	   
+	  } 
+
+
+	  function branch_master(){
+		$id= $this->input->post('id'); 
+		 $branch_name= $this->input->post('branch_name'); 
+		 $dept_head= $this->input->post('dept_head'); 
+		 $contact= $this->input->post('contact'); 
+		 $details= $this->input->post('details'); 
+	
+		  $fields=array('id'=>$id,
+						 'branch_name'=>$branch_name,
+						 'dept_head'=>$dept_head,
+						 'contact'=>$contact,
+						 'details'=>$details,
+			 
+				'created_date'=>date('Y-m-d H:i:s'),
+				'created_by'=>1);
+		   //  echo json_encode($fields);
+		   $this->db->insert('branch_master', $fields);	   
+	  } 
+
+
+	  function village_master(){
+		$id= $this->input->post('id'); 
+		 $village_name= $this->input->post('village_name'); 
+	 
+		  $fields=array('id'=>$id,
+						 'village_name'=>$village_name,
+						 
+				'created_date'=>date('Y-m-d H:i:s'),
+				'created_by'=>1);
+		   //  echo json_encode($fields);
+		   $this->db->insert('village_master', $fields);	   
+	  } 
+
+	  function city_master(){
+		$id= $this->input->post('id'); 
+		 $city_name= $this->input->post('city_name'); 
+	 
+		  $fields=array('id'=>$id,
+						 'city_name'=>$city_name,
+						 
+				'created_date'=>date('Y-m-d H:i:s'),
+				'created_by'=>1);
+		   //  echo json_encode($fields);
+		   $this->db->insert('city_master', $fields);	   
+	  } 
+
+	  function state_master(){
+		$id= $this->input->post('id'); 
+		 $state_name= $this->input->post('state_name'); 
+	 
+		  $fields=array('id'=>$id,
+						 'state_name'=>$state_name,
+						 
+				'created_date'=>date('Y-m-d H:i:s'),
+				'created_by'=>1);
+		   //  echo json_encode($fields);
+		   $this->db->insert('state_master', $fields);	   
+	  } 
+
+	  function country_master(){
+		$id= $this->input->post('id'); 
+		 $country= $this->input->post('country'); 
+	 
+		  $fields=array('id'=>$id,
+						 'country'=>$country,
+						 
+				'created_date'=>date('Y-m-d H:i:s'),
+				'created_by'=>1);
+		   //  echo json_encode($fields);
+		   $this->db->insert('country_master', $fields);	   
+	  } 
+
+	  function department_master(){
+		$id= $this->input->post('id'); 
+		 $dep_name= $this->input->post('dep_name'); 
+		 $dept_head= $this->input->post('dept_head'); 
+		 $contact= $this->input->post('contact'); 
+		 $details= $this->input->post('details'); 
+	
+		  $fields=array('id'=>$id,
+						 'dep_name'=>$dep_name,
+						 'dept_head'=>$dept_head,
+						 'contact'=>$contact,
+						 'details'=>$details,
+			 
+				'created_date'=>date('Y-m-d H:i:s'),
+				'created_by'=>1);
+		   //  echo json_encode($fields);
+		   $this->db->insert('department_master', $fields);	   
+	  } 
 
     function insertMaster(){
      $label_name= $this->input->post('label_name'); 

@@ -348,12 +348,12 @@ border-radius: 10px;
 
         <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4  form-group  mt-0">
                                             <label for=""> Add Video Link  </label>
-                                            <input class="form-control" id="std_fullname" type="text" placeholder=" "  name="std_fullname" />
+                                            <input class="form-control" id="videolink" type="text" placeholder=" "  name="videolink" />
                                         </div>
 
                                         <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4  form-group  mt-0">
                                             <label for=""> Video Lable  </label>
-                                            <input class="form-control" id="std_fullname" type="text" placeholder=" "  name="std_fullname" />
+                                            <input class="form-control" id="videolabel" type="text" placeholder=" "  name="videolabel" />
                                         </div>
           		
  
@@ -382,4 +382,4 @@ border-radius: 10px;
 
                                         
 <script  src="<?php echo base_url('web_resources');?>/dist/js/jquery.min.js"></script>          
-<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/studentregistrationform_create.js"></script>
+<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/addvideo.js"></script>

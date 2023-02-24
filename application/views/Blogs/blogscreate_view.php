@@ -1365,12 +1365,12 @@ padding-right:3px;
 
                                     <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group gap mt-0">
                                             <label for=""> Blog Lable <c></c></label>
-                                            <input class="form-control" id="std_fullname" type="text" placeholder=" "  value="" name="std_fullname" />
+                                            <input class="form-control" id="blog_label" type="text" placeholder=" "  value="" name="blog_label" />
                                      </div>                                                                         
 
                                     <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group gap  mt-0">
                                             <label for=""> Blog Link <c></c></label>
-                                            <input class="form-control" id="std_fathername" type="text" placeholder=" " name="std_fathername"  />
+                                            <input class="form-control" id="blog_link" type="text" placeholder=" " name="blog_link"  />
                                     </div>    
                                                                  
 </div>
@@ -1379,16 +1379,16 @@ padding-right:3px;
 
                                         <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group gap  mt-0">
                                             <label for="">Video Link<c></c></label>
-                                            <input class="form-control" id="std_age" type="text" placeholder=" " value=""  name="std_age"  />
+                                            <input class="form-control" id="video_link" type="text" placeholder=" " value=""  name="video_link"  />
                                         </div> 
                                         <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group gap  mt-0">
                                            <label for="phone">Authorised Person <c></c></label>
-                                            <input class="form-control" id="std_mobileno" type="tel" maxlength="10" placeholder="" name="std_mobileno" value="" />
+                                            <input class="form-control" id="auth_person" type="tel" maxlength="10" placeholder="" name="auth_person" value="" />
                                         </div>
 
                                         <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group gap   mt-0">
         <label for="">Department<c></c></label>
-           <select name="std_religion" id="std_religion" value=""   data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
+           <select name="blog_dep" id="blog_dep" value=""   data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
            <option value="1">Hindu</option>
            <option value="2">Muslim</option>
@@ -1436,7 +1436,7 @@ padding-right:3px;
        
                                         <div class="col-xs-4 col-sm-4 col-md-12 col-lg-9 form-group   custom-dropdown">
            <label for="">Keyword<c></c></label>
-           <select name="std_skills" id="std_skills" value=""  class="js-states form-control" multiple="multiple">
+           <select name="blog_keyword" id="blog_keyword" value=""  class="js-states form-control" multiple="multiple">
            <!-- <option selected disabled  value="0"></option> -->
            <option value="programming">Programming</option>
   <option value="web development">Web development</option>
@@ -1476,12 +1476,12 @@ padding-right:3px;
 
 
 <div class="desc">
-                                        <label for="phone">Blog Description</label></div>
+                                        <label for="Description">Blog Description</label></div>
                                         <div class="row p-3">
                                           
 
                                         <div id="editor" name="editor">
-                                        <input id="desc"   name="desc"  />
+                                        <input id="desc"   name="desc" value=""  />
                                         </div>
                                         </div>
 
@@ -1495,7 +1495,7 @@ padding-right:3px;
     </div>    -->
                                         <div class="col-sm-12 col-md-12 col-lg-12 text-right">
                                             <button class="btn btn-md btn-success btnright text-white" type="button" name="btn_save"  id="btn_save"><i class="nav-icon fa-regular fa-circle-check "></i> Save</button>
-                                            <button class="btn btn-md btn-warning btnedit text-white" type="button" name="cancle" id="cancle"><a href="edit" style="color:white;"><i class="fa-sharp fa-solid fa-pen-to-square"></i> Edit</button>
+                                            <button class="btn btn-md btn-warning btnedit text-white" type="button" name="cancle" id="cancle"><a href="publish" style="color:white;"><i class="fa-sharp fa-solid fa-pen-to-square"></i> Publish</button>
 
                                         </div>
  </div>
@@ -1520,7 +1520,7 @@ padding-right:3px;
               $("#std_state").select2({ });
               $("#std_degree").select2({ });
               $("#std_master").select2({ });
-              $("#std_country").select2({ });
+              $("#blog_dep").select2({ });
             //   $("#std_country").select2({});
               $("#std_city").select2({});
               $("#std_religion").select2({});
@@ -1529,7 +1529,7 @@ padding-right:3px;
               $("#std_appliedfor").select2({});
               $("#std_certification").select2({ theme:"classic" });
               $("#std_hobbies").select2({ theme:"classic"});
-              $("#std_skills").select2({ theme:"classic" });
+              $("#blog_keyword").select2({ theme:"classic" });
             
               
 

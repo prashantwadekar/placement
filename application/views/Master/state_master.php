@@ -308,7 +308,7 @@ border-radius: 10px;
 
                                        <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3  form-group  ">
                                             <label for=""> Enter state Name</label>
-                                            <input class="form-control" id="country" type="text" placeholder=" "  name="country" />
+                                            <input class="form-control" id="state_name" type="text" placeholder=" "  name="state_name" />
                                         </div>                                                                         
 
                                        
@@ -330,4 +330,4 @@ border-radius: 10px;
 
                                         
 <script  src="<?php echo base_url('web_resources');?>/dist/js/jquery.min.js"></script>          
-<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/Opening_create.js"></script>
+<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/state_master.js"></script>

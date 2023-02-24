@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class blogs extends CI_Controller {
+class Blogs extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
@@ -45,23 +45,56 @@ class blogs extends CI_Controller {
    
 
     function insertBlogs(){
+     $id= $this->input->post('id'); 
      $blog_type= $this->input->post('blog_type');
-     $editor= $this->input->post('editor'); 
+     $blog_label= $this->input->post('blog_label'); 
+     $blog_link= $this->input->post('blog_link');
+     $video_link= $this->input->post('video_link'); 
+     $auth_person= $this->input->post('auth_person');
+     $blog_dep= $this->input->post('blog_dep'); 
+     $std_photo= $this->input->post('std_photo');
+     $blog_keyword= $this->input->post('blog_keyword'); 
+     $desc= $this->input->post('desc'); 
    
 
       
       
      
-       $fields=array('blog_type'=>$blog_type,
-                        'editor'=>$editor,
-                      
-                     
-                      
+       $fields=array('id'=>$id,
+                        'blog_type'=>$blog_type,
+                        'blog_label'=>$blog_label,
+                        'blog_link'=>$blog_link,
+                        'video_link'=>$video_link,
+                        'auth_person'=>$auth_person,
+                        'blog_dep'=>$blog_dep,
+                        'std_photo'=>$std_photo,
+                        'blog_keyword'=>$blog_keyword,
+                        'desc'=>$desc,
+                                
              'created_date'=>date('Y-m-d H:i:s'),
              'created_by'=>1);
          echo json_encode($fields);
-     $this->Commonmodel->insertRecord("blogs",$fields);
+     $this->Commonmodel->insertRecord("blog_master",$fields);
    } 
 	
+
+   function PublishBlogs(){
+    $id= $this->input->post('id'); 
+    $blog= $this->input->post('blog');
+    $pubdate= $this->input->post('pubdate'); 
+    $endpubdate= $this->input->post('endpubdate');
+ 
+ 
+      $fields=array('id'=>$id,
+                       'blog'=>$blog,
+                       'pubdate'=>$pubdate,
+                       'endpubdate'=>$endpubdate,
+                
+                               
+            'created_date'=>date('Y-m-d H:i:s'),
+            'created_by'=>1);
+        echo json_encode($fields);
+    $this->Commonmodel->insertRecord("blogpublish_master",$fields);
+  } 
 	
 }
