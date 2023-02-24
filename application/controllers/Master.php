@@ -454,6 +454,105 @@ class Master extends CI_Controller {
 		   $this->db->insert('department_master', $fields);	   
 	  } 
 
+	  function qualification_master(){
+		$id= $this->input->post('id'); 
+		 $qul_name= $this->input->post('qul_name'); 
+		 $stream= $this->input->post('stream'); 
+	
+	
+		  $fields=array('id'=>$id,
+						 'qul_name'=>$qul_name,
+						 'stream'=>$stream,
+					
+			 
+				'created_date'=>date('Y-m-d H:i:s'),
+				'created_by'=>1);
+		   //  echo json_encode($fields);
+		   $this->db->insert('qualification_master', $fields);	   
+	  } 
+
+	  function skills_master(){
+		$id= $this->input->post('id'); 
+		 $skills= $this->input->post('skills'); 
+	 
+		  $fields=array('id'=>$id,
+						 'skills'=>$skills,
+						 
+				'created_date'=>date('Y-m-d H:i:s'),
+				'created_by'=>1);
+		   //  echo json_encode($fields);
+		   $this->db->insert('skills_master', $fields);	   
+	  } 
+
+	  function stream_master(){
+		$id= $this->input->post('id'); 
+		 $streamtype= $this->input->post('streamtype'); 
+	 
+		  $fields=array('id'=>$id,
+						 'streamtype'=>$streamtype,
+						 
+				'created_date'=>date('Y-m-d H:i:s'),
+				'created_by'=>1);
+		   //  echo json_encode($fields);
+		   $this->db->insert('stream_master', $fields);	   
+	  } 
+
+	  function term_master(){
+		$id= $this->input->post('id'); 
+		 $term_name= $this->input->post('term_name'); 
+		 $degree= $this->input->post('degree'); 
+		 $stream= $this->input->post('stream'); 
+	 
+		  $fields=array('id'=>$id,
+						 'term_name'=>$term_name,
+						 'degree'=>$degree,
+						 'stream'=>$stream,
+						 
+				'created_date'=>date('Y-m-d H:i:s'),
+				'created_by'=>1);
+		   //  echo json_encode($fields);
+		   $this->db->insert('term_master', $fields);	   
+	  } 
+
+
+	  function designation_master(){
+		$id= $this->input->post('id'); 
+		 $designation= $this->input->post('designation'); 
+	 
+		  $fields=array('id'=>$id,
+						 'designation'=>$designation,
+						 
+				'created_date'=>date('Y-m-d H:i:s'),
+				'created_by'=>1);
+		   //  echo json_encode($fields);
+		   $this->db->insert('designation_master', $fields);	   
+	  } 
+
+	  function education_master(){
+		$id= $this->input->post('id'); 
+		 $education= $this->input->post('education'); 
+	 
+		  $fields=array('id'=>$id,
+						 'education'=>$education,
+						 
+				'created_date'=>date('Y-m-d H:i:s'),
+				'created_by'=>1);
+		   //  echo json_encode($fields);
+		   $this->db->insert('education_master', $fields);	   
+	  } 
+
+	  function role_master(){
+		$id= $this->input->post('id'); 
+		 $role= $this->input->post('role'); 
+	 
+		  $fields=array('id'=>$id,
+						 'role'=>$role,
+						 
+				'created_date'=>date('Y-m-d H:i:s'),
+				'created_by'=>1);
+		   //  echo json_encode($fields);
+		   $this->db->insert('role_master', $fields);	   
+	  } 
     function insertMaster(){
      $label_name= $this->input->post('label_name'); 
     //  $Comp_name= $this->input->post('Comp_name');

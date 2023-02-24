@@ -18,7 +18,7 @@ class Education extends CI_Controller {
         // echo "<pre>";
         // print_r($data);
 		$this->load->view('common/header_view');
-		$this->load->view('Education/EducationDetailsview');
+		$this->load->view('Education/Education_view');
 		$this->load->view('common/footer_view');
 	
 

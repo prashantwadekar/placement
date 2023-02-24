@@ -315,13 +315,10 @@ border-radius: 10px;
            <label for="">Select Degree </label>
            <select name="degree" id="degree" class="js-states form-control" multiple="multiple">
            <!-- <option selected disabled  value="0"></option> -->
-           <option value="Demo" >Badminton</option>
-           <option value="Bicycling">Bicycling</option>
-           <option value=""> Axe throwing</option>
-           <option value="">Air hockey</option>
-           <option value="">Ballroom </option>
-           <option value="">Cricket</option>
-           <option value="">Cycling</option>
+           <option value="1" >BSC</option>
+           <option value="2">BCOM</option>
+           <option value="3">BA</option>
+           <option value="4">BSC(cs)</option>
            </select>
        </div>
                                         
@@ -373,4 +370,4 @@ border-radius: 10px;
 
                                         
 <script  src="<?php echo base_url('web_resources');?>/dist/js/jquery.min.js"></script>          
-<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/Opening_create.js"></script>
+<script  src="<?php echo base_url('web_resources');?>/dist/js/controllers/term_master.js"></script>
