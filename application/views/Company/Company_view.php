@@ -408,22 +408,19 @@ border-radius: 10px;
         <label for="">Company Type</label>
             <select name="company_type" id="company_type"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
                     <option selected disabled  value="0"></option>
-                    <option value="1">Private Limited Company</option>
-                    <option value="2">Public Limited Company</option>
-                    <option value="3">Section 8 Company</option>
-                    <option value="4">limited liability company (LLC)</option>
+                    <?php foreach ($cmp_types as $cmp_types): ?>
+        <option value="<?php echo $cmp_types->id; ?>"><?php echo $cmp_types->companytype; ?></option>
+    <?php endforeach; ?>
              </select>
     </div>
 
     <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 form-group mdwn custom-dropdown ">
            <label for="">Branch Location</label>
-           <select name="branch_location" id="branch_location" class="js-states form-control" multiple="multiple">
+           <select name="branch_location[]" id="branch_location" class="js-states form-control" multiple="multiple">
            <!-- <option selected disabled  value="0"></option> -->
-           <option data-countryCode="1" >Mumbai</option>
-           <option data-countryCode="2">Delhi</option>
-           <option data-countryCode="3">Hydrabad</option>
-           <option data-countryCode="4">Pune</option>
-           <option data-countryCode="5">Bengaluru </option>
+           <?php foreach ($branchlocation_types as $branchlocation_types): ?>
+        <option value="<?php echo $branchlocation_types->id; ?>"><?php echo $branchlocation_types->branchlocation; ?></option>
+    <?php endforeach; ?>
           
            </select>
        </div>

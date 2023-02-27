@@ -7,7 +7,7 @@ class Website extends CI_Controller {
         parent::__construct();
     
         
-        // $this->load->model('Master_model');
+         $this->load->model('Studentedit_model');
         
     }
 
@@ -91,6 +91,15 @@ class Website extends CI_Controller {
 	
 
 	}
+	public function create()
+	{	$obj='';
+        $data['data']=$obj;
+		$this->load->view('common/header_view');
+		$this->load->view('Website/add_course',$data);
+		$this->load->view('common/footer_view');
+	
+
+	}
 
     public function modifycourse()
 	{	$obj='';
@@ -101,77 +110,6 @@ class Website extends CI_Controller {
 	
 
 	}
-
-
-  
-
-
-
-
-    function insertMaster(){
-     $label_name= $this->input->post('label_name'); 
-    //  $Comp_name= $this->input->post('Comp_name');
-	//  $date= $this->input->post('date');
-	//  $pub_date= $this->input->post('pub_date');
-	//  $pub_edate= $this->input->post('pub_edate');
-	//  $type= $this->input->post('type');
-	//  $keyword= $this->input->post('keyword');
-	//  $mobileno= $this->input->post('mobileno');
-	//  $email= $this->input->post('email');
-	//  $link= $this->input->post('link');
-	//  $department= $this->input->post('department');
-	//  $branch= $this->input->post('branch');
-	//  $clas= $this->input->post('clas');
-	//  $ssc= $this->input->post('ssc');
-	//  $hsc= $this->input->post('hsc');
-	//  $degree= $this->input->post('degree');
-	//  $degreeper= $this->input->post('degreeper');
-	//  $master= $this->input->post('master');
-	//  $masterper= $this->input->post('masterper');
-	//  $description= $this->input->post('description');
-	//  $responsiblity= $this->input->post('responsiblity');
-	//  $rules= $this->input->post('rules');
-
-
-      
-     
-       $fields=array('label_name'=>$label_name,
-	   					// 'Comp_name'=>$Comp_name,
-						//    'date'=>$date,
-						//    'pub_date'=>$pub_date,
-						//    'pub_edate'=>$pub_edate,
-						//    'type'=>$type,
-						//    'keyword'=>$keyword,
-						//    'mobileno'=>$mobileno,
-						//    'email'=>$email,
-						//    'link'=>$link,
-						//    'department'=>$department,
-						//    'branch'=>$branch,
-						//    'clas'=>$clas,
-						//    'ssc'=>$ssc,
-						//    'hsc'=>$hsc,
-						//    'degree'=>$degree,
-						//    'degreeper'=>$degreeper,
-						//    'master'=>$master,
-						//    'masterper'=>$masterper,
-						//    'description'=>$description,
-						//    'responsiblity'=>$responsiblity,
-						//    'rules'=>$rules,
-						   
-						   
-                      
-                     
-                      
-             'created_date'=>date('Y-m-d H:i:s'),
-             'created_by'=>1);
-         echo json_encode($fields);
-     $this->Commonmodel->insertRecord("master",$fields);
-   } 
-
-
-
-
-
 
 
    function addcourse(){
@@ -257,4 +195,57 @@ class Website extends CI_Controller {
 	   //  echo json_encode($fields);
 	   $this->db->insert('addphoto', $fields);	   
   } 
+
+  public function coursefetchDatafromDatabase()
+  {
+	  $resultList = $this->Studentedit_model->fetchAllData('*','addcourse_master',array());
+	  
+	  $result = array();
+	  $i = 1;
+	  foreach ($resultList as $key => $value) {
+
+		  $button = '<a  href="' . base_url() . 'Website/editrecord/' . $value['id'] . '" "title="Edit">&emsp;&emsp;<i class="fas fa-edit animtxt fa-lg"style="color:green;"></i>&nbsp;<h6></h6></a>';
+
+		  $result['data'][] = array(
+			  $i++,
+			  $button,
+			  $value['id'],
+			  $value['coursename'],
+			  $value['duration'],
+		  );
+	  }
+	  echo json_encode($result);
+  }
+
+  public function editrecord($id = '')
+  {
+	  $data['result'] = $this->Studentedit_model->coursefetchDataById($id);
+	  $this->load->view('common/header_view');
+	  $this->load->view('Website/courseedit_view',$data);
+	  $this->load->view('common/footer_view');
+  }
+
+  
+  function update()
+  {
+	  $data = array(
+		  'id' => $this->input->post('id'),
+		  'coursename' => $this->input->post('coursename'),
+		  'duration' => $this->input->post('duration'),
+	  );
+
+
+	  $id = $this->input->post('id');
+
+	  $this->load->model('Studentedit_model');
+	  $result = $this->Studentedit_model->courseupdate_student($data, $id);
+
+	  if ($result) {
+		  echo 1;
+	  } else {
+		  echo 0;
+	  }
+  }
+
+  
 }

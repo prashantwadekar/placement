@@ -16,9 +16,9 @@ function saveperform() {
   var video_link = $("#video_link").val();
   var auth_person = $("#auth_person").val();
   var blog_dep = $("#blog_dep").val();
-  var std_photo = $("#std_gender").val();
+  var std_photo = $("#std_photo").val();
   var blog_keyword = $("#std_cast").val();
-  var desc = $("#desc").val();
+  var editor = $("#editor").val();
 
 
   if (id == "" || blog_label == "") {

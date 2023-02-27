@@ -438,33 +438,9 @@ border-radius: 10px;
         <label for="">Religion<c></c></label>
            <select name="std_religion" id="std_religion" value=""   data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
-           <option value="1">Hindu</option>
-           <option value="2">Muslim</option>
-            <option value="3">Bhanjra</option>
-            <option value="Agnostic">Agnostic</option>
-    <option value="Atheist">Atheist</option>
-    <option value="Baha'i">Baha'i</option>
-    <option value="Buddhism">Buddhism</option>
-    <option value="Cao Dai">Cao Dai</option>
-    <option value="Chinese traditional religion">Chinese traditional religion</option>
-    <option value="Christianity">Christianity</option>
-    <option value="Hinduism">Hinduism</option>
-    <option value="Islam">Islam</option>
-    <option value="Jainism">Jainism</option>
-    <option value="Juche">Juche</option>
-    <option value="Judaism">Judaism</option>
-    <option value="Neo-Paganism">Neo-Paganism</option>
-    <option value="Nonreligious">Nonreligious</option>
-    <option value="Rastafarianism">Rastafarianism</option>
-    <option value="Secular">Secular</option>
-    <option value="Shinto">Shinto</option>
-    <option value="Sikhism">Sikhism</option>
-    <option value="Spiritism">Spiritism</option>
-    <option value="Tenrikyo">Tenrikyo</option>
-    <option value="Unitarian-Universalism">Unitarian-Universalism</option>
-    <option value="Zoroastrianism">Zoroastrianism</option>
-    <option value="primal-indigenous">primal-indigenous</option>
-    <option value="Other">Other</option>
+           <?php foreach ($religion_types as $religion_types): ?>
+        <option value="<?php echo $religion_types->id; ?>"><?php echo $religion_types->religion; ?></option>
+    <?php endforeach; ?>
            </select>
         </div>
 
@@ -472,19 +448,9 @@ border-radius: 10px;
         <label for="">Cast<c></c></label>
         <select name="std_cast" id="std_cast"  data-control="select2" value=""  data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
-           <option value="Brahmin">Brahmin</option>
-  <option value="Kshatriya">Kshatriya</option>
-  <option value="Vaishya">Vaishya</option>
-  <option value="Shudra">Shudra</option>
-  <option value="Kayastha">Kayastha</option>
-  <option value="Baniya">Baniya</option>
-  <option value="Agrawal">Agrawal</option>
-  <option value="Jat">Jat</option>
-  <option value="Yadav">Yadav</option>
-  <option value="Rajput">Rajput</option>
-  <option value="Maratha">Maratha</option>
-  <option value="Patel">Patel</option>
-  <option value="Lohana">Lohana</option>
+           <?php foreach ($cast_types as $cast_types): ?>
+        <option value="<?php echo $cast_types->id; ?>"><?php echo $cast_types->cast; ?></option>
+    <?php endforeach; ?>
            </select>
          </div>
 </div>
@@ -493,28 +459,9 @@ border-radius: 10px;
         <label for="">SubCast<c></c></label>
         <select name="std_subcast" id="std_subcast" value=""   data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
-           <optgroup label="Brahmin">
-      <option value="Saraswat">Saraswat</option>
-      <option value="Gaur">Gaur</option>
-      <option value="Kanyakubja">Kanyakubja</option>
-      <option value="Sanadya">Sanadya</option>
-      <option value="Tyagi">Tyagi</option>
-  </optgroup>
-  <optgroup label="Kshatriya">
-      <option value="Rajput">Rajput</option>
-      <option value="Jat">Jat</option>
-      <option value="Maratha">Maratha</option>
-  </optgroup>
-  <optgroup label="Vaishya">
-      <option value="Baniya">Baniya</option>
-      <option value="Agrawal">Agrawal</option>
-      <option value="Lohana">Lohana</option>
-  </optgroup>
-  <optgroup label="Shudra">
-      <option value="Teli">Teli</option>
-      <option value="Koli">Koli</option>
-      <option value="Dhobi">Dhobi</option>
-  </optgroup>
+           <?php foreach ($subcast_types as $subcast_types): ?>
+        <option value="<?php echo $subcast_types->id; ?>"><?php echo $subcast_types->subcast; ?></option>
+    <?php endforeach; ?>
            </select>
          </div>
          
@@ -538,76 +485,27 @@ border-radius: 10px;
            <label for="">Applied For<c></c></label>
            <select name="std_appliedfor" id="std_appliedfor" value=""  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
-           <option value="Artificial Intelligence">Artificial Intelligence</option>
-  <option value="Machine Learning">Machine Learning</option>
-  <option value="Data Science">Data Science</option>
-  <option value="Business Analytics">Business Analytics</option>
-  <option value="Finance">Finance</option>
-  <option value="Marketing">Marketing</option>
-  <option value="Operations">Operations</option>
-  <option value="Healthcare">Healthcare</option>
-  <option value="Environmental Science">Environmental Science</option>
-  <option value="Energy">Energy</option>
-  <option value="Environmental Engineering">Environmental Engineering</option>
-  <option value="Urban Planning">Urban Planning</option>
-  <option value="Public Policy">Public Policy</option>
-  <option value="Education">Education</option>
-  <option value="Human Resources">Human Resources</option>
-  <option value="Sports Management">Sports Management</option>
-  <option value="Project Management">Project Management</option>
+           <?php foreach ($appliedfor_types as $appliedfor_types): ?>
+        <option value="<?php echo $appliedfor_types->id; ?>"><?php echo $appliedfor_types->applied; ?></option>
+    <?php endforeach; ?>
            </select>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group gap  custom-dropdown  mt-0">
         <label for="">Qualification<c></c></label>
             <select name="std_qualification" id="std_qualification" value=""  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker" >
                     <option selected disabled  value="0"></option>
-                    <option value="High School">High School</option>
-  <option value="Associate's Degree">Associate's Degree</option>
-  <option value="Bachelor's Degree">Bachelor's Degree</option>
-  <option value="Master's Degree">Master's Degree</option>
-  <option value="Doctorate Degree">Doctorate Degree</option>
-  <option value="Certificate">Certificate</option>
-  <option value="Diploma">Diploma</option>
-  <option value="Postgraduate Diploma">Postgraduate Diploma</option>
+                    <?php foreach ($qualification_types as $qualification_types): ?>
+        <option value="<?php echo $qualification_types->id; ?>"><?php echo $qualification_types->qualification; ?></option>
+    <?php endforeach; ?>
              </select>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group  custom-dropdown  mt-0">
            <label for="">Department<c></c></label>
            <select name="std_department" id="std_department" value=""  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
-           <option value="Computer Science">Computer Science</option>
-  <option value="Electronics">Electronics</option>
-  <option value="Mechanical">Mechanical</option>
-  <option value="Electrical">Electrical</option>
-  <option value="Civil">Civil</option>
-  <option value="Chemical">Chemical</option>
-  <option value="Industrial">Industrial</option>
-  <option value="Environmental">Environmental</option>
-  <option value="Aerospace">Aerospace</option>
-  <option value="Materials Science">Materials Science</option>
-  <option value="Nuclear">Nuclear</option>
-  <option value="Petroleum">Petroleum</option>
-  <option value="Mining">Mining</option>
-  <option value="Marine">Marine</option>
-  <option value="Geological">Geological</option>
-  <option value="Geo-informatics">Geo-informatics</option>
-  <option value="Geotechnical">Geotechnical</option>
-  <option value="Physics">Physics</option>
-  <option value="Mathematics">Mathematics</option>
-  <option value="Statistics">Statistics</option>
-  <option value="Biology">Biology</option>
-  <option value="Chemistry">Chemistry</option>
-  <option value="Arts">Arts</option>
-  <option value="Humanities">Humanities</option>
-  <option value="Social Science">Social Science</option>
-  <option value="Psychology">Psychology</option>
-  <option value="Economics">Economics</option>
-  <option value="Law">Law</option>
-  <option value="Education">Education</option>
-  <option value="Political Science">Political Science</option>
-  <option value="Sociology">Sociology</option>
-  <option value="Philosophy">Philosophy</option>
-  <option value="Journalism">Journalism</option>
+           <?php foreach ($department_types as $department_types): ?>
+        <option value="<?php echo $department_types->id; ?>"><?php echo $department_types->department; ?></option>
+    <?php endforeach; ?>
            </select>
        </div>
 </div>
@@ -616,23 +514,9 @@ border-radius: 10px;
            <label for="">Branch<c></c></label>
            <select name="std_branch" id="std_branch" value=""   data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
-           <option value="Computer Science">Computer Science</option>
-  <option value="Electronics">Electronics</option>
-  <option value="Mechanical">Mechanical</option>
-  <option value="Electrical">Electrical</option>
-  <option value="Civil">Civil</option>
-  <option value="Chemical">Chemical</option>
-  <option value="Industrial">Industrial</option>
-  <option value="Environmental">Environmental</option>
-  <option value="Aerospace">Aerospace</option>
-  <option value="Materials Science">Materials Science</option>
-  <option value="Nuclear">Nuclear</option>
-  <option value="Petroleum">Petroleum</option>
-  <option value="Mining">Mining</option>
-  <option value="Marine">Marine</option>
-  <option value="Geological">Geological</option>
-  <option value="Geo-informatics">Geo-informatics</option>
-  <option value="Geotechnical">Geotechnical</option>
+           <?php foreach ($branch_types as $branch_types): ?>
+        <option value="<?php echo $branch_types->id; ?>"><?php echo $branch_types->branch; ?></option>
+    <?php endforeach; ?>
           </select>
        </div>
        <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group gap  mt-0">
@@ -643,15 +527,9 @@ border-radius: 10px;
            <label for="">Degree<c></c></label>
            <select name="std_degree" id="std_degree"  value=""  data-control="select2"  data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
-           <option value="BASc">Bachelor Of Applied Science</option>
-           <option value="BA">Bachelor Of Arts </option>
-            <option value="BBA">Bachelor Of Business Administration</option>
-            <option value="BS(Econ)">Bachelor Of Economics</option>
-            <option value="BMS">Bachelor Of Management Studies </option>
-            <option value="BSC">Bachelor Of Science</option>
-            <option value="Bcom"> Bachelor Of Commerce</option>
-            <option value="BCS">Bachelor Of Computer Science</option>
-            <option value="BEng">Bachelor Of Engineering </option>
+           <?php foreach ($degree_types as $degree_types): ?>
+        <option value="<?php echo $degree_types->id; ?>"><?php echo $degree_types->degree; ?></option>
+    <?php endforeach; ?>
            </select>
        </div>
 </div>
@@ -664,17 +542,9 @@ border-radius: 10px;
            <label for="">Master<c></c></label>
            <select name="std_master" id="std_master" value=""   data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
-           <option value="Master of Business Administration (MBA)">Master of Business Administration (MBA)</option>
-  <option value="Master of Science (MS)">Master of Science (MS)</option>
-  <option value="Master of Engineering (MEng)">Master of Engineering (MEng)</option>
-  <option value="Master of Arts (MA)">Master of Arts (MA)</option>
-  <option value="Master of Public Administration (MPA)">Master of Public Administration (MPA)</option>
-  <option value="Master of Education (MEd)">Master of Education (MEd)</option>
-  <option value="Master of Information (MI)">Master of Information (MI)</option>
-  <option value="Master of Computer Science (MCS)">Master of Computer Science (MCS)</option>
-  <option value="Master of Laws (LLM)">Master of Laws (LLM)</option>
-  <option value="Master of Library Science (MLS)">Master of Library Science (MLS)</option>
-  <option value="Master of Public Health (MPH)">Master of Public Health (MPH)</option>
+           <?php foreach ($master_types as $master_types): ?>
+        <option value="<?php echo $master_types->id; ?>"><?php echo $master_types->master; ?></option>
+    <?php endforeach; ?>
            </select>
        </div>
        
@@ -688,301 +558,18 @@ border-radius: 10px;
            <label for="">Country <c></c></label>
            <select name="std_country" id="std_country" value=""  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>      
-    <option value="AF">Afghanistan</option>
-    <option value="AX">Aland Islands</option>
-    <option value="AL">Albania</option>
-    <option value="DZ">Algeria</option>
-    <option value="AS">American Samoa</option>
-    <option value="AD">Andorra</option>
-    <option value="AO">Angola</option>
-    <option value="AI">Anguilla</option>
-    <option value="AQ">Antarctica</option>
-    <option value="AG">Antigua and Barbuda</option>
-    <option value="AR">Argentina</option>
-    <option value="AM">Armenia</option>
-    <option value="AW">Aruba</option>
-    <option value="AU">Australia</option>
-    <option value="AT">Austria</option>
-    <option value="AZ">Azerbaijan</option>
-    <option value="BS">Bahamas</option>
-    <option value="BH">Bahrain</option>
-    <option value="BD">Bangladesh</option>
-    <option value="BB">Barbados</option>
-    <option value="BY">Belarus</option>
-    <option value="BE">Belgium</option>
-    <option value="BZ">Belize</option>
-    <option value="BJ">Benin</option>
-    <option value="BM">Bermuda</option>
-    <option value="BT">Bhutan</option>
-    <option value="BO">Bolivia</option>
-    <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
-    <option value="BA">Bosnia and Herzegovina</option>
-    <option value="BW">Botswana</option>
-    <option value="BV">Bouvet Island</option>
-    <option value="BR">Brazil</option>
-    <option value="IO">British Indian Ocean Territory</option>
-    <option value="BN">Brunei Darussalam</option>
-    <option value="BG">Bulgaria</option>
-    <option value="BF">Burkina Faso</option>
-    <option value="BI">Burundi</option>
-    <option value="KH">Cambodia</option>
-    <option value="CM">Cameroon</option>
-    <option value="CA">Canada</option>
-    <option value="CV">Cape Verde</option>
-    <option value="KY">Cayman Islands</option>
-    <option value="CF">Central African Republic</option>
-    <option value="TD">Chad</option>
-    <option value="CL">Chile</option>
-    <option value="CN">China</option>
-    <option value="CX">Christmas Island</option>
-    <option value="CC">Cocos (Keeling) Islands</option>
-    <option value="CO">Colombia</option>
-    <option value="KM">Comoros</option>
-    <option value="CG">Congo</option>
-    <option value="CD">Congo, Democratic Republic of the Congo</option>
-    <option value="CK">Cook Islands</option>
-    <option value="CR">Costa Rica</option>
-    <option value="CI">Cote D'Ivoire</option>
-    <option value="HR">Croatia</option>
-    <option value="CU">Cuba</option>
-    <option value="CW">Curacao</option>
-    <option value="CY">Cyprus</option>
-    <option value="CZ">Czech Republic</option>
-    <option value="DK">Denmark</option>
-    <option value="DJ">Djibouti</option>
-    <option value="DM">Dominica</option>
-    <option value="DO">Dominican Republic</option>
-    <option value="EC">Ecuador</option>
-    <option value="EG">Egypt</option>
-    <option value="SV">El Salvador</option>
-    <option value="GQ">Equatorial Guinea</option>
-    <option value="ER">Eritrea</option>
-    <option value="EE">Estonia</option>
-    <option value="ET">Ethiopia</option>
-    <option value="FK">Falkland Islands (Malvinas)</option>
-    <option value="FO">Faroe Islands</option>
-    <option value="FJ">Fiji</option>
-    <option value="FI">Finland</option>
-    <option value="FR">France</option>
-    <option value="GF">French Guiana</option>
-    <option value="PF">French Polynesia</option>
-    <option value="TF">French Southern Territories</option>
-    <option value="GA">Gabon</option>
-    <option value="GM">Gambia</option>
-    <option value="GE">Georgia</option>
-    <option value="DE">Germany</option>
-    <option value="GH">Ghana</option>
-    <option value="GI">Gibraltar</option>
-    <option value="GR">Greece</option>
-    <option value="GL">Greenland</option>
-    <option value="GD">Grenada</option>
-    <option value="GP">Guadeloupe</option>
-    <option value="GU">Guam</option>
-    <option value="GT">Guatemala</option>
-    <option value="GG">Guernsey</option>
-    <option value="GN">Guinea</option>
-    <option value="GW">Guinea-Bissau</option>
-    <option value="GY">Guyana</option>
-    <option value="HT">Haiti</option>
-    <option value="HM">Heard Island and Mcdonald Islands</option>
-    <option value="VA">Holy See (Vatican City State)</option>
-    <option value="HN">Honduras</option>
-    <option value="HK">Hong Kong</option>
-    <option value="HU">Hungary</option>
-    <option value="IS">Iceland</option>
-    <option value="IN">India</option>
-    <option value="ID">Indonesia</option>
-    <option value="IR">Iran, Islamic Republic of</option>
-    <option value="IQ">Iraq</option>
-    <option value="IE">Ireland</option>
-    <option value="IM">Isle of Man</option>
-    <option value="IL">Israel</option>
-    <option value="IT">Italy</option>
-    <option value="JM">Jamaica</option>
-    <option value="JP">Japan</option>
-    <option value="JE">Jersey</option>
-    <option value="JO">Jordan</option>
-    <option value="KZ">Kazakhstan</option>
-    <option value="KE">Kenya</option>
-    <option value="KI">Kiribati</option>
-    <option value="KP">Korea, Democratic People's Republic of</option>
-    <option value="KR">Korea, Republic of</option>
-    <option value="XK">Kosovo</option>
-    <option value="KW">Kuwait</option>
-    <option value="KG">Kyrgyzstan</option>
-    <option value="LA">Lao People's Democratic Republic</option>
-    <option value="LV">Latvia</option>
-    <option value="LB">Lebanon</option>
-    <option value="LS">Lesotho</option>
-    <option value="LR">Liberia</option>
-    <option value="LY">Libyan Arab Jamahiriya</option>
-    <option value="LI">Liechtenstein</option>
-    <option value="LT">Lithuania</option>
-    <option value="LU">Luxembourg</option>
-    <option value="MO">Macao</option>
-    <option value="MK">Macedonia, the Former Yugoslav Republic of</option>
-    <option value="MG">Madagascar</option>
-    <option value="MW">Malawi</option>
-    <option value="MY">Malaysia</option>
-    <option value="MV">Maldives</option>
-    <option value="ML">Mali</option>
-    <option value="MT">Malta</option>
-    <option value="MH">Marshall Islands</option>
-    <option value="MQ">Martinique</option>
-    <option value="MR">Mauritania</option>
-    <option value="MU">Mauritius</option>
-    <option value="YT">Mayotte</option>
-    <option value="MX">Mexico</option>
-    <option value="FM">Micronesia, Federated States of</option>
-    <option value="MD">Moldova, Republic of</option>
-    <option value="MC">Monaco</option>
-    <option value="MN">Mongolia</option>
-    <option value="ME">Montenegro</option>
-    <option value="MS">Montserrat</option>
-    <option value="MA">Morocco</option>
-    <option value="MZ">Mozambique</option>
-    <option value="MM">Myanmar</option>
-    <option value="NA">Namibia</option>
-    <option value="NR">Nauru</option>
-    <option value="NP">Nepal</option>
-    <option value="NL">Netherlands</option>
-    <option value="AN">Netherlands Antilles</option>
-    <option value="NC">New Caledonia</option>
-    <option value="NZ">New Zealand</option>
-    <option value="NI">Nicaragua</option>
-    <option value="NE">Niger</option>
-    <option value="NG">Nigeria</option>
-    <option value="NU">Niue</option>
-    <option value="NF">Norfolk Island</option>
-    <option value="MP">Northern Mariana Islands</option>
-    <option value="NO">Norway</option>
-    <option value="OM">Oman</option>
-    <option value="PK">Pakistan</option>
-    <option value="PW">Palau</option>
-    <option value="PS">Palestinian Territory, Occupied</option>
-    <option value="PA">Panama</option>
-    <option value="PG">Papua New Guinea</option>
-    <option value="PY">Paraguay</option>
-    <option value="PE">Peru</option>
-    <option value="PH">Philippines</option>
-    <option value="PN">Pitcairn</option>
-    <option value="PL">Poland</option>
-    <option value="PT">Portugal</option>
-    <option value="PR">Puerto Rico</option>
-    <option value="QA">Qatar</option>
-    <option value="RE">Reunion</option>
-    <option value="RO">Romania</option>
-    <option value="RU">Russian Federation</option>
-    <option value="RW">Rwanda</option>
-    <option value="BL">Saint Barthelemy</option>
-    <option value="SH">Saint Helena</option>
-    <option value="KN">Saint Kitts and Nevis</option>
-    <option value="LC">Saint Lucia</option>
-    <option value="MF">Saint Martin</option>
-    <option value="PM">Saint Pierre and Miquelon</option>
-    <option value="VC">Saint Vincent and the Grenadines</option>
-    <option value="WS">Samoa</option>
-    <option value="SM">San Marino</option>
-    <option value="ST">Sao Tome and Principe</option>
-    <option value="SA">Saudi Arabia</option>
-    <option value="SN">Senegal</option>
-    <option value="RS">Serbia</option>
-    <option value="CS">Serbia and Montenegro</option>
-    <option value="SC">Seychelles</option>
-    <option value="SL">Sierra Leone</option>
-    <option value="SG">Singapore</option>
-    <option value="SX">Sint Maarten</option>
-    <option value="SK">Slovakia</option>
-    <option value="SI">Slovenia</option>
-    <option value="SB">Solomon Islands</option>
-    <option value="SO">Somalia</option>
-    <option value="ZA">South Africa</option>
-    <option value="GS">South Georgia and the South Sandwich Islands</option>
-    <option value="SS">South Sudan</option>
-    <option value="ES">Spain</option>
-    <option value="LK">Sri Lanka</option>
-    <option value="SD">Sudan</option>
-    <option value="SR">Suriname</option>
-    <option value="SJ">Svalbard and Jan Mayen</option>
-    <option value="SZ">Swaziland</option>
-    <option value="SE">Sweden</option>
-    <option value="CH">Switzerland</option>
-    <option value="SY">Syrian Arab Republic</option>
-    <option value="TW">Taiwan, Province of China</option>
-    <option value="TJ">Tajikistan</option>
-    <option value="TZ">Tanzania, United Republic of</option>
-    <option value="TH">Thailand</option>
-    <option value="TL">Timor-Leste</option>
-    <option value="TG">Togo</option>
-    <option value="TK">Tokelau</option>
-    <option value="TO">Tonga</option>
-    <option value="TT">Trinidad and Tobago</option>
-    <option value="TN">Tunisia</option>
-    <option value="TR">Turkey</option>
-    <option value="TM">Turkmenistan</option>
-    <option value="TC">Turks and Caicos Islands</option>
-    <option value="TV">Tuvalu</option>
-    <option value="UG">Uganda</option>
-    <option value="UA">Ukraine</option>
-    <option value="AE">United Arab Emirates</option>
-    <option value="GB">United Kingdom</option>
-    <option value="US">United States</option>
-    <option value="UM">United States Minor Outlying Islands</option>
-    <option value="UY">Uruguay</option>
-    <option value="UZ">Uzbekistan</option>
-    <option value="VU">Vanuatu</option>
-    <option value="VE">Venezuela</option>
-    <option value="VN">Viet Nam</option>
-    <option value="VG">Virgin Islands, British</option>
-    <option value="VI">Virgin Islands, U.s.</option>
-    <option value="WF">Wallis and Futuna</option>
-    <option value="EH">Western Sahara</option>
-    <option value="YE">Yemen</option>
-    <option value="ZM">Zambia</option>
-    <option value="ZW">Zimbabwe</option>  
+           <?php foreach ($country_types as $country_types): ?>
+        <option value="<?php echo $country_types->id; ?>"><?php echo $country_types->country; ?></option>
+    <?php endforeach; ?>
            </select>
        </div>
        <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group gap  custom-dropdown  mt-0">
            <label for="">State<c></c></label>
            <select name="std_state" id="std_state" value=""  class="js-states form-control">
            <option selected disabled  value="0"></option>
-           <option value="AN">Andaman and Nicobar Islands</option>
-    <option value="AP">Andhra Pradesh</option>
-    <option value="AR">Arunachal Pradesh</option>
-    <option value="AS">Assam</option>
-    <option value="BR">Bihar</option>
-    <option value="CH">Chandigarh</option>
-    <option value="CT">Chhattisgarh</option>
-    <option value="DN">Dadra and Nagar Haveli</option>
-    <option value="DD">Daman and Diu</option>
-    <option value="DL">Delhi</option>
-    <option value="GA">Goa</option>
-    <option value="GJ">Gujarat</option>
-    <option value="HR">Haryana</option>
-    <option value="HP">Himachal Pradesh</option>
-    <option value="JK">Jammu and Kashmir</option>
-    <option value="JH">Jharkhand</option>
-    <option value="KA">Karnataka</option>
-    <option value="KL">Kerala</option>
-    <option value="LA">Ladakh</option>
-    <option value="LD">Lakshadweep</option>
-    <option value="MP">Madhya Pradesh</option>
-    <option value="MH">Maharashtra</option>
-    <option value="MN">Manipur</option>
-    <option value="ML">Meghalaya</option>
-    <option value="MZ">Mizoram</option>
-    <option value="NL">Nagaland</option>
-    <option value="OR">Odisha</option>
-    <option value="PY">Puducherry</option>
-    <option value="PB">Punjab</option>
-    <option value="RJ">Rajasthan</option>
-    <option value="SK">Sikkim</option>
-    <option value="TN">Tamil Nadu</option>
-    <option value="TG">Telangana</option>
-    <option value="TR">Tripura</option>
-    <option value="UP">Uttar Pradesh</option>
-    <option value="UT">Uttarakhand</option>
-    <option value="WB">West Bengal</option>
+           <?php foreach ($state_types as $state_types): ?>
+        <option value="<?php echo $state_types->id; ?>"><?php echo $state_types->state; ?></option>
+    <?php endforeach; ?>
     
            </select>
        </div>
@@ -991,307 +578,9 @@ border-radius: 10px;
            <label for="">City<c></c></label>
            <select name="std_city" id="std_city" value=""   data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
-    <option value="Achalpur">Achalpur</option>
-    <option value="Ahiri">Ahiri</option>
-    <option value="Ahmadnagar">Ahmadnagar</option>
-    <option value="Ahmadpur">Ahmadpur</option>
-    <option value="Airoli">Airoli</option>
-    <option value="Ajra">Ajra</option>
-    <option value="Akalkot">Akalkot</option>
-    <option value="Akola">Akola</option>
-    <option value="Akot">Akot</option>
-    <option value="Alandi">Alandi</option>
-    <option value="Alibag">Alibag</option>
-    <option value="Allapalli">Allapalli</option>
-    <option value="Amalner">Amalner</option>
-    <option value="Amarnath">Amarnath</option>
-    <option value="Ambad">Ambad</option>
-    <option value="Ambajogai">Ambajogai</option>
-    <option value="Amravati">Amravati</option>
-    <option value="Amravati Division">Amravati Division</option>
-    <option value="Anjangaon">Anjangaon</option>
-    <option value="Anshing">Anshing</option>
-    <option value="Arangaon">Arangaon</option>
-    <option value="Artist Village">Artist Village</option>
-    <option value="Arvi">Arvi</option>
-    <option value="Ashta">Ashta</option>
-    <option value="Ashti">Ashti</option>
-    <option value="Aurangabad">Aurangabad</option>
-    <option value="Ausa">Ausa</option>
-    <option value="Badlapur">Badlapur</option>
-    <option value="Balapur">Balapur</option>
-    <option value="Ballalpur">Ballalpur</option>
-    <option value="Baramati">Baramati</option>
-    <option value="Barsi">Barsi</option>
-    <option value="Basmat">Basmat</option>
-    <option value="Beed">Beed</option>
-    <option value="Bhandara">Bhandara</option>
-    <option value="Bhayandar">Bhayandar</option>
-    <option value="Bhigvan">Bhigvan</option>
-    <option value="Bhiwandi">Bhiwandi</option>
-    <option value="Bhor">Bhor</option>
-    <option value="Bhudgaon">Bhudgaon</option>
-    <option value="Bhum">Bhum</option>
-    <option value="Bhusaval">Bhusaval</option>
-    <option value="Bid">Bid</option>
-    <option value="Biloli">Biloli</option>
-    <option value="Boisar">Boisar</option>
-    <option value="Borivli">Borivli</option>
-    <option value="Buldana">Buldana</option>
-    <option value="Chakan">Chakan</option>
-    <option value="Chalisgaon">Chalisgaon</option>
-    <option value="Chanda">Chanda</option>
-    <option value="Chandor">Chandor</option>
-    <option value="Chandrapur">Chandrapur</option>
-    <option value="Chandur">Chandur</option>
-    <option value="Chandur Bazar">Chandur Bazar</option>
-    <option value="Chicholi">Chicholi</option>
-    <option value="Chikhli">Chikhli</option>
-    <option value="Chinchani">Chinchani</option>
-    <option value="Chiplun">Chiplun</option>
-    <option value="Chopda">Chopda</option>
-    <option value="Dabhol">Dabhol</option>
-    <option value="Dahanu">Dahanu</option>
-    <option value="Darwha">Darwha</option>
-    <option value="Daryapur">Daryapur</option>
-    <option value="Dattapur">Dattapur</option>
-    <option value="Daulatabad">Daulatabad</option>
-    <option value="Daund">Daund</option>
-    <option value="Dehu">Dehu</option>
-    <option value="Deolali">Deolali</option>
-    <option value="Deoli">Deoli</option>
-    <option value="Deulgaon Raja">Deulgaon Raja</option>
-    <option value="Dharangaon">Dharangaon</option>
-    <option value="Dharmabad">Dharmabad</option>
-    <option value="Dharur">Dharur</option>
-    <option value="Dhule">Dhule</option>
-    <option value="Dhulia">Dhulia</option>
-    <option value="Diglur">Diglur</option>
-    <option value="Digras">Digras</option>
-    <option value="Dombivli">Dombivli</option>
-    <option value="Dondaicha">Dondaicha</option>
-    <option value="Dudhani">Dudhani</option>
-    <option value="Durgapur">Durgapur</option>
-    <option value="Erandol">Erandol</option>
-    <option value="Faizpur">Faizpur</option>
-    <option value="Gadchiroli">Gadchiroli</option>
-    <option value="Gadhinglaj">Gadhinglaj</option>
-    <option value="Gangakher">Gangakher</option>
-    <option value="Gangapur">Gangapur</option>
-    <option value="Gevrai">Gevrai</option>
-    <option value="Ghatanji">Ghatanji</option>
-    <option value="Ghoti Budrukh">Ghoti Budrukh</option>
-    <option value="Ghugus">Ghugus</option>
-    <option value="Gondiya">Gondiya</option>
-    <option value="Goregaon">Goregaon</option>
-    <option value="Guhagar">Guhagar</option>
-    <option value="Hadgaon">Hadgaon</option>
-    <option value="Harnai">Harnai</option>
-    <option value="Hinganghat">Hinganghat</option>
-    <option value="Hingoli">Hingoli</option>
-    <option value="Hirapur Hamesha">Hirapur Hamesha</option>
-    <option value="Ichalkaranji">Ichalkaranji</option>
-    <option value="Igatpuri">Igatpuri</option>
-    <option value="Indapur">Indapur</option>
-    <option value="Jaisingpur">Jaisingpur</option>
-    <option value="Jalgaon">Jalgaon</option>
-    <option value="Jalgaon Jamod">Jalgaon Jamod</option>
-    <option value="Jalna">Jalna</option>
-    <option value="Jawhar">Jawhar</option>
-    <option value="Jejuri">Jejuri</option>
-    <option value="Jintur">Jintur</option>
-    <option value="Junnar">Junnar</option>
-    <option value="Kagal">Kagal</option>
-    <option value="Kalamb">Kalamb</option>
-    <option value="Kalamnuri">Kalamnuri</option>
-    <option value="Kalas">Kalas</option>
-    <option value="Kalmeshwar">Kalmeshwar</option>
-    <option value="Kalundri">Kalundri</option>
-    <option value="Kalyan">Kalyan</option>
-    <option value="Kamthi">Kamthi</option>
-    <option value="Kandri">Kandri</option>
-    <option value="Kankauli">Kankauli</option>
-    <option value="Kannad">Kannad</option>
-    <option value="Karad">Karad</option>
-    <option value="Karanja">Karanja</option>
-    <option value="Karjat">Karjat</option>
-    <option value="Karmala">Karmala</option>
-    <option value="Kati">Kati</option>
-    <option value="Katol">Katol</option>
-    <option value="Khadki">Khadki</option>
-    <option value="Khamgaon">Khamgaon</option>
-    <option value="Khapa">Khapa</option>
-    <option value="Kharakvasla">Kharakvasla</option>
-    <option value="Khed">Khed</option>
-    <option value="Khetia">Khetia</option>
-    <option value="Khopoli">Khopoli</option>
-    <option value="Khuldabad">Khuldabad</option>
-    <option value="Kinwat">Kinwat</option>
-    <option value="Kodoli">Kodoli</option>
-    <option value="Kolhapur">Kolhapur</option>
-    <option value="Kondalwadi">Kondalwadi</option>
-    <option value="Kopargaon">Kopargaon</option>
-    <option value="Koradi">Koradi</option>
-    <option value="Koregaon">Koregaon</option>
-    <option value="Koynanagar">Koynanagar</option>
-    <option value="Kudal">Kudal</option>
-    <option value="Kurandvad">Kurandvad</option>
-    <option value="Kurduvadi">Kurduvadi</option>
-    <option value="Lanja">Lanja</option>
-    <option value="Lasalgaon">Lasalgaon</option>
-    <option value="Latur">Latur</option>
-    <option value="Lohogaon">Lohogaon</option>
-    <option value="Lonar">Lonar</option>
-    <option value="Lonavla">Lonavla</option>
-    <option value="Mahabaleshwar">Mahabaleshwar</option>
-    <option value="Mahad">Mahad</option>
-    <option value="Maindargi">Maindargi</option>
-    <option value="Majalgaon">Majalgaon</option>
-    <option value="Makhjan">Makhjan</option>
-    <option value="Malegaon">Malegaon</option>
-    <option value="Malkapur">Malkapur</option>
-    <option value="Malvan">Malvan</option>
-    <option value="Manchar">Manchar</option>
-    <option value="Mangrul Pir">Mangrul Pir</option>
-    <option value="Manmad">Manmad</option>
-    <option value="Manor">Manor</option>
-    <option value="Mansar">Mansar</option>
-    <option value="Manwat">Manwat</option>
-    <option value="Matheran">Matheran</option>
-    <option value="Mehekar">Mehekar</option>
-    <option value="Mhasla">Mhasla</option>
-    <option value="Mhasvad">Mhasvad</option>
-    <option value="Mohpa">Mohpa</option>
-    <option value="Moram">Moram</option>
-    <option value="Morsi">Morsi</option>
-    <option value="Mowad">Mowad</option>
-    <option value="Mudkhed">Mudkhed</option>
-    <option value="Mukher">Mukher</option>
-    <option value="Mul">Mul</option>
-    <option value="Mumbai">Mumbai</option>
-    <option value="Mumbai Suburban">Mumbai Suburban</option>
-    <option value="Murbad">Murbad</option>
-    <option value="Murgud">Murgud</option>
-    <option value="Murtajapur">Murtajapur</option>
-    <option value="Murud">Murud</option>
-    <option value="Nagothana">Nagothana</option>
-    <option value="Nagpur">Nagpur</option>
-    <option value="Nagpur Division">Nagpur Division</option>
-    <option value="Naldurg">Naldurg</option>
-    <option value="Nanded">Nanded</option>
-    <option value="Nandgaon">Nandgaon</option>
-    <option value="Nandura Buzurg">Nandura Buzurg</option>
-    <option value="Nandurbar">Nandurbar</option>
-    <option value="Nashik">Nashik</option>
-    <option value="Nashik Division">Nashik Division</option>
-    <option value="Navi Mumbai">Navi Mumbai</option>
-    <option value="Neral">Neral</option>
-    <option value="Nilanga">Nilanga</option>
-    <option value="Nipani">Nipani</option>
-    <option value="Osmanabad">Osmanabad</option>
-    <option value="Ozar">Ozar</option>
-    <option value="Pachora">Pachora</option>
-    <option value="Paithan">Paithan</option>
-    <option value="Palghar">Palghar</option>
-    <option value="Panchgani">Panchgani</option>
-    <option value="Pandharpur">Pandharpur</option>
-    <option value="Panhala">Panhala</option>
-    <option value="Panvel">Panvel</option>
-    <option value="Parbhani">Parbhani</option>
-    <option value="Parli Vaijnath">Parli Vaijnath</option>
-    <option value="Parola">Parola</option>
-    <option value="Partur">Partur</option>
-    <option value="Patan">Patan</option>
-    <option value="Pathardi">Pathardi</option>
-    <option value="Pathri">Pathri</option>
-    <option value="Patur">Patur</option>
-    <option value="Pawni">Pawni</option>
-    <option value="Pen">Pen</option>
-    <option value="Phaltan">Phaltan</option>
-    <option value="Pimpri">Pimpri</option>
-    <option value="Pipri">Pipri</option>
-    <option value="Powai">Powai</option>
-    <option value="Pulgaon">Pulgaon</option>
-    <option value="Pune">Pune</option>
-    <option value="Pune Division">Pune Division</option>
-    <option value="Purna">Purna</option>
-    <option value="Pusad">Pusad</option>
-    <option value="Rahimatpur">Rahimatpur</option>
-    <option value="Rahuri">Rahuri</option>
-    <option value="Raigarh">Raigarh</option>
-    <option value="Rajapur">Rajapur</option>
-    <option value="Rajgurunagar">Rajgurunagar</option>
-    <option value="Rajur">Rajur</option>
-    <option value="Rajura">Rajura</option>
-    <option value="Ramtek">Ramtek</option>
-    <option value="Ratnagiri">Ratnagiri</option>
-    <option value="Raver">Raver</option>
-    <option value="Revadanda">Revadanda</option>
-    <option value="Risod">Risod</option>
-    <option value="Roha">Roha</option>
-    <option value="Sangamner">Sangamner</option>
-    <option value="Sangli">Sangli</option>
-    <option value="Sangola">Sangola</option>
-    <option value="Saoner">Saoner</option>
-    <option value="Sasvad">Sasvad</option>
-    <option value="Satana">Satana</option>
-    <option value="Satara">Satara</option>
-    <option value="Satara Division">Satara Division</option>
-    <option value="Savantvadi">Savantvadi</option>
-    <option value="Savda">Savda</option>
-    <option value="Selu">Selu</option>
-    <option value="Shahada">Shahada</option>
-    <option value="Shahapur">Shahapur</option>
-    <option value="Shegaon">Shegaon</option>
-    <option value="Shiraguppi">Shiraguppi</option>
-    <option value="Shirdi">Shirdi</option>
-    <option value="Shirgaon">Shirgaon</option>
-    <option value="Shirpur">Shirpur</option>
-    <option value="Shirwal">Shirwal</option>
-    <option value="Shivaji Nagar">Shivaji Nagar</option>
-    <option value="Shrigonda">Shrigonda</option>
-    <option value="Sillod">Sillod</option>
-    <option value="Sindhudurg">Sindhudurg</option>
-    <option value="Sindi">Sindi</option>
-    <option value="Sinnar">Sinnar</option>
-    <option value="Sirur">Sirur</option>
-    <option value="Solapur">Solapur</option>
-    <option value="Sonegaon">Sonegaon</option>
-    <option value="Soygaon">Soygaon</option>
-    <option value="Srivardhan">Srivardhan</option>
-    <option value="Surgana">Surgana</option>
-    <option value="Talegaon Dabhade">Talegaon Dabhade</option>
-    <option value="Taloda">Taloda</option>
-    <option value="Tarapur">Tarapur</option>
-    <option value="Tasgaon">Tasgaon</option>
-    <option value="Telhara">Telhara</option>
-    <option value="Thane">Thane</option>
-    <option value="Trimbak">Trimbak</option>
-    <option value="Tuljapur">Tuljapur</option>
-    <option value="Tumsar">Tumsar</option>
-    <option value="Udgir">Udgir</option>
-    <option value="Ulhasnagar">Ulhasnagar</option>
-    <option value="Umarga">Umarga</option>
-    <option value="Umarkhed">Umarkhed</option>
-    <option value="Umred">Umred</option>
-    <option value="Uran">Uran</option>
-    <option value="Vada">Vada</option>
-    <option value="Vaijapur">Vaijapur</option>
-    <option value="Varangaon">Varangaon</option>
-    <option value="Vasind">Vasind</option>
-    <option value="Vengurla">Vengurla</option>
-    <option value="Virar">Virar</option>
-    <option value="Vite">Vite</option>
-    <option value="Wadgaon">Wadgaon</option>
-    <option value="Wai">Wai</option>
-    <option value="Wani">Wani</option>
-    <option value="Wardha">Wardha</option>
-    <option value="Warora">Warora</option>
-    <option value="Warud">Warud</option>
-    <option value="Washim">Washim</option>
-    <option value="Yaval">Yaval</option>
-    <option value="Yavatmal">Yavatmal</option>
-    <option value="Yeola">Yeola</option>
+           <?php foreach ($city_types as $city_types): ?>
+        <option value="<?php echo $city_types->id; ?>"><?php echo $city_types->city; ?></option>
+    <?php endforeach; ?>
            </select>
        </div>
 </div>
@@ -1310,87 +599,33 @@ border-radius: 10px;
     
 <div class="col-xs-4 col-sm-4 col-md-12 col-lg-9 form-group  custom-dropdown ">
            <label for="">Hobbies<c></c></label>
-           <select name="std_hobbies" id="std_hobbies" value=""  class="js-states form-control" multiple="multiple">
+           <select name="std_hobbies[]" id="std_hobbies" value=""  class="js-states form-control" multiple="multiple">
            <!-- <option selected disabled  value="0"></option> -->
-           <option value="reading">Reading</option>
-  <option value="writing">Writing</option>
-  <option value="photography">Photography</option>
-  <option value="drawing">Drawing</option>
-  <option value="painting">Painting</option>
-  <option value="traveling">Traveling</option>
-  <option value="hiking">Hiking</option>
-  <option value="camping">Camping</option>
-  <option value="gardening">Gardening</option>
-  <option value="fishing">Fishing</option>
-  <option value="hunting">Hunting</option>
-  <option value="cooking">Cooking</option>
-  <option value="baking">Baking</option>
-  <option value="dancing">Dancing</option>
-  <option value="yoga">Yoga</option>
-  <option value="meditation">Meditation</option>
-  <option value="fitness">Fitness</option>
-  <option value="running">Running</option>
-  <option value="swimming">Swimming</option>
-  <option value="cycling">Cycling</option>
-  <option value="skiing">Skiing</option>
-  <option value="snowboarding">Snowboarding</option>
-  <option value="surfing">
+           <?php foreach ($hobbie_types as $hobbie_types): ?>
+        <option value="<?php echo $hobbie_types->id; ?>"><?php echo $hobbie_types->hobbie; ?></option>
+    <?php endforeach; ?>
            </select>
        </div>
 </div>
 <div class="row p-3">
 <div class="col-xs-4 col-sm-4 col-md-12 col-lg-9 form-group   custom-dropdown">
            <label for="">Skills<c></c></label>
-           <select name="std_skills" id="std_skills" value=""  class="js-states form-control" multiple="multiple">
+           <select name="std_skills[]" id="std_skills" value=""  class="js-states form-control" multiple="multiple">
            <!-- <option selected disabled  value="0"></option> -->
-           <option value="programming">Programming</option>
-  <option value="web development">Web development</option>
-  <option value="data analysis">Data analysis</option>
-  <option value="project management">Project management</option>
-  <option value="digital marketing">Digital marketing</option>
-  <option value="graphic design">Graphic design</option>
-  <option value="writing">Writing</option>
-  <option value="editing">Editing</option>
-  <option value="public speaking">Public speaking</option>
-  <option value="market research">Market research</option>
-  <option value="sales">Sales</option>
-  <option value="customer service">Customer service</option>
-  <option value="accounting">Accounting</option>
-  <option value="finance">Finance</option>
-  <option value="human resources">Human resources</option>
-  <option value="legal">Legal</option>
-  <option value="teaching">Teaching</option>
-  <option value="translating">Translating</option>
-  <option value="interpretation">Interpretation</option>
-  <option value="medical billing">Medical billing</option>
-  <option value="nursing">Nursing</option>
-  <option value="medicine">Medicine</option>
-  <option value="IT support">IT support</option>
-  <option value="network administration">Network administration</option>
-  <option value="cybersecurity">Cybersecurity</option>
-  <option value="cloud computing">Cloud computing</option>
+           <?php foreach ($skill_types as $skill_types): ?>
+        <option value="<?php echo $skill_types->id; ?>"><?php echo $skill_types->skill; ?></option>
+    <?php endforeach; ?>
            </select>
        </div> 
 </div>
 <div class="row p-3">
 <div class="col-xs-8 col-sm-8 col-md-12 col-lg-9 form-group custom-dropdown  mt-0">
            <label for="">Cerifications<c></c></label>
-           <select name="std_certification" id="std_certification" value=""  class="js-states form-control" multiple="multiple">
+           <select name="std_certification[]" id="std_certification" value=""  class="js-states form-control" multiple="multiple">
            <!-- <option selected disabled  value="0"></option> -->
-           <option value="PMP">Project Management Professional (PMP)</option>
-  <option value="CISSP">Certified Information Systems Security Professional (CISSP)</option>
-  <option value="ITIL">ITIL Foundation</option>
-  <option value="CISM">Certified Information Security Manager (CISM)</option>
-  <option value="CEH">Certified Ethical Hacker (CEH)</option>
-  <option value="MCSA">Microsoft Certified Solutions Associate (MCSA)</option>
-  <option value="MCSD">Microsoft Certified Solutions Developer (MCSD)</option>
-  <option value="MCSE">Microsoft Certified Solutions Expert (MCSE)</option>
-  <option value="CCNA">Cisco Certified Network Associate (CCNA)</option>
-  <option value="CCNP">Cisco Certified Network Professional (CCNP)</option>
-  <option value="CCIE">Cisco Certified Internetwork Expert (CCIE)</option>
-  <option value="AWS">Amazon Web Services (AWS) Certified</option>
-  <option value="Google Cloud">Google Cloud Certified</option>
-  <option value="CPA">Certified Public Accountant (CPA)</option>
+           <?php foreach ($cerification_types as $cerification_types): ?>
+        <option value="<?php echo $cerification_types->id; ?>"><?php echo $cerification_types->cerification; ?></option>
+    <?php endforeach; ?>
            </select>
        </div>
 </div>

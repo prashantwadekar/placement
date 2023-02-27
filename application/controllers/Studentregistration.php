@@ -35,9 +35,24 @@ class Studentregistration extends CI_Controller {
 	
 	public function create()
 	{
-        
-        $obj='';
-        $data['data']=$obj;
+		$this->load->model('Religion_model');
+    
+        $data['religion_types'] = $this->Religion_model->get_religion_types();
+        $data['cast_types'] = $this->Religion_model->get_cast_types();
+        $data['subcast_types'] = $this->Religion_model->get_subcast_types();
+        $data['appliedfor_types'] = $this->Religion_model->get_appliedfor_types();
+        $data['qualification_types'] = $this->Religion_model->get_qualification_types();
+        $data['department_types'] = $this->Religion_model->get_department_types();
+        $data['branch_types'] = $this->Religion_model->get_branch_types();
+        $data['degree_types'] = $this->Religion_model->get_degree_types();
+        $data['master_types'] = $this->Religion_model->get_master_types();
+        $data['country_types'] = $this->Religion_model->get_country_types();
+        $data['state_types'] = $this->Religion_model->get_state_types();
+        $data['city_types'] = $this->Religion_model->get_city_types();
+        $data['hobbie_types'] = $this->Religion_model->get_hobbie_types();
+        $data['skill_types'] = $this->Religion_model->get_skill_types();
+        $data['cerification_types'] = $this->Religion_model->get_cerification_types();
+
 		$this->load->view('common/header_view');
 		$this->load->view('Studentreg/Registrationview1',$data);
 		$this->load->view('common/footer_view');
@@ -131,9 +146,9 @@ class Studentregistration extends CI_Controller {
       $std_country= $this->input->post('std_country'); 
       $std_state= $this->input->post('std_state');
        $std_city= $this->input->post('std_city'); 
-      $std_certification= $this->input->post('std_certification');
-       $std_hobbies= $this->input->post('std_hobbies'); 
-      $std_skills= $this->input->post('std_skills');
+	  $std_certification = implode(',', $this->input->post('std_certification'));
+	  $std_hobbies = implode(',', $this->input->post('std_hobbies'));
+	  $std_skills = implode(',', $this->input->post('std_skills'));
       $std_address= $this->input->post('std_address');
       $std_adharphoto= $this->input->post('std_adharphoto'); 
      $std_photo= $this->input->post('std_photo');

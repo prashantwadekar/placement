@@ -24,14 +24,21 @@ class Blogs extends CI_Controller {
 
 	// }
     public function create()
-	{
-        $obj='';
-        $data['data']=$obj;
-		$this->load->view('common/header_view');
-		$this->load->view('Blogs/blogscreate_view',$data);
-		$this->load->view('common/footer_view');
+    {
 
-	}
+		$this->load->model('Religion_model');
+
+        $this->load->model('Blog_model');
+    
+        $data['blog_types'] = $this->Blog_model->get_blog_types();
+        $data['blog_department'] = $this->Blog_model->get_blog_departments();
+        $data['keyword_types'] = $this->Religion_model->get_keyword_types();
+
+    
+        $this->load->view('common/header_view');
+        $this->load->view('Blogs/blogscreate_view',$data);
+        $this->load->view('common/footer_view');
+    }
 
     public function publish()
 	{
@@ -52,12 +59,9 @@ class Blogs extends CI_Controller {
      $video_link= $this->input->post('video_link'); 
      $auth_person= $this->input->post('auth_person');
      $blog_dep= $this->input->post('blog_dep'); 
-     $std_photo= $this->input->post('std_photo');
-     $blog_keyword= $this->input->post('blog_keyword'); 
-     $desc= $this->input->post('desc'); 
-   
-
-      
+     $std_photo= $_FILES['std_photo']['name'];
+	  $blog_keyword = implode(',', $this->input->post('blog_keyword'));
+     $editor= $this->input->post('editor');
       
      
        $fields=array('id'=>$id,
@@ -69,7 +73,7 @@ class Blogs extends CI_Controller {
                         'blog_dep'=>$blog_dep,
                         'std_photo'=>$std_photo,
                         'blog_keyword'=>$blog_keyword,
-                        'desc'=>$desc,
+                        'editor'=>$editor,
                                 
              'created_date'=>date('Y-m-d H:i:s'),
              'created_by'=>1);

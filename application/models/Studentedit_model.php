@@ -61,6 +61,14 @@ class Studentedit_model extends CI_Model
 		}
 	}
 	
+	public function coursefetchDataById($id) {
+		$query = $this->db->get_where('addcourse_master', array('id' => $id));
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		} else {
+			return false;
+		}
+	}
 
 	public function update_record($std_id, $data) {
 		$this->db->where('std_id', $std_id);
@@ -106,6 +114,12 @@ class Studentedit_model extends CI_Model
 	 {
 		 $this->db->where('id', $id);
 		 $this->db->update('opening_master', $data);
+		 return true;
+	 }
+	 function courseupdate_student($data, $id)
+	 {
+		 $this->db->where('id', $id);
+		 $this->db->update('addcourse_master', $data);
 		 return true;
 	 }
 

@@ -25,8 +25,20 @@ class Opening extends CI_Controller {
 	}
     public function create()
 	{
+		$this->load->model('Religion_model');
+        $data['qualification_types'] = $this->Religion_model->get_qualification_types();
+		$data['department_types'] = $this->Religion_model->get_department_types();
+        $data['branch_types'] = $this->Religion_model->get_branch_types();
+		$data['degree_types'] = $this->Religion_model->get_degree_types();
+        $data['master_types'] = $this->Religion_model->get_master_types();
+        $data['cmp_types'] = $this->Religion_model->get_cmptype_types();
+        $data['emp_types'] = $this->Religion_model->get_emptype_types();
+        $data['comnames_types'] = $this->Religion_model->get_companynames_types();
+        $data['keyword_types'] = $this->Religion_model->get_keyword_types();
+
+
 		$this->load->view('common/header_view');
-		$this->load->view('Opening/Opening_view');
+		$this->load->view('Opening/Opening_view',$data);
 		$this->load->view('common/footer_view');
 	
 
@@ -93,13 +105,13 @@ class Opening extends CI_Controller {
       $std_dob1= $this->input->post('std_dob1');
       $std_dob2= $this->input->post('std_dob2');
       $std_type= $this->input->post('std_type');
-      $std_keyword= $this->input->post('std_keyword');
+	  $std_keyword = implode(',', $this->input->post('std_keyword'));
       $std_department= $this->input->post('std_department');
       $std_branch= $this->input->post('std_branch');
       $std_mobileno= $this->input->post('std_mobileno');
       $std_email= $this->input->post('std_email');
       $std_applylink= $this->input->post('std_applylink');
-      $std_class= $this->input->post('std_class');
+	  $std_class = implode(',', $this->input->post('std_class'));
       $std_tenper= $this->input->post('std_tenper');
       $std_twper= $this->input->post('std_twper');
       $std_degree= $this->input->post('std_degree');

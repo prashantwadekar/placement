@@ -360,6 +360,8 @@
                         <div class="triangle"></div>
                     </li>
                     <li class="nav-item" data-item="forms"><a class="nav-item-hold" href="#">   <img height="25px" src="<?php echo base_url() ?>Assets\images\programming.png "><span class="nav-text">Master</span></a>
+                    <div class="triangle"></div>
+                    <li class="nav-item" data-item="form"><a class="nav-item-hold" href="#">   <img height="25px" src="<?php echo base_url() ?>Assets\images\programming.png "><span class="nav-text">Master1</span></a>
                         <div class="triangle"></div>
                     </li>
                     <li class="nav-item" data-item="report"><a class="nav-item-hold" href="#">   <img height="25px" src="<?php echo base_url() ?>Assets\images\reportt.png "><span class="nav-text">Report</span></a>
@@ -414,7 +416,11 @@
 
                     <li class="nav-item"><a href="<?=base_url();?>Master/emptype"><i class="fa-lg fas fa-user-tie" aria-hidden="true"></i><span class="item-name">&nbsp;Employee Type</span></a></li>
                     <li class="nav-item"><a href="<?=base_url();?>Master/hobbies"><i class="fa-lg fab fa-slack" aria-hidden="true"></i><span class="item-name">&nbsp;Hobbies</span></a></li>
-                    <li class="nav-item"><a href="<?=base_url();?>Master/keytype"><i class="fa-lg far fa-keyboard" aria-hidden="true"></i><span class="item-name">&nbsp;Keyword Type</span></a></li>
+                 
+                </ul>
+
+                <ul class="childNav"  data-parent="form">
+                <li class="nav-item"><a href="<?=base_url();?>Master/keytype"><i class="fa-lg far fa-keyboard" aria-hidden="true"></i><span class="item-name">&nbsp;Keyword Type</span></a></li>
                     <li class="nav-item"><a href="<?=base_url();?>Master/keyword"><i class="fa-lg fa fas fa-key" aria-hidden="true"></i><span class="item-name">&nbsp;Keyword</span></a></li>
                     <li class="nav-item"><a href="<?=base_url();?>Master/qualification"><i class="fa-lg fas fa-user-graduate" aria-hidden="true"></i><span class="item-name">&nbsp;Qualification</span></a></li>
 
@@ -423,7 +429,6 @@
 
                     <li class="nav-item"><a href="<?=base_url();?>Master/term"><i class="fa-lg fas fa-calendar-alt" aria-hidden="true"></i><span class="item-name">&nbsp;Term</span></a></li>
                 </ul>
-
                 <div class="d-flex" id="wrapper">
     <!-- Sidebar -->
    

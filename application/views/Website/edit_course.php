@@ -3,7 +3,11 @@
 <link rel="stylesheet" href="Assets/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap3.min.css">
 <style>
-  
+  .modal-dialog {
+    max-width: 1450px;
+    margin: 2rem auto;
+}
+
 .fa-file-excel:before {
     content: "\f1c1";
     color: #1d6f42;
@@ -169,9 +173,6 @@ thead {
   background: #fff;
 }
 
-a {
-  color: #73685d;
-}
   
  @media all and (max-width: 768px) {
     
@@ -219,6 +220,8 @@ a {
 }
 
   }
+
+  
     </style>
 </head>
 <body>
@@ -228,7 +231,7 @@ a {
             <div class="main-content">
                 <div class="breadcrumb mt-3">
                 <img height="50px" width="280px" src="<?php echo base_url() ?>Assets\images\ribbon.png ">
-                    <h4>Edit Course</h4>
+                    <h4>Student Edit</h4>
                 </div>
                 <div class="separator-breadcrumb border-top"></div>
                 <div class="row">
@@ -237,97 +240,78 @@ a {
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class=" display nowrapdisplay table table-striped table-bordered" id="example" style="width:100%">
-                                    <thead>
+                                    <thead>	<!-- Button trigger modal -->
                                       <div class="addnewbutton">
                                       <!-- <a href="create"><i class="fas fa-plus-circle animtxt" aria-hidden="true"></i>&nbsp;Add New</a> -->
-                                      <button type="button" class=" btn Addnew"><a href="course"><i class="fas fa-plus-circle animtxt" aria-hidden="true"></i>&nbsp;Add New</a></button>
+                                      <button type="button" class=" btn Addnew"><a href="create"><i class="fas fa-plus-circle animtxt" aria-hidden="true"></i>&nbsp;Add New</a></button>
                                       </div>
             <tr>
-            <th>Action</th>
-              <th>Sr.No</th>            
-                <th> Department</th>
-                <th>Branch</th>
-                <th>Course Name</th>
-                <th>Duration</th>
-                <th>Description</th>
-                <th>Language</th>
-                <th>Course Image</th>
-
-                
-                
-                
-                <!-- <th>Applied For</th>
-                <th>Qualification</th>
-                <th>Department</th>
-                <th>Branch</th>
-                <th>Term</th>
-                <th>Degree</th>
-                <th>Master</th>
-                 <th>Master %</th> 
-                <th>Pincode</th>
-                <th>Adhar number </th> -->
-                <!-- <th>Mobile No. </th>
-                <th>Select Country</th>
-                <th>State</th>
-                <th>City</th>
-                <th>Cerifications</th>
-                <th>Hobbies</th>
-                <th>Skills</th>
-                <th>Address</th>
-                <th>Adhar Photo</th>
-                <th>Photo</th> -->
+            <th>Sr.No</th>
+            <th>Action</td>
+              <th>Id</th>            
+                <th>Course Name </th>         
+                <th>Duration</th>         
             </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <td><i class="far fa-edit fa-lg"style="color:#1977D3;"></i><a  href="course" data-mdb-toggle="tooltip" title="edit">&nbsp;Edit</a></td>
-              <td>01</td>
-                
-                <td>123456</td>
-                <td>123</td>
-                <td>Deta Syntist</td>
-                <td>6 Months</td>
-                <td>Hiii</td>
-                <td>Hindi</td>
-                <td>1.png</td>
-                
-                
-                <!-- <td>Data Syntist</td>
-                <td>4.6-6.5 lacks</td> -->
-                <!-- <td>Computer</td>
-                <td>MSC</td>
-                <td>Computer</td>
-                <td>Computer</td>
-                <td>First</td>
-                <td>BSC</td>
-                 <td>70%</td>       
-                <td>MSC</td>
-                <td>70%</td>
-                <td>35281</td>
-                <td>111235281</td> -->
-                <!-- <td>111235281</td>
-                <td>India</td>
-                <td>Maharashtra</td>
-                <td>Pune</td>
-                <td>Human Resource</td>
-                <td>Cricket</td>
-                <td>Reading Books</td>
-                <td>Pune</td>
-                <td>NA</td>
-                <td>NA</td> -->
-            </tr>  
-        </tbody>
-        <!-- <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </tfoot> -->
+        </thead>     
     </table>
+
+<!-- edit modal -->
+<div class="modal fade" id="editModal" aria-hidden="true">
+	  	<div class="modal-dialog" style="width:600px;" role="document" >
+		    <div class="modal-content">
+		      	<div class="modal-header">
+		        	<h5 class="modal-title">Edit Record</h5>
+		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          		<span aria-hidden="true">&times;</span>
+		        	</button>
+		      	</div>
+		      	<form id="editForm">
+			      	<div class="modal-body">
+			      		<input type="hidden" name="std_id" id="std_id">
+		        		<div class="form-group">
+						    <label>Fullname</label>
+						    <input type="text" class="form-control" placeholder="Name here" name="std_fullname" id="std_fullname">
+						</div>
+						<div class="form-group">
+						    <label>Email</label>
+						    <input type="text" class="form-control" placeholder="email Here" name="std_email" id="std_email">
+						</div>
+						<div class="form-group">
+						    <label>Appliedfor</label>
+						    <input type="text" class="form-control" placeholder="appliedfor Here" name="std_appliedfor" id="std_appliedfor">
+						</div>
+            
+            <div class="form-group">
+						    <label>Qualification</label>
+						    <input type="text" class="form-control" placeholder="qualification Here" name="std_qualification" id="std_qualification">
+						</div>
+            <div class="form-group">
+						    <label>Department</label>
+						    <input type="text" class="form-control" placeholder="department Here" name="std_department" id="std_department">
+						</div>
+            <div class="form-group">
+						    <label>Branch</label>
+						    <input type="text" class="form-control" placeholder="branch Here" name="std_branch" id="std_branch">
+						</div>
+            <div class="form-group">
+						    <label>Term</label>
+						    <input type="text" class="form-control" placeholder="Term Here" name="std_term" id="std_term">
+						</div>
+			      	</div>
+			      	<div class="modal-footer">
+			        	<button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>
+			        	<button type="submit" class="btn btn-warning">Update</button>
+			      	</div>
+			  	</form>
+		    </div>
+	  	</div>
+	</div>
+
+<!--edit modal end-->
+
+    
+
+    
                                 </div>
                             </div>
                         </div>
@@ -338,6 +322,7 @@ a {
 <script  src="<?php echo base_url(); ?>web_resources/dist/js/jquery.min.js"></script>
 </body>
 
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script type="text/javascript" src=https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js></script> 
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
@@ -347,11 +332,15 @@ a {
  <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script> 
  <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.print.min.js"></script>
  <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap3.min.js"></script>
+ 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
 <script>
 $(document).ready(function() {
     $('#example').DataTable( { 
-        
+
+      "ajax" : "<?php echo base_url('Website/coursefetchDatafromDatabase'); ?>",
+				"order": [],
             
          responsive: true,
          dom: 'Bfrtip',
@@ -361,7 +350,8 @@ $(document).ready(function() {
            { extend: 'csv',text: '<i class="fas fa-file-csv animtxt"  aria-hidden="true"></i> ', className: 'buttons-csv' },
            { extend: 'excel',text: '<i class="fa fa-file-excel animtxt" aria-hidden="true"></i>', className: 'buttons-excel' },
            { extend: 'pdf',text: '<i class="fa fa-file-pdf animtxt" aria-hidden="true"></i>', className: 'buttons-pdf' },
-           { extend: 'print',text: '<i class="fa fa-print animtxt" aria-hidden="true"></i>', className: 'buttons-print' }
+           { extend: 'print',text: '<i class="fa fa-print animtxt" aria-hidden="true"></i>', className: 'buttons-print' },
+          //  { text: '<i class="fas fa-plus-circle animtxt" aria-hidden="true"></i><a href="#" id="shop">&nbsp;Add New</a>', className: 'Addnew' }
                 ],
             initComplete: function() {
             var btns = $('.dt-button');
@@ -370,7 +360,117 @@ $(document).ready(function() {
         
     } );
     
+    
 } );
 </script>
+
+
 <script>
+//delete function start here
+		function deleteFun(std_id)
+		{
+			if(confirm('Are you sure?')==true)
+			{
+				$.ajax({
+					url:'<?php echo base_url('Studentregistration/deleteSingleData'); ?>',
+					method:"post",
+					dataType:"json",
+					data:{std_id:std_id},
+					success:function(response)
+					{
+						if(response==1)
+						{
+							alert('Data Deleted Successfully');
+							loadDatatableAjax();
+						}
+						else
+						{
+							alert('Deletion Failed !');
+						}
+					}
+				})
+			}
+		}
+		//delete function end here
+
+    </script>
+
+  <script>
+
+function loadDatatableAjax(){
+			$('#example').DataTable({
+				"bDestroy" : true,
+				"ajax" : "<?php echo base_url('Studentregistration/fetchDatafromDatabase'); ?>",
+				"initComplete" : function(){
+					var notApplyFilterOnColumn = [4];
+					var inputFilterOnColumn = [0];
+					var showFilterBox = 'afterHeading'; //beforeHeading, afterHeading
+					$('.gtp-dt-filter-row').remove();
+					var theadSecondRow = '<tr class="gtp-dt-filter-row">';
+					$(this).find('thead tr th').each(function(index){
+						theadSecondRow += '<td class="gtp-dt-select-filter-' + index + '"></td>';
+					});
+					theadSecondRow += '</tr>';
+				}
+			});
+		}
+//edit function start here
+		function editFun(std_id)
+		{
+			$.ajax({
+				url: "<?php echo base_url('Studentregistration/getEditData'); ?>",
+				method:"post",
+        data:{std_id:std_id},
+				dataType:"json",
+				success:function(response)
+				{
+					$('#std_id').val(response.std_id);
+					$('#std_fullname').val(response.std_fullname);
+					$('#std_email').val(response.std_email);
+					$('#std_appliedfor').val(response.std_appliedfor);
+          $('#std_qualification').val(response.std_qualification);
+					$('#std_department').val(response.std_department);
+					$('#std_branch').val(response.std_branch);
+					$('#std_term').val(response.std_term);
+					$('#editModal').modal({
+						backdrop:"static",
+						keyboard:false
+					});
+				}
+			})
+		}
+
+
+		$("#editForm").submit(function(event) {
+			event.preventDefault();
+			$.ajax({
+	            url: "<?php echo base_url('Studentregistration/update'); ?>",
+	            data: $("#editForm").serialize(),
+	            type: "post",
+	            async: false,
+	            dataType: 'json',
+	            success: function(response){
+	              
+	                $('#editModal').modal('hide');
+	                $('#editForm')[0].reset();
+
+                  
+	                if(response==1)
+	                {
+	                	swal("Successfully Updated!", "", "success");
+	                }
+	                else{
+	                	alert('Updation Failed !');
+	                }
+	               loadDatatableAjax();
+	              },
+	           error: function()
+	           {
+	            swal("Updation Failed!", "", "danger");
+	           }
+          });
+		});
+
+		//edit function work end here
+    </script>
 </html>

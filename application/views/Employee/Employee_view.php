@@ -356,9 +356,9 @@ border-radius: 10px;
            <label for="">Blood Group<c></c></label>
            <select name="bld" id="bld"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
-           <option value="1">Demo</option>
-           <option value="2">Demo1</option>
-            <option value="3">Registration</option>
+           <?php foreach ($bld_types as $bld_types): ?>
+        <option value="<?php echo $bld_types->id; ?>"><?php echo $bld_types->bloodgroup; ?></option>
+    <?php endforeach; ?>
            </select>
        </div>
                                         
@@ -399,9 +399,9 @@ border-radius: 10px;
         <label for="">Employee type<c></c></label>
             <select name="emptype" id="emptype"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
                     <option selected disabled  value="0"></option>
-                    <option value="1">BSC</option>
-                    <option value="2">BCOM</option>
-                    <option value="3">BCA</option>
+                    <?php foreach ($emp_types as $emp_types): ?>
+        <option value="<?php echo $emp_types->id; ?>"><?php echo $emp_types->emptype; ?></option>
+    <?php endforeach; ?>
              </select>
     </div>
                                         
@@ -412,9 +412,9 @@ border-radius: 10px;
           <label for="">Cast<c></c></label>
             <select name="Cast" id="Cast"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
                     <option selected disabled  value="0"></option>
-                    <option value="1">BSC</option>
-                    <option value="2">BCOM</option>
-                    <option value="3">BCA</option>
+                    <?php foreach ($cast_types as $cast_types): ?>
+        <option value="<?php echo $cast_types->id; ?>"><?php echo $cast_types->cast; ?></option>
+    <?php endforeach; ?>
              </select>
         </div>
 
@@ -423,9 +423,9 @@ border-radius: 10px;
           <label for="">Sub-Cast<c></c></label>
             <select name="sCast" id="sCast"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
                     <option selected disabled  value="0"></option>
-                    <option value="1">BSC</option>
-                    <option value="2">BCOM</option>
-                    <option value="3">BCA</option>
+                    <?php foreach ($subcast_types as $subcast_types): ?>
+        <option value="<?php echo $subcast_types->id; ?>"><?php echo $subcast_types->subcast; ?></option>
+    <?php endforeach; ?>
              </select>
         </div>
          <!-- <div class="col-sm-12 col-md-6 col-lg-2  col-xl-2 form-group custom-dropdown  mt-0">
@@ -442,9 +442,9 @@ border-radius: 10px;
                   <label for="">Qualification<c></c></label>
                     <select name="qualification " id="qualification"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
                             <option selected disabled  value="0"></option>
-                            <option value="1">BSC</option>
-                            <option value="2">BCOM</option>
-                            <option value="3">BCA</option>
+                            <?php foreach ($qualification_types as $qualification_types): ?>
+        <option value="<?php echo $qualification_types->id; ?>"><?php echo $qualification_types->qualification; ?></option>
+    <?php endforeach; ?>
                     </select>
                 </div>
     <!-- <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 form-group custom-dropdown  mt-0">
@@ -460,18 +460,18 @@ border-radius: 10px;
         <label for="">Department<c></c></label>
             <select name="department" id="department"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
                     <option selected disabled  value="0"></option>
-                    <option value="1">BSC</option>
-                    <option value="2">BCOM</option>
-                    <option value="3">BCA</option>
+                    <?php foreach ($department_types as $department_types): ?>
+        <option value="<?php echo $department_types->id; ?>"><?php echo $department_types->department; ?></option>
+    <?php endforeach; ?>
              </select>
     </div>
     <div class="col-sm-12 col-md-6 col-lg-2 col-xl-2 form-group custom-dropdown  mt-0">
                   <label for="">Branch<c></c></label>
                     <select name="branch" id="brancha"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
                             <option selected disabled value="0"></option>
-                            <option value="1">BSC</option>
-                            <option value="2">BCOM</option>
-                            <option value="3">BCA</option>
+                            <?php foreach ($branch_types as $branch_types): ?>
+        <option value="<?php echo $branch_types->id; ?>"><?php echo $branch_types->branch; ?></option>
+    <?php endforeach; ?>
                     </select>
                 </div>
                          
@@ -553,13 +553,9 @@ border-radius: 10px;
            <label for="">Select Country <c></c></label>
            <select name="country" id="country" data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
-           <option data-country="1">Algeria</option>
-           <option data-country="2">Andorra</option>
-           <option data-country="3">Angola </option>
-           <option data-country="4">Anguilla</option>
-           <option data-country="5">Antigua &amp; Barbuda</option>
-           <option data-country="6">Argentina</option>
-           <option data-country="7">Armenia</option>
+           <?php foreach ($country_types as $country_types): ?>
+        <option value="<?php echo $country_types->id; ?>"><?php echo $country_types->country; ?></option>
+    <?php endforeach; ?>
     
            </select>
        </div>
@@ -568,13 +564,9 @@ border-radius: 10px;
            <label for="">State<c></c></label>
            <select name="state" id="state" class="js-states form-control">
            <option selected disabled  value="0"></option>
-           <option data-state="1" >Maharashtra</option>
-           <option data-state="2">Gujrat</option>
-           <option data-state="3">Goa</option>
-           <option data-state="4">Delhi</option>
-           <option data-state="5">demo</option>
-           <option data-state="6">demo</option>
-           <option data-state="7">demo</option>
+           <?php foreach ($state_types as $state_types): ?>
+        <option value="<?php echo $state_types->id; ?>"><?php echo $state_types->state; ?></option>
+    <?php endforeach; ?>
     
            </select>
        </div>
@@ -583,9 +575,9 @@ border-radius: 10px;
            <label for="">City<c></c></label>
            <select name="city" id="city"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
-           <option value="1">Demo</option>
-           <option value="2">Demo1</option>
-            <option value="3">Registration</option>
+           <?php foreach ($city_types as $city_types): ?>
+        <option value="<?php echo $city_types->id; ?>"><?php echo $city_types->city; ?></option>
+    <?php endforeach; ?>
            </select>
        </div>
 </div>

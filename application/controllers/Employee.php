@@ -8,15 +8,14 @@ class Employee extends CI_Controller {
     
         
          $this->load->model('Studentedit_model');
+
         
     }
 	
 	
 	public function index()
 	{
-        // $data['data']=$this->Employee_model->getallEmployee();
-        // echo "<pre>";
-        // print_r($data);
+ 
 		$this->load->view('common/header_view');
 		$this->load->view('Employee/Employee_view');
 		$this->load->view('common/footer_view');
@@ -33,8 +32,22 @@ class Employee extends CI_Controller {
 	
     public function create()
 	{
+        $this->load->model('Religion_model');
+
+        $data['cast_types'] = $this->Religion_model->get_cast_types();
+        $data['subcast_types'] = $this->Religion_model->get_subcast_types();
+        $data['qualification_types'] = $this->Religion_model->get_qualification_types();
+        $data['department_types'] = $this->Religion_model->get_department_types();
+        $data['branch_types'] = $this->Religion_model->get_branch_types();
+        $data['country_types'] = $this->Religion_model->get_country_types();
+        $data['state_types'] = $this->Religion_model->get_state_types();
+        $data['city_types'] = $this->Religion_model->get_city_types();
+        $data['bld_types'] = $this->Religion_model->get_bloodgroup_types();
+        $data['emp_types'] = $this->Religion_model->get_emptype_types();
+
+
 		$this->load->view('common/header_view');
-		$this->load->view('Employee/Employee_view');
+		$this->load->view('Employee/Employee_view',$data);
 		$this->load->view('common/footer_view');
 	}
     public function edit()

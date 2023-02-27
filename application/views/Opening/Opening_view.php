@@ -358,10 +358,9 @@ border-radius: 10px;
         <label for="">Company Name </label>
         <select name="companyname" id="companyname"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
-           <option value="1"> Ramdasia</option>
-           <option value="2">Bhambi</option>
-            <option value="3">Bazigar</option>
-            <option value="3">Bazigar</option>
+           <?php foreach ($comnames_types as $comnames_types): ?>
+        <option value="<?php echo $comnames_types->com_id; ?>"><?php echo $comnames_types->company_name; ?></option>
+    <?php endforeach; ?>
            </select>
          </div>
                                         
@@ -389,9 +388,9 @@ border-radius: 10px;
         <label for="">Type </label>
         <select name="std_type" id="std_type"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
-           <option value="1"> Ramdasia</option>
-           <option value="2">Bhambi</option>
-            <option value="3">Bazigar</option>
+           <?php foreach ($cmp_types as $cmp_types): ?>
+        <option value="<?php echo $cmp_types->id; ?>"><?php echo $cmp_types->companytype; ?></option>
+    <?php endforeach; ?>
            </select>
          </div>
                                                                      
@@ -466,13 +465,9 @@ border-radius: 10px;
            <label for="">keyword </label>
            <select name="std_keyword" id="std_keyword" class="js-states form-control" multiple="multiple">
            <!-- <option selected disabled  value="0"></option> -->
-           <option data-countryCode="1">Human resources</option>
-           <option data-countryCode="2">First aid and CPR</option>
-           <option data-countryCode="3">ECustomer service</option>
-           <option data-countryCode="4">Language</option>
-           <option data-countryCode="5">Management and leadership</option>
-           <option data-countryCode="6">Sales and marketing</option>
-           <option data-countryCode="7">Specialty Certified Medical Assistant (SCMA) certification</option>
+           <?php foreach ($keyword_types as $keyword_types): ?>
+        <option value="<?php echo $keyword_types->id; ?>"><?php echo $keyword_types->keyword; ?></option>
+    <?php endforeach; ?>
            </select>
        </div>
 
@@ -511,9 +506,9 @@ border-radius: 10px;
            <label for="">Department </label>
            <select name="std_department" id="std_department"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
-           <option value="1">Demo</option>
-           <option value="2">Demo1</option>
-            <option value="3">Registration</option>
+           <?php foreach ($department_types as $department_types): ?>
+        <option value="<?php echo $department_types->id; ?>"><?php echo $department_types->department; ?></option>
+    <?php endforeach; ?>
            </select>
        </div>
 
@@ -522,9 +517,9 @@ border-radius: 10px;
            <label for="">Branch </label>
            <select name="std_branch" id="std_branch"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
-           <option value="1">Demo</option>
-           <option value="2">Demo1</option>
-            <option value="3">Registration</option>
+           <?php foreach ($branch_types as $branch_types): ?>
+        <option value="<?php echo $branch_types->id; ?>"><?php echo $branch_types->branch; ?></option>
+    <?php endforeach; ?>
           </select>
        </div>
        <div class="col-sm-12 col-md-6 col-lg-2 form-group  mt-0">
@@ -555,15 +550,11 @@ border-radius: 10px;
 
         <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 form-group mdwn custom-dropdown ">
            <label for="">Class </label>
-           <select name="std_class" id="std_class" class="js-states form-control" multiple="multiple">
+           <select name="std_class[]" id="std_class" class="js-states form-control" multiple="multiple">
            <!-- <option selected disabled  value="0"></option> -->
-           <option data-countryCode="1" >Badminton</option>
-           <option data-countryCode="2">Bicycling</option>
-           <option data-countryCode="3"> Axe throwing</option>
-           <option data-countryCode="4">Air hockey</option>
-           <option data-countryCode="5">Ballroom </option>
-           <option data-countryCode="6">Cricket</option>
-           <option data-countryCode="7">Cycling</option>
+           <?php foreach ($qualification_types as $qualification_types): ?>
+        <option value="<?php echo $qualification_types->id; ?>"><?php echo $qualification_types->qualification; ?></option>
+    <?php endforeach; ?>
            </select>
        </div>
 
@@ -588,9 +579,9 @@ border-radius: 10px;
            <label for="">Degree </label>
            <select name="std_degree" id="std_degree"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
-           <option value="1">BSC</option>
-           <option value="2">BCOM</option>
-            <option value="3">BCA</option>
+           <?php foreach ($degree_types as $degree_types): ?>
+        <option value="<?php echo $degree_types->id; ?>"><?php echo $degree_types->degree; ?></option>
+    <?php endforeach; ?>
            </select>
        </div>
 
@@ -603,9 +594,9 @@ border-radius: 10px;
            <label for="">Master </label>
            <select name="std_master" id="std_master"  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker">
            <option selected disabled  value="0"></option>
-           <option value="1">MCA</option>
-           <option value="2">MBA</option>
-            <option value="3" >MCOM</option>
+           <?php foreach ($master_types as $master_types): ?>
+        <option value="<?php echo $master_types->id; ?>"><?php echo $master_types->master; ?></option>
+    <?php endforeach; ?>
            </select>
        </div>
        <div class="col-sm-12 col-md-6 col-lg-1 col-xl-1 form-group  mt-0">
@@ -672,10 +663,10 @@ border-radius: 10px;
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script>
         
-              $("#companyname").select2({ });
-              $("#std_qualification").select2({ });
-              $("#std_department").select2({ });
-              $("#std_branch").select2({ });
+              $("#companyname").select2({tags:true });
+              $("#std_qualification").select2({ tags:true});
+              $("#std_department").select2({tags:true });
+              $("#std_branch").select2({tags:true });
               $("#std_state").select2({ });
               $("#std_degree").select2({ });
               $("#std_master").select2({ });

@@ -32,8 +32,12 @@ class Company extends CI_Controller {
 
     public function create()
 	{
+        $this->load->model('Religion_model');
+        $data['cmp_types'] = $this->Religion_model->get_cmptype_types();
+        $data['branchlocation_types'] = $this->Religion_model->get_branchlocation_types();
+
 		$this->load->view('common/header_view');
-		$this->load->view('Company/Company_view');
+		$this->load->view('Company/Company_view',$data);
 		$this->load->view('common/footer_view');
 	
 
@@ -56,7 +60,7 @@ class Company extends CI_Controller {
          $company_pname= $this->input->post('company_pname'); 
           $contact_no= $this->input->post('contact_no'); 
          $company_type= $this->input->post('company_type');
-          $branch_location= $this->input->post('branch_location'); 
+	  $branch_location = implode(',', $this->input->post('branch_location'));
          $company_address= $this->input->post('company_address');
           $company_pincode= $this->input->post('company_pincode'); 
          $about_us= $this->input->post('about_us');
