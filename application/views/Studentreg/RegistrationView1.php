@@ -411,11 +411,11 @@ border-radius: 10px;
                                         <label for="picker1">Gender <c></c></label>
                                         <div class="d-flex ">
                                            <label class="radio radio-primary  mt-0">    </label>
-                                         <input type="radio" name="std_gender" value="male"><span class="pr-1  " style="color:#0161b5;">&nbsp;Male</span><span class="checkmark"></span>
+                                         <input type="radio" name="std_gender" value="1"><span class="pr-1  " style="color:#0161b5;">&nbsp;Male</span><span class="checkmark"></span>
                                          <label class="radio radio-primary"></label>&nbsp;
-                                         <input type="radio" name="std_gender" value="female"><span class="pr-1" style="color:#0161b5;">&nbsp;Female</span><span class="checkmark"></span>
+                                         <input type="radio" name="std_gender" value="2"><span class="pr-1" style="color:#0161b5;">&nbsp;Female</span><span class="checkmark"></span>
                                          <label class="radio radio-primary">    </label>
-                                        <input type="radio" name="std_gender" value="other"><span class="pr-1" style="color:#0161b5;">&nbsp;Other</span><span class="checkmark"></span>
+                                        <input type="radio" name="std_gender" value="0"><span class="pr-1" style="color:#0161b5;">&nbsp;Other</span><span class="checkmark"></span>
                                         </div>
                                      </div>
                                      
@@ -493,7 +493,7 @@ border-radius: 10px;
         <div class="col-xs-4 col-sm-4 col-md-12 col-lg-3 form-group gap  custom-dropdown  mt-0">
         <label for="">Qualification<c></c></label>
             <select name="std_qualification" id="std_qualification" value=""  data-control="select2" data-hide-search="true" class="js-states form-control nav selectpicker" >
-                    <option selected disabled  value="0"></option>
+            <option selected disabled  value="0"></option>
                     <?php foreach ($qualification_types as $qualification_types): ?>
         <option value="<?php echo $qualification_types->id; ?>"><?php echo $qualification_types->qualification; ?></option>
     <?php endforeach; ?>

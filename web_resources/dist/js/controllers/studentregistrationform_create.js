@@ -17,6 +17,7 @@ function saveperform() {
   var std_age = $("#std_age").val();
   var std_dob = $("#std_dob").val();
   var std_gender = $("#std_gender").val();
+  var std_religion = $("#std_religion").val();
   var std_cast = $("#std_cast").val();
   var std_subcast = $("#std_subcast").val();
   var std_appliedfor = $("#std_appliedfor").val();

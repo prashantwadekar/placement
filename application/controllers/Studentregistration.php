@@ -26,6 +26,24 @@ class Studentregistration extends CI_Controller {
 	}
 	public function editrecord($std_id = '')
 	{
+		$this->load->model('Religion_model');
+    
+		$data['religion_types'] = $this->Religion_model->get_religion_types();
+        $data['cast_types'] = $this->Religion_model->get_cast_types();
+        $data['subcast_types'] = $this->Religion_model->get_subcast_types();
+        $data['appliedfor_types'] = $this->Religion_model->get_appliedfor_types();
+        $data['qualification_types'] = $this->Religion_model->get_qualification_types();
+        $data['department_types'] = $this->Religion_model->get_department_types();
+        $data['branch_types'] = $this->Religion_model->get_branch_types();
+        $data['degree_types'] = $this->Religion_model->get_degree_types();
+        $data['master_types'] = $this->Religion_model->get_master_types();
+        $data['country_types'] = $this->Religion_model->get_country_types();
+        $data['state_types'] = $this->Religion_model->get_state_types();
+        $data['city_types'] = $this->Religion_model->get_city_types();
+        $data['hobbie_types'] = $this->Religion_model->get_hobbie_types();
+        $data['skill_types'] = $this->Religion_model->get_skill_types();
+        $data['cerification_types'] = $this->Religion_model->get_cerification_types();
+
 		$data['result'] = $this->Studentedit_model->fetchDataById($std_id);
 		$this->load->view('common/header_view');
 		$this->load->view('Studentreg/Registrationview2',$data);
@@ -129,6 +147,7 @@ class Studentregistration extends CI_Controller {
       $std_email= $this->input->post('std_email');
        $std_dob= $this->input->post('std_dob'); 
       $std_gender= $this->input->post('std_gender');
+      $std_religion= $this->input->post('std_religion');
        $std_cast= $this->input->post('std_cast'); 
       $std_subcast= $this->input->post('std_subcast');
        $std_appliedfor= $this->input->post('std_appliedfor'); 
@@ -162,6 +181,7 @@ class Studentregistration extends CI_Controller {
                       'std_email'=>$std_email,
                       'std_dob'=>$std_dob,
                       'std_gender'=>$std_gender,
+                      'std_religion'=>$std_religion,
                       'std_cast'=>$std_cast,
                       'std_subcast'=>$std_subcast,
                       'std_appliedfor'=>$std_appliedfor,
@@ -277,7 +297,7 @@ class Studentregistration extends CI_Controller {
    //edit data
    public function fetchDatafromDatabase()
 	{
-		$resultList = $this->Studentedit_model->fetchAllData('*','studentcreate_master',array());
+		$resultList = $this->Studentedit_model->fetchStudentData('*','studentcreate_master',array());
 		
 		$result = array();
 		$i = 1;

@@ -8,6 +8,32 @@ class Studentedit_model extends CI_Model
 		return $query;
 	}
 
+	public function fetchStudentData($data, $tablename, $where)
+	{
+		$query = $this->db->select($data)
+						  ->from($tablename)
+						  ->join('appliedfor_types', 'appliedfor_types.id = studentcreate_master.std_appliedfor', 'left')
+						  ->join('qualification_types', 'qualification_types.id = studentcreate_master.std_qualification', 'left')
+						  ->join('department_types', 'department_types.id = studentcreate_master.std_department','left')
+						  ->join('branch_types', 'branch_types.id = studentcreate_master.std_branch', 'left')
+						  ->where($where)
+						  ->get();
+		$result = $query->result_array();
+		foreach ($result as &$row) {
+			$row['std_appliedfor'] = $row['applied'];
+			$row['std_qualification'] = $row['qualification'];
+			$row['std_department'] = $row['department'];
+			$row['std_branch'] = $row['branch'];
+			unset($row['applied']);
+			unset($row['qualification']);
+			unset($row['department']);
+			unset($row['branch']);
+		}
+		return $result;
+	}
+	
+
+
 	public function fetchAllData($data,$tablename,$where)
 	{
 		$query = $this->db->select($data)
